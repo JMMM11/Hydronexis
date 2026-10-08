@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Details | HYDRONEXIS Marketplace</title>
+  <meta name="description" content="View a product published by a HYDRONEXIS Go Green seller.">
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/commerce.css">
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body class="account-page" data-required-permission="product_details">
+  <div class="page">
+    <div id="header"></div>
+
+    <main class="account-main">
+      <section class="account-hero" aria-labelledby="marketplaceProductTitle">
+        <span class="commerce-eyebrow">HYDRONEXIS MARKETPLACE</span>
+        <h1 id="marketplaceProductTitle">Product Details</h1>
+        <p id="marketplaceProductSeller">Loading seller information...</p>
+      </section>
+
+      <p class="account-feedback is-error" id="marketplaceProductFeedback" role="alert" hidden></p>
+
+      <article class="account-card" id="marketplaceProductCard" aria-busy="true">
+        <div class="account-grid">
+          <div
+            class="marketplace-product-media"
+            id="marketplaceProductMedia"
+            aria-label="Product image"
+            aria-busy="true"
+          >Loading product image...</div>
+
+          <section aria-labelledby="marketplaceProductName">
+            <span class="account-list-item-status" id="marketplaceProductStatus">Loading</span>
+            <h2 id="marketplaceProductName">Loading product...</h2>
+            <p id="marketplaceProductDescription">Product information is loading.</p>
+
+            <div class="account-meta" aria-label="Product information">
+              <div>
+                <span>Price</span>
+                <strong id="marketplaceProductPrice">$0.00</strong>
+              </div>
+              <div>
+                <span>Available stock</span>
+                <strong id="marketplaceProductStock">0</strong>
+              </div>
+              <div>
+                <span>Category</span>
+                <strong id="marketplaceProductCategory">Uncategorized</strong>
+              </div>
+              <div>
+                <span>Seller location</span>
+                <strong id="marketplaceProductLocation">Location unavailable</strong>
+              </div>
+            </div>
+
+            <p class="commerce-feedback" id="marketplaceActionFeedback" role="status" aria-live="polite" hidden></p>
+
+            <div class="commerce-actions">
+              <a class="button button-primary button-zakaria" id="marketplaceProductCartButton" href="#">Add to Cart</a>
+              <a class="button button-secondary button-zakaria" id="marketplaceProductContact" href="hydrochat.html">Contact Seller</a>
+              <a class="button button-secondary button-zakaria" id="marketplaceProductExchange" href="exchanges.html" hidden>Propose Exchange</a>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <div class="commerce-actions">
+        <a class="button button-secondary button-zakaria" href="grid-shop.html">Back to Marketplace</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/header.js"></script>
+  <script type="module" src="js/marketplace-product.js"></script>
+  <script type="module" src="js/marketplace-actions.js"></script>
+</body>
+</html>

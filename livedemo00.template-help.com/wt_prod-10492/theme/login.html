@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <title>Login | HYDRONEXIS</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/firebase-config.js"></script>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/home.css">
+
+</head>
+
+<body class="auth-page">
+  <main class="auth-shell">
+
+    <!-- PANEL IZQUIERDO -->
+    <section class="auth-visual">
+      <div class="visual-logo">
+          <a href="index.html">
+            <img
+              src="images/logo24.png"
+              alt="HYDRONEXIS Logo"
+            >
+          </a>
+        </div>
+      <span class="eyebrow">
+        Secure Access
+      </span>
+
+      <h2>
+        Welcome to your workspace
+      </h2>
+
+      <p>
+        Sign in to continue or create an account to unlock your
+        personalized dashboard and plan-based experience.
+      </p>
+
+    </section>
+
+    <!-- PANEL DERECHO -->
+    <section class="auth-card">
+      <h1 class="title" id="title">Log in</h1>
+      <p class="subtitle" id="subtitle">
+        Welcome Back
+      </p>
+
+      <!-- FORMULARIO DE INICIO DE SESIÓN -->
+      <form id="signin" class="active">
+        <div class="message" id="signinMessage"></div>
+
+        <div class="input-box">
+          <input type="email" id="signinEmail" placeholder="Email Address" autocomplete="email" required>
+        </div>
+
+        <div class="input-box password-box">
+          <input type="password" id="signinPassword" placeholder="Password" autocomplete="current-password" required>
+          <button type="button" class="password-toggle" data-password-target="signinPassword" aria-label="Show password">
+            👁
+          </button>
+        </div>
+
+        <button type="submit" class="main-btn" id="signinButton">Log in</button>
+
+        <div class="separator">OR</div>
+
+        <button type="button" class="main-btn social-btn" id="googleLoginButton">Continue with Google</button>
+        <button type="button" class="main-btn social-btn" id="guestLoginButton">Continue as Guest</button>
+
+      </form>
+
+      <!-- FORMULARIO DE REGISTRO -->
+      <form id="signup">
+        <div class="message" id="signupMessage"></div>
+
+        <div class="input-box">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Full Name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="input-box">
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Email Address"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="input-box password-box">
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Password"
+            autocomplete="new-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="password-toggle"
+            data-password-target="signupPassword"
+            aria-label="Show password"
+          >
+            👁
+          </button>
+        </div>
+
+        <div class="input-box password-box">
+          <input
+            type="password"
+            id="signupConfirm"
+            placeholder="Confirm Password"
+            autocomplete="new-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="password-toggle"
+            data-password-target="signupConfirm"
+            aria-label="Show password"
+          >
+            👁
+          </button>
+        </div>
+
+        <div class="input-box">
+          <select
+            id="signupPlan"
+            required
+          >
+            <option value="">
+              Select a plan
+            </option>
+
+            <option value="sprout">
+              Sprout
+            </option>
+
+            <option value="blooming">
+              Blooming
+            </option>
+
+            <option value="go_green">
+              Go Green
+            </option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="main-btn"
+          id="signupButton"
+        >
+          Create Account
+        </button>
+
+      </form>
+
+      <!-- CAMBIO ENTRE LOGIN Y REGISTRO -->
+      <div class="toggle">
+
+        <span id="toggleText">
+          Don't have an account?
+        </span>
+
+        <button
+          type="button"
+          onclick="changeForm()"
+          id="toggleButton"
+        >
+          Sign Up
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    let login = true;
+
+    function changeForm() {
+      const signin = document.getElementById("signin");
+      const signup = document.getElementById("signup");
+      const title = document.getElementById("title");
+      const subtitle = document.getElementById("subtitle");
+      const text = document.getElementById("toggleText");
+      const button = document.getElementById("toggleButton");
+
+      const signinMessage =
+        document.getElementById("signinMessage");
+
+      const signupMessage =
+        document.getElementById("signupMessage");
+
+      signinMessage.className = "message";
+      signupMessage.className = "message";
+
+      signinMessage.textContent = "";
+      signupMessage.textContent = "";
+
+      if (login) {
+        signin.classList.remove("active");
+        signup.classList.add("active");
+
+        title.textContent = "Sign Up";
+        subtitle.textContent = "Create your account";
+
+        text.textContent = "Already have an account?";
+        button.textContent = "Sign In";
+      } else {
+        signup.classList.remove("active");
+        signin.classList.add("active");
+
+        title.textContent = "Sign In";
+        subtitle.textContent = "Welcome Back";
+
+        text.textContent = "Don't have an account?";
+        button.textContent = "Sign Up";
+      }
+
+      login = !login;
+    }
+
+  document.querySelectorAll(".password-toggle").forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const targetId =
+        button.dataset.passwordTarget;
+
+      const input =
+        document.getElementById(targetId);
+
+      if (!input) return;
+
+      const isPassword =
+        input.type === "password";
+
+      input.type =
+        isPassword ? "text" : "password";
+
+      button.textContent =
+        isPassword ? "🙈" : "👁";
+
+      button.setAttribute(
+        "aria-label",
+        isPassword
+          ? "Hide password"
+          : "Show password"
+      );
+
+    });
+
+  });
+</script>
+  <script type="module" src="js/login.js"></script>
+  <script type="module" src="js/register.js"></script>
+</body>
+</html>

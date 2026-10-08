@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Profile | HYDRONEXIS</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/account.css">
+
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body class="account-page" data-required-permission="profile">
+  <div class="page">
+    <div id="header"></div>
+    <main class="account-main" id="profileMain" aria-busy="true">
+      <section class="account-hero">
+        <h1>My Profile</h1>
+        <p>Manage your account details and open the features included in your current plan.</p>
+      </section>
+
+      <div class="account-grid">
+        <aside class="account-card">
+          <div class="account-avatar" id="profileAvatar" aria-label="Profile photo fallback">HN</div>
+          <h2 id="profileName">Hydronexis user</h2>
+          <span class="account-plan-badge" id="profilePlanBadge">Sprout</span>
+          <div class="account-meta">
+            <div><span>Email</span><strong id="profileEmail">Loading...</strong></div>
+            <div><span>Member Since</span><strong id="profileMemberSince">Loading...</strong></div>
+            <div><span>Plan Price</span><strong id="profilePlanPrice">FREE</strong></div>
+          </div>
+        </aside>
+
+        <section class="account-card">
+          <div class="account-section">
+            <h2>Edit Profile</h2>
+            <form class="account-form" id="profileForm">
+              <label for="profileNameInput">Name
+                <input id="profileNameInput" name="name" type="text" minlength="2" maxlength="80" autocomplete="name" required>
+              </label>
+              <label for="profilePhotoInput">Profile Photo URL (HTTPS)
+                <input id="profilePhotoInput" name="photoUrl" type="url" inputmode="url" pattern="https://.*" maxlength="1000" autocomplete="url" placeholder="https://..." aria-describedby="profilePhotoHelp">
+                <small class="account-field-help">Paste an HTTPS photo URL or upload one from your device below.</small>
+              </label>
+              <div class="account-image-upload">
+                <span class="account-field-label">Upload Photo from Device</span>
+                <label class="account-file-picker" for="profilePhotoFile">
+                  <span>Choose JPG, PNG or WebP</span>
+                  <input id="profilePhotoFile" name="photoFile" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="profilePhotoHelp profilePhotoStatus">
+                </label>
+                <p class="account-field-help" id="profilePhotoHelp">Maximum size: 5 MB. A selected file takes priority over the URL.</p>
+                <p class="account-upload-status" id="profilePhotoStatus" role="status" aria-live="polite"></p>
+                <img class="account-image-preview account-profile-preview" id="profilePhotoPreview" alt="Profile photo preview" hidden>
+                <button class="commerce-clear-button" id="profilePhotoRemove" type="button">Remove selected image</button>
+              </div>
+              <p class="account-feedback" id="profileFeedback" role="status" hidden></p>
+              <button class="button button-secondary button-zakaria" id="profileSaveButton" type="submit">Save Changes</button>
+            </form>
+          </div>
+
+          <div class="account-section">
+            <h2>My Plan & Features</h2>
+            <div class="account-links" id="profileLinks">
+              <a href="Dashboard2.html">Dashboard</a>
+              <a href="grid-shop.html">Marketplace</a>
+              <a href="orders.html">My Orders</a>
+              <a href="what-we-offer.html">My Plan</a>
+              <a id="profileUpgradeLink" href="payment.html">Upgrade Plan</a>
+              <a data-requires-permission="exchange" href="exchanges.html" hidden>My Exchanges</a>
+              <a data-requires-permission="plant_tracking" href="process.html" hidden>Plant Tracking</a>
+              <a data-requires-permission="community" href="community.html" hidden>Community</a>
+              <a data-requires-permission="seller" href="seller-dashboard.html" hidden>Seller Dashboard</a>
+              <a data-requires-permission="seller" href="seller-dashboard.html#sellerProducts" hidden>My Products</a>
+              <a data-requires-permission="sales" href="seller-dashboard.html#sellerSales" hidden>My Sales</a>
+              <a data-requires-permission="inventory" href="seller-dashboard.html#sellerProducts" hidden>Inventory</a>
+              <button class="account-link-button" id="profileLogoutButton" type="button">Logout</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="js/header.js"></script>
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

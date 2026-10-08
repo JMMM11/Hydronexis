@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Orders | HYDRONEXIS</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/account.css">
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body class="account-page" data-required-permission="orders">
+  <div class="page">
+    <div id="header"></div>
+    <main class="account-main">
+      <section class="account-hero">
+        <h1>My Orders</h1>
+        <p>Review order dates, items, sellers, totals, payment state and fulfillment status.</p>
+      </section>
+      <section class="account-card" aria-labelledby="ordersTitle">
+        <h2 id="ordersTitle">Order History</h2>
+        <p class="account-feedback" id="ordersFeedback" role="status" hidden></p>
+        <div class="account-list" id="ordersList" aria-live="polite">
+          <p class="account-empty">Loading your orders...</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/header.js"></script>
+  <script type="module" src="js/orders.js"></script>
+</body>
+</html>
+

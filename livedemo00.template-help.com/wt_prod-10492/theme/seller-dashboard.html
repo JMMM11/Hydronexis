@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seller Dashboard | HYDRONEXIS</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/commerce.css">
+  <link rel="stylesheet" href="css/dashboard2.css">
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body class="account-page" data-required-permission="seller">
+  <div class="page">
+    <div id="header"></div>
+    <main class="account-main">
+      <section class="account-hero">
+        <h1>Seller Dashboard</h1>
+        <p>Create and manage your own Marketplace products, inventory, sales and seller analytics.</p>
+      </section>
+
+      <p class="account-feedback" id="sellerFeedback" role="status" hidden></p>
+
+      <section class="dashboard-summary" id="sellerAnalytics" aria-label="Seller analytics">
+        <article class="dashboard-summary-card"><span>Products</span><strong id="sellerProductCount">0</strong></article>
+        <article class="dashboard-summary-card"><span>Low / Out of Stock</span><strong id="sellerLowStockCount">0</strong></article>
+        <article class="dashboard-summary-card"><span>Seller Orders</span><strong id="sellerOrderCount">0</strong></article>
+        <article class="dashboard-summary-card"><span>Verified Sales</span><strong id="sellerSalesTotal">$0.00</strong></article>
+      </section>
+
+      <div class="account-grid">
+        <aside class="account-card">
+          <h2 id="sellerFormTitle">Create Product</h2>
+          <form class="account-form" id="sellerProductForm">
+            <input id="sellerProductId" name="productId" type="hidden">
+            <label for="sellerProductName">Product Name
+              <input id="sellerProductName" name="name" type="text" minlength="2" maxlength="120" required>
+              <small class="account-field-help">Use a name buyers can recognize quickly, for example “Butterhead lettuce”.</small>
+            </label>
+            <label for="sellerProductDescription">Description
+              <textarea id="sellerProductDescription" name="description" rows="5" maxlength="1500" required></textarea>
+              <small class="account-field-help">Describe freshness, condition, quantity, delivery or pickup details.</small>
+            </label>
+            <label for="sellerProductCategory">Category
+              <input id="sellerProductCategory" name="category" type="text" maxlength="80" required>
+              <small class="account-field-help">Example: Leafy Greens, Herbs, Seeds, Nutrients or Systems.</small>
+            </label>
+            <label for="sellerProductPrice">Price
+              <input id="sellerProductPrice" name="price" type="number" min="0" step="0.01" required>
+              <small class="account-field-help">Use numbers only, for example 2.50.</small>
+            </label>
+            <label for="sellerProductStock">Stock
+              <input id="sellerProductStock" name="stock" type="number" min="0" step="1" required>
+              <small class="account-field-help">Number of available units buyers can request.</small>
+            </label>
+            <label for="sellerProductAvailability">Availability
+              <select id="sellerProductAvailability" name="availability" required>
+                <option value="available">Available</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </label>
+            <label for="sellerProductLocation">Location
+              <input id="sellerProductLocation" name="location" type="text" maxlength="150" required>
+            </label>
+            <label for="sellerProductImage">Image URL (HTTPS)
+              <input id="sellerProductImage" name="image" type="url" inputmode="url" pattern="https://.*" maxlength="1000" placeholder="https://..." aria-describedby="sellerImageHelp">
+              <small class="account-field-help">Paste an HTTPS image URL or upload one from your device below.</small>
+            </label>
+            <div class="account-image-upload">
+              <span class="account-field-label">Upload Image from Device</span>
+              <label class="account-file-picker" for="sellerProductImageFile">
+                <span>Choose JPG, PNG or WebP</span>
+                <input id="sellerProductImageFile" name="imageFile" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="sellerImageHelp sellerImageStatus">
+              </label>
+              <p class="account-field-help" id="sellerImageHelp">Maximum size: 5 MB. Manual URLs must use HTTPS. A selected file takes priority over the URL.</p>
+              <p class="account-upload-status" id="sellerImageStatus" role="status" aria-live="polite"></p>
+              <img class="account-image-preview" id="sellerImagePreview" alt="Product image preview" hidden>
+              <button class="commerce-clear-button" id="sellerImageRemove" type="button">Remove selected image</button>
+            </div>
+            <label for="sellerProductExchange">
+              <input id="sellerProductExchange" name="exchangeEnabled" type="checkbox"> Available for Exchange
+              <small class="account-field-help">Allow Blooming and Go Green members to request this product as an exchange item.</small>
+            </label>
+            <div class="commerce-actions">
+              <button class="button button-secondary button-zakaria" id="sellerSaveButton" type="submit">Publish Product</button>
+              <button class="commerce-clear-button" id="sellerCancelEdit" type="button" hidden>Cancel Edit</button>
+            </div>
+          </form>
+          <div class="account-section">
+            <h2>Seller Location</h2>
+            <p>Register or update the location shown on the hydroponic map.</p>
+            <a href="registrar_maps.html">Open location registration</a>
+          </div>
+        </aside>
+
+        <div class="dashboard-primary">
+          <section class="account-card" id="sellerProducts" aria-labelledby="sellerProductsTitle">
+            <h2 id="sellerProductsTitle">My Products & Inventory</h2>
+            <div class="account-list" id="sellerProductList">
+              <p class="account-empty">Loading your products...</p>
+            </div>
+          </section>
+
+          <section class="account-card" id="sellerSales" aria-labelledby="sellerOrdersTitle">
+            <h2 id="sellerOrdersTitle">Orders & Sales</h2>
+            <p class="account-feedback">Order status and inventory deduction must be completed by the authorized order backend, not from this browser.</p>
+            <div class="account-list" id="sellerOrderList">
+              <p class="account-empty">Loading seller orders...</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/header.js"></script>
+  <script type="module" src="js/seller.js"></script>
+</body>
+</html>

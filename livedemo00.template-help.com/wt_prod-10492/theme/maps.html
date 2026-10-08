@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HydroNexis Maps</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/styles_maps.css">
+</head>
+<body data-required-permission="maps">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand">
+        <a href="index.html" class="brand-logo">
+          <img src="images/local marketplace.png" alt="HydroNexis">
+        </a>
+      </div>
+      </div>
+    </div>
+    <div class="topbar-actions"><a class="topbar-link" href="registrar_maps.html">Register seller</a><span id="connectionBadge" class="connection-badge">Starting…</span></div>
+  </header>
+
+  <main class="map-layout">
+    <aside class="sidebar">
+      <section class="sidebar-intro">
+        <span class="eyebrow">Local Marketplace</span>
+        <h1>FIND PRODUCT NEAR YOU</h1>
+        <p>Search by business, seller, product, district, or township.</p>
+      </section>
+
+      <div class="search-box">
+        <label for="searchInput">Search places</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="E.g. lettuce, La Chorrera…" autocomplete="off">
+          <button id="searchButton" class="icon-button" type="button" aria-label="Search">⌕</button>
+        </div>
+      </div>
+
+      <div class="filter-grid">
+        <label>Product
+          <select id="productFilter"><option value="">All</option></select>
+        </label>
+        <label>District
+          <select id="districtFilter"><option value="">All</option></select>
+        </label>
+      </div>
+
+      <div class="sidebar-buttons">
+        <button id="nearMeButton" class="button button-dark" type="button">Use my location</button>
+        <button id="resetButton" class="button button-mint" type="button">Clear</button>
+      </div>
+
+      <div class="results-heading">
+        <h2>Results</h2>
+        <span id="resultsCounter">0</span>
+      </div>
+      <div id="placesList" class="places-list" aria-live="polite"></div>
+    </aside>
+
+    <section class="map-panel">
+      <div id="map" aria-label="Interactive map of locations"></div>
+      <div id="mapMessage" class="map-message hidden"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/map.js"></script>
+</body>
+</html>

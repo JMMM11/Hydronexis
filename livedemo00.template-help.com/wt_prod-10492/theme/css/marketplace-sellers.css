@@ -1,0 +1,593 @@
+/* =============================================
+   MARKETPLACE - Lista de Vendedores & Detalle
+   ============================================= */
+
+/* --- Banner Vendedores --- */
+.sellers-banner {
+  position: relative;
+  background-image: url('../images/encabezados/panel.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 4px solid #4a2c6a;
+  border-bottom: 4px solid #4a2c6a;
+}
+
+.sellers-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.sellers-banner h2 {
+  position: relative;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0;
+  z-index: 1;
+}
+
+/* --- Sección lista de vendedores --- */
+.sellers-section {
+  background: #fff;
+  padding: 60px 0 80px;
+}
+
+.sellers-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* --- Tarjeta de vendedor (lista) --- */
+.seller-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.seller-card:hover {
+  transform: translateX(6px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.seller-avatar {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seller-avatar svg {
+  width: 36px;
+  height: 36px;
+  fill: #222;
+}
+
+.seller-avatar{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #ddd;
+}
+
+.seller-avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.seller-info-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #d9d9d9;
+  border-radius: 50px;
+  padding: 18px 28px;
+  min-height: 60px;
+}
+
+.seller-info-pill .seller-name-price {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.seller-chat-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seller-chat-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: #222;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* =============================================
+   DETALLE DEL VENDEDOR
+   ============================================= */
+
+.seller-detail-section {
+  background: #fff;
+  padding: 50px 0 80px;
+}
+
+/* --- Barra superior del vendedor --- */
+.seller-top-bar {
+  max-width: 960px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  padding: 14px 24px;
+}
+
+.seller-top-bar .seller-avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.seller-top-bar .seller-avatar svg {
+  width: 30px;
+  height: 30px;
+}
+
+.seller-top-bar .seller-name-price {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
+}
+
+/* --- Producto: imagen + descripción --- */
+.product-detail-row {
+  max-width: 960px;
+  margin: 0 auto 50px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.product-detail-image {
+  flex: 0 0 280px;
+  text-align: center;
+}
+
+.product-detail-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-detail-image .product-label {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  color: #222;
+  text-transform: lowercase;
+}
+
+.product-detail-info {
+  flex: 1;
+}
+
+.product-description-box {
+  border: 2px solid #4a2c6a;
+  padding: 24px;
+  margin-bottom: 24px;
+  min-height: 120px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.btn-add-cart {
+  display: inline-block;
+  background: #c48f56;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 48px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add-cart:hover {
+  background: #a87642;
+  color: #fff;
+  text-decoration: none;
+}
+
+.seller-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-contact-seller,
+.btn-exchange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  border: 2px solid #1e3b17;
+  border-radius: 50px;
+  color: #1e3b17;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-contact-seller:hover,
+.btn-exchange:hover {
+  background: #1e3b17;
+  color: #fff;
+}
+
+.marketplace-action-feedback {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #eef6ea;
+  color: #285421;
+}
+
+.marketplace-action-feedback.is-error {
+  background: #fff0ec;
+  color: #8b2d1e;
+}
+
+@media (max-width: 575px) {
+  .seller-detail-actions > * {
+    width: 100%;
+  }
+}
+
+/* --- Info adicional del vendedor --- */
+.seller-extra-info {
+  max-width: 960px;
+  margin: 0 auto 40px;
+  padding: 20px 24px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.seller-extra-info strong {
+  color: #222;
+}
+
+/* --- Tabs: Ubicación, Reviews, Enviar review --- */
+.seller-tabs-section {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.seller-tabs-nav {
+  display: flex;
+  gap: 40px;
+  border-bottom: 2px solid #4a2c6a;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+}
+
+.seller-tab-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.seller-tab-btn.active {
+  color: #222;
+  font-weight: 600;
+}
+
+.seller-tab-btn:hover {
+  color: #555;
+}
+
+.seller-tab-panel {
+  display: none;
+}
+
+.seller-tab-panel.active {
+  display: block;
+}
+
+/* --- Tab Ubicación --- */
+.location-row {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.location-map {
+  flex: 1;
+  min-height: 320px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.location-text {
+  flex: 1;
+}
+
+.location-text h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #222;
+  line-height: 1.4;
+}
+
+.location-text p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* --- Tab Reviews --- */
+.review-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #eee;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-avatar {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-avatar svg {
+  width: 36px;
+  height: 36px;
+  fill: #333;
+}
+
+.review-body {
+  flex: 1;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.review-author-stars {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-author {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #222;
+}
+
+.review-stars {
+  color: #f5a623;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.review-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* --- Tab Enviar review --- */
+.review-form-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+.review-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px 30px;
+}
+
+.review-form-grid .form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form-grid .form-field.message-field {
+  grid-row: 1 / 3;
+  grid-column: 3;
+}
+
+.review-form-grid .form-field.review-submit-field {
+  grid-column: 1;
+}
+
+.review-form-grid label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.review-form-grid input,
+.review-form-grid select,
+.review-form-grid textarea {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: transparent;
+  outline: none;
+}
+
+.review-form-grid input:focus,
+.review-form-grid select:focus,
+.review-form-grid textarea:focus {
+  border-bottom-color: #4a2c6a;
+}
+
+.review-form-grid textarea {
+  resize: vertical;
+  min-height: 100px;
+  flex: 1;
+}
+
+.btn-submit-review {
+  margin-top: 30px;
+  background: #c48f56;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 36px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit-review:hover {
+  background: #a87642;
+}
+
+/* --- Breadcrumbs personalizados --- */
+.sellers-breadcrumb {
+  background: #f5f5f5;
+  padding: 12px 0;
+}
+
+.sellers-breadcrumb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.sellers-breadcrumb li::after {
+  content: '/';
+  margin-left: 8px;
+  color: #999;
+}
+
+.sellers-breadcrumb li:last-child::after {
+  content: '';
+}
+
+.sellers-breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+
+.sellers-breadcrumb li.active {
+  color: #222;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .product-detail-row {
+    flex-direction: column;
+  }
+
+  .product-detail-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .location-row {
+    flex-direction: column;
+  }
+
+  .review-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-form-grid .form-field.message-field {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .seller-tabs-nav {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .seller-info-pill {
+    padding: 14px 18px;
+  }
+
+  .sellers-banner h2 {
+    font-size: 1.8rem;
+  }
+}

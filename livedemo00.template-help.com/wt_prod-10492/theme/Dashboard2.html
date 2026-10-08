@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | HYDRONEXIS</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard2.css">
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body class="dashboard-page" data-required-permission="dashboard">
+  <div class="page">
+    <div id="header"></div>
+
+    <main class="hydro-dashboard" id="dashboardMain" aria-busy="true">
+      <section class="dashboard-welcome" aria-labelledby="dashboardWelcomeTitle">
+        <div>
+          <p class="dashboard-eyebrow">MY HYDRONEXIS</p>
+          <h1 id="dashboardWelcomeTitle">Welcome, <span id="dashboardUserName">Hydronexis user</span></h1>
+          <p id="dashboardPlanGuide">Everything available in your account, organized by your current plan.</p>
+        </div>
+        <div class="dashboard-plan-pill">
+          <span>Current Plan</span>
+          <strong id="dashboardPlanName">Sprout</strong>
+          <small id="dashboardPlanPrice">FREE</small>
+        </div>
+      </section>
+
+      <p class="dashboard-feedback" id="dashboardFeedback" role="status" hidden></p>
+
+      <section class="dashboard-summary" aria-label="Account summary">
+        <article class="dashboard-summary-card">
+          <span>Current Plan</span>
+          <strong id="summaryPlan">Sprout</strong>
+          <a href="what-we-offer.html">View plan details</a>
+        </article>
+        <article class="dashboard-summary-card">
+          <span>Cart</span>
+          <strong id="summaryCartCount">0 items</strong>
+          <a href="cart-page.html">Open cart</a>
+        </article>
+        <article class="dashboard-summary-card">
+          <span>Orders</span>
+          <strong id="summaryOrderCount">0 orders</strong>
+          <a href="orders.html">View history</a>
+        </article>
+      </section>
+
+      <div class="dashboard-layout">
+        <div class="dashboard-primary">
+          <section class="dashboard-panel" aria-labelledby="availableFeaturesTitle">
+            <div class="dashboard-panel-heading">
+              <div>
+                <p class="dashboard-kicker">Your plan</p>
+                <h2 id="availableFeaturesTitle">Available Features</h2>
+              </div>
+            </div>
+            <div class="dashboard-feature-grid" id="availableFeatures"></div>
+          </section>
+
+          <section class="dashboard-panel" id="lockedFeaturesPanel" aria-labelledby="lockedFeaturesTitle">
+            <div class="dashboard-panel-heading">
+              <div>
+                <p class="dashboard-kicker">Next possibilities</p>
+                <h2 id="lockedFeaturesTitle">Locked Features</h2>
+              </div>
+              <a href="what-we-offer.html">Compare plans</a>
+            </div>
+            <div class="dashboard-feature-grid dashboard-feature-grid-locked" id="lockedFeatures"></div>
+          </section>
+
+          <section class="dashboard-panel" aria-labelledby="recentOrdersTitle">
+            <div class="dashboard-panel-heading">
+              <div>
+                <p class="dashboard-kicker">Purchase activity</p>
+                <h2 id="recentOrdersTitle">Recent Orders</h2>
+              </div>
+              <a href="orders.html">View all</a>
+            </div>
+            <div class="dashboard-order-list" id="recentOrders">
+              <p class="dashboard-empty">Loading your orders...</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="dashboard-secondary">
+          <section class="dashboard-panel dashboard-quick-panel" aria-labelledby="quickActionsTitle">
+            <p class="dashboard-kicker">Shortcuts</p>
+            <h2 id="quickActionsTitle">Quick Actions</h2>
+            <nav class="dashboard-quick-actions" id="quickActions" aria-label="Quick actions"></nav>
+          </section>
+
+          <section class="dashboard-upgrade-card" id="upgradeCard">
+            <p class="dashboard-kicker">Grow further</p>
+            <h2 id="upgradeTitle">Unlock more with Blooming</h2>
+            <p id="upgradeCopy">Add exchange, community, tutorials, maps and plant tracking.</p>
+            <a class="button button-secondary button-zakaria" href="what-we-offer.html">View Plans</a>
+          </section>
+
+          <section class="dashboard-panel" aria-labelledby="recentActivityTitle">
+            <p class="dashboard-kicker">Account</p>
+            <h2 id="recentActivityTitle">Recent Activity</h2>
+            <div id="recentActivity" class="dashboard-activity-list">
+              <p class="dashboard-empty">Your verified account activity will appear here.</p>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="dashboard-footer">
+      <span>&copy; <span class="copyright-year"></span> HYDRONEXIS</span>
+      <a href="terms-of-use.html">Terms and Conditions</a>
+    </footer>
+  </div>
+
+  <script src="js/header.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

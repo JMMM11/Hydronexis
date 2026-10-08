@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="plan-guard-pending" lang="en">
+  
+<!-- Mirrored from livedemo00.template-help.com/wt_prod-10492/theme/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jun 2026 15:36:44 GMT -->
+<head>
+    <title>Checkout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/commerce.css">
+
+  </head>
+  <body class="commerce-page" data-required-permission="checkout">
+    <div class="preloader">
+      <div class="preloader-body">
+      </div>
+    </div>
+    <div class="page">
+    
+    <div id="header"></div>
+
+
+      <section class="breadcrumbs-custom">
+        <div class="parallax-container" data-parallax-img="images/encabezados/bg-checkout1.png">
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">Checkout</h2>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom-footer">
+          <div class="container">
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="grid-shop.html">Shop</a></li>
+              <li class="active">Checkout</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Checkout connected to the shared persistent cart. -->
+      <section class="section section-xl commerce-checkout-section">
+        <div class="container">
+          <header class="commerce-header">
+            <div>
+              <span class="commerce-eyebrow">SECURE ORDER REQUEST</span>
+              <h1>Checkout</h1>
+              <p>Confirm your contact and delivery details. Stock and prices are validated before an order is approved.</p>
+            </div>
+            <a class="button button-sm button-secondary button-zakaria" href="cart-page.html">Back to cart</a>
+          </header>
+
+          <p class="commerce-feedback" id="checkoutFeedback" role="status" hidden></p>
+
+          <form class="commerce-layout" id="checkoutForm">
+            <section class="commerce-card" aria-labelledby="checkoutDetailsTitle">
+              <h2 id="checkoutDetailsTitle">Billing &amp; Delivery</h2>
+              <div class="commerce-form">
+                <label class="commerce-field-wide" for="checkoutName">
+                  Full name
+                  <input id="checkoutName" name="name" type="text" autocomplete="name" required>
+                </label>
+                <label for="checkoutEmail">
+                  Email
+                  <input id="checkoutEmail" name="email" type="email" autocomplete="email" readonly required>
+                </label>
+                <label for="checkoutPhone">
+                  Phone
+                  <input id="checkoutPhone" name="phone" type="tel" autocomplete="tel" required>
+                </label>
+                <label for="checkoutDistrict">
+                  District
+                  <input id="checkoutDistrict" name="district" type="text" autocomplete="address-level2" required>
+                </label>
+                <label class="commerce-field-wide" for="checkoutAddress">
+                  Delivery address
+                  <textarea id="checkoutAddress" name="address" rows="4" autocomplete="street-address" required></textarea>
+                </label>
+              </div>
+              <p class="commerce-note">No payment is charged here. HYDRONEXIS first validates availability, seller and final price.</p>
+            </section>
+
+            <aside class="commerce-card commerce-summary" aria-labelledby="checkoutSummaryTitle">
+              <h2 id="checkoutSummaryTitle">Order Summary</h2>
+              <p class="commerce-cart-count">
+                <span id="checkoutItemCount">0</span>&nbsp;<span id="checkoutItemLabel">items</span>
+              </p>
+              <div class="commerce-checkout-items" id="checkoutItems" role="list"></div>
+              <div class="commerce-summary-row">
+                <span>Subtotal</span>
+                <strong id="checkoutSubtotal">$0.00</strong>
+              </div>
+              <div class="commerce-summary-row commerce-summary-total">
+                <span>Total</span>
+                <strong id="checkoutDisplayTotal">$0.00</strong>
+              </div>
+              <button
+                class="button button-lg button-primary button-zakaria"
+                id="checkoutSubmitButton"
+                type="submit"
+                disabled
+              >Submit for Validation</button>
+              <p class="commerce-note">Your request is recorded once. An authorized backend must validate it before creating an order.</p>
+            </aside>
+          </form>
+        </div>
+      </section>
+
+<!-- PIE DE PÁGINA -->
+<footer class="section footer-classic">
+
+  <div class="footer-classic-body section-lg">
+    <div class="container">
+
+      <div class="row row-40 row-md-50 justify-content-xl-between">
+
+        <!-- LOGO, HORARIO Y REDES SOCIALES -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight">
+
+          <div class="footer-classic-brand">
+
+            <!-- Brand -->
+            <a class="brand">
+              <img
+                class="brand-logo-dark"
+                src="images/logo20.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+
+              <img
+                class="brand-logo-light"
+                src="images/logo-inverse-280x92.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+            </a>
+
+          </div>
+
+          <!-- Horario -->
+          <ul class="list-schedule">
+            <li>
+              <span>Weekdays:</span>
+              <span>01:00pm - 05:00pm</span>
+            </li>
+          </ul>
+
+          <!-- Redes sociales -->
+          <div class="footer-classic-social">
+            <div class="group-lg group-middle">
+
+              <p>Get Social</p>
+
+              <div>
+                <ul class="list-inline list-social list-inline-sm">
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-facebook"
+                      href="https://www.facebook.com/profile.php?id=61592514343911&mibextid=wwXIfr&rdid=832Ux9HTHNTAu76G&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19NXnrFn9S%2F%3Fmibextid%3DwwXIfr#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-twitter"
+                      href="https://x.com/hydronexisinfo?s=11"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="X"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-instagram"
+                      href="https://www.instagram.com/hydronexis.pa?igsh=dTYwbHd5dDN4a2ds"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    ></a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- CONTACTOS -->
+        <div
+          class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight"
+          data-wow-delay=".1s"
+        >
+
+          <h4 class="footer-classic-title">Contacts</h4>
+
+          <ul class="contacts-creative">
+
+            <!-- Ubicación -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/Maps.png"
+                    alt="Ubicación"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=La+Ciudad+del+Niño+La+Chorrera+Panamá+Oeste+Panamá"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    La Ciudad del Niño,<br>
+                    La Chorrera<br>
+                    Panamá Oeste, Panamá
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Teléfono -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/phone.png"
+                    alt="Teléfono"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="tel:+50769857901">
+                    +507 6985-7901
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Gmail de contacto -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/email.png"
+                    alt="Gmail"
+                    class="footer-contact-icon footer-gmail-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="mailto:hydronexis@gmail.com">
+                    info.hydronexis@gmail.com
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- NEXIS Y FORMULARIO DE CORREO -->
+        <div
+          class="col-lg-4 wow fadeInRight"
+          data-wow-delay=".2s"
+        >
+
+          <div class="nexis-footer-card">
+            <div class="nexis-footer-content">
+
+              <h4 class="footer-classic-title">Meet Nexis</h4>
+
+              <p>
+                Your intelligent guide to hydroponics, innovation,
+                and sustainable growing.
+              </p>
+
+
+            </div>
+          </div>
+
+          <!-- Formulario de suscripción -->
+          <form
+            class="rd-form rd-mailform rd-form-inline rd-form-inline-2 footer-email-form"
+            data-form-output="form-output-global"
+            data-form-type="subscribe"
+            method="post"
+          >
+
+            <div class="form-wrap">
+
+              <input
+                class="form-input"
+                id="subscribe-form-2-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                data-constraints="@Email @Required"
+                required
+              >
+
+              <label
+                class="form-label"
+                for="subscribe-form-2-email"
+              >
+                Enter your e-mail
+              </label>
+
+            </div>
+
+            <div class="form-button">
+
+              <button
+                class="button button-icon-2 button-zakaria button-secondary footer-email-button"
+                type="submit"
+                aria-label="Enviar correo"
+              >
+                <img
+                  src="images/icon/email.png"
+                  alt=""
+                  class="submit-icon"
+                >
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PANEL INFERIOR -->
+  <div class="footer-classic-panel">
+    <div class="container">
+
+      <div class="row row-10 align-items-center justify-content-sm-between">
+
+        <div class="col-md-auto">
+          <p class="rights">
+            <span>&copy;&nbsp;</span>
+            <span class="copyright-year"></span>
+            <span>&nbsp;</span>
+            <span>HydroNexis</span>
+            <span>.&nbsp; All rights reserved.</span>
+          </p>
+        </div>
+
+        <div class="col-md-auto order-md-1">
+          <a href="terms-of-use.html">
+            Privacy Policy
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+<!-- FIN DEL PIE DE PÁGINA -->
+
+    </div><!-- .page -->
+
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/header.js"></script>
+    <!-- <script src="js/core.min.js"></script> -->
+    <!-- <script src="js/script.js"></script> -->
+    <script type="module" src="js/checkout.js"></script>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9FT69');
+  </script>
+  <!-- End Google Tag Manager -->
+</body>
+
+<!-- Mirrored from livedemo00.template-help.com/wt_prod-10492/theme/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jun 2026 15:36:44 GMT -->
+</html>

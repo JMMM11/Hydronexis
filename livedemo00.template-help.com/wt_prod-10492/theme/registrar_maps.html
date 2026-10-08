@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Seller | HydroNexis Maps</title>
+  <link rel="stylesheet" href="css/styles_maps.css">
+</head>
+<body class="form-page">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand">
+        <a href="grid-shop.html" class="brand-logo">
+          <img src="images/local marketplace.png" alt="HydroNexis">
+        </a>
+      </div>
+      </div>
+    </div>
+    <div class="topbar-actions"><a class="topbar-link" href="maps.html">Maps</a><span id="connectionBadge" class="connection-badge">Starting…</span></div>
+  </header>
+
+  <main class="form-shell">
+    <section class="form-card">
+      <div class="form-card-header">
+        <span class="eyebrow">Local Marketplace</span>
+        <h1>Register product and location</h1>
+        <p>Sign in with Google and fill in the seller's details. The new marker will automatically appear on the map.</p>
+      </div>
+
+      <div class="auth-panel">
+        <div>
+          <strong id="authTitle">Sign in to continue</strong>
+          <p id="authDescription">Firebase requires an authenticated account to save locations.</p>
+        </div>
+        <button id="googleLoginButton" class="button button-gold" type="button">Continue with Google</button>
+        <button id="logoutButton" class="button button-mint hidden" type="button">Sign out</button>
+      </div>
+
+      <form id="sellerForm" class="seller-form" novalidate>
+        <fieldset id="sellerFieldset" disabled>
+          <div class="form-grid">
+            <label class="form-field form-field-wide">
+              Business name
+              <input id="businessName" type="text" maxlength="120" placeholder="E.g. Finca Verde Panamá" required>
+            </label>
+
+            <label class="form-field">
+              Seller name
+              <input id="sellerName" type="text" maxlength="100" placeholder="E.g. María González" required>
+            </label>
+
+            <label class="form-field">
+              Main product
+              <input id="product" type="text" maxlength="80" placeholder="E.g. Romaine lettuce" required>
+            </label>
+
+            <label class="form-field">
+              District
+              <input id="district" type="text" maxlength="80" placeholder="E.g. La Chorrera" required>
+            </label>
+
+            <label class="form-field">
+              Township
+              <input id="township" type="text" maxlength="80" placeholder="E.g. Barrio Colón">
+            </label>
+
+            <label class="form-field form-field-wide">
+              Address
+              <input id="address" type="text" maxlength="180" placeholder="Address or location reference" required>
+            </label>
+
+            <label class="form-field">
+              Phone
+              <input id="phone" type="tel" maxlength="30" placeholder="+507 6000-0000">
+            </label>
+
+            <label class="form-field">
+              Keywords
+              <input id="keywords" type="text" maxlength="220" placeholder="lettuce, hydroponics, vegetables">
+            </label>
+
+            <label class="form-field">
+              Latitude
+              <input id="latitude" type="number" step="any" placeholder="8.8812" required>
+            </label>
+
+            <label class="form-field">
+              Longitude
+              <input id="longitude" type="number" step="any" placeholder="-79.7795" required>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button id="currentLocationButton" class="button button-mint" type="button">Use my current location</button>
+            <button id="saveButton" class="button button-dark" type="submit">Save seller</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <p id="formMessage" class="form-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script type="module" src="js/registrar.js"></script>
+</body>
+</html>

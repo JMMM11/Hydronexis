@@ -1,0 +1,464 @@
+.account-page {
+  background: #f4f1e8;
+  color: #1e3b17;
+  font-family: "Optima", "Segoe UI", sans-serif;
+}
+
+.account-main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 52px 0 72px;
+  text-align: left;
+}
+
+.account-hero {
+  margin-bottom: 24px;
+  padding: clamp(28px, 5vw, 48px);
+  border-radius: 26px;
+  background: #1e3b17;
+  color: #fff;
+}
+
+.account-hero h1 {
+  color: #fff;
+  font-size: clamp(34px, 5vw, 54px);
+}
+
+.account-hero p {
+  max-width: 700px;
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, .78);
+}
+
+.account-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, .7fr) minmax(0, 1.5fr);
+  gap: 24px;
+}
+
+.account-card {
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(30, 59, 23, .1);
+  border-radius: 20px;
+  background: #fffdf8;
+  box-shadow: 0 12px 32px rgba(30, 59, 23, .06);
+}
+
+.account-avatar {
+  display: grid;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 20px;
+  place-items: center;
+  overflow: hidden;
+  border: 4px solid #dce8d7;
+  border-radius: 50%;
+  background: #679e5a;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.account-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.account-plan-badge {
+  display: inline-flex;
+  margin: 10px 0 18px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #c68c49;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.account-meta {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+}
+
+.account-meta div {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ece8de;
+}
+
+.account-meta span,
+.account-meta strong {
+  display: block;
+}
+
+.account-meta span {
+  color: #777;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.account-section + .account-section {
+  margin-top: 30px;
+  padding-top: 28px;
+  border-top: 1px solid #e7e1d6;
+}
+
+.account-section h2,
+.account-card h2 {
+  color: #1e3b17;
+  font-size: 28px;
+}
+
+.account-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.account-form label {
+  display: grid;
+  gap: 7px;
+  color: #1e3b17;
+  font-weight: 700;
+}
+
+.account-form input,
+.account-form textarea,
+.account-form select {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid #ccd6c8;
+  border-radius: 10px;
+  background: #fff;
+  color: #263523;
+}
+
+.account-feedback {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #eff5ec;
+  color: #285421;
+}
+
+.account-image-upload {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #d9e3d5;
+  border-radius: 14px;
+  background: #f5f8f2;
+}
+
+.account-field-label {
+  color: #1e3b17;
+  font-weight: 700;
+}
+
+.account-file-picker {
+  display: grid !important;
+  gap: 8px !important;
+  padding: 14px;
+  border: 1px dashed #679e5a;
+  border-radius: 11px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.account-file-picker:focus-within {
+  outline: 3px solid rgba(103, 158, 90, .24);
+  outline-offset: 2px;
+}
+
+.account-file-picker input[type="file"] {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #556150;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.account-file-picker input[type="file"]::file-selector-button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #679e5a;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.account-field-help,
+.account-upload-status {
+  margin: 0;
+  color: #667061;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.account-upload-status:empty {
+  display: none;
+}
+
+.account-image-preview {
+  width: 100%;
+  max-height: 240px;
+  border: 1px solid #dce5d8;
+  border-radius: 12px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.account-image-upload .commerce-clear-button {
+  justify-self: flex-start;
+  width: auto;
+  margin-top: 4px;
+}
+
+.account-profile-preview {
+  width: 150px;
+  height: 150px;
+  justify-self: center;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.account-list-item-media {
+  grid-template-columns: 78px minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.account-list-thumbnail {
+  width: 78px;
+  height: 78px;
+  border-radius: 12px;
+  background: #edf2e9;
+  object-fit: cover;
+}
+
+.account-subheading {
+  margin-top: 28px;
+  color: #1e3b17;
+  font-size: 20px;
+}
+
+.account-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.account-links a {
+  padding: 16px;
+  border-radius: 12px;
+  background: #eff5ec;
+  color: #1e3b17;
+  font-weight: 700;
+}
+
+.account-link-button {
+  padding: 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #eff5ec;
+  color: #1e3b17;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+}
+
+.account-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.account-list-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid #e4e1d8;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.account-list-item h2,
+.account-list-item h3 {
+  color: #1e3b17;
+  font-size: 20px;
+}
+
+.account-list-item p {
+  margin: 6px 0 0;
+  color: #72726e;
+}
+
+.account-list-item-status {
+  align-self: start;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #dfead9;
+  color: #285421;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.account-empty {
+  margin: 20px 0 0;
+  padding: 24px;
+  border-radius: 14px;
+  background: #f1efe9;
+  color: #6f706c;
+}
+
+.marketplace-product-media {
+  display: grid;
+  min-height: 360px;
+  place-items: center;
+  padding: 28px;
+  border-radius: 18px;
+  background: #edf2e9;
+  color: #697165;
+  font-weight: 700;
+  text-align: center;
+}
+
+.marketplace-product-media img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.plan-request-eyebrow {
+  margin: 0 0 8px;
+  color: #b9d4b1 !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.plan-request-grid {
+  grid-template-columns: minmax(250px, .65fr) minmax(0, 1.55fr);
+}
+
+.plan-request-options {
+  display: grid;
+  gap: 12px;
+}
+
+.plan-request-option {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px !important;
+  align-items: center;
+  padding: 18px;
+  border: 2px solid #d9dfd5;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.plan-request-option:has(input:checked) {
+  border-color: #679e5a;
+  background: #eff6ec;
+}
+
+.plan-request-option.is-unavailable {
+  cursor: not-allowed;
+  opacity: .48;
+}
+
+.plan-request-option input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: #679e5a;
+}
+
+.plan-request-option strong,
+.plan-request-option small {
+  display: block;
+}
+
+.plan-request-option small {
+  margin-top: 4px;
+  color: #73786e;
+  font-weight: 400;
+}
+
+.plan-request-option b {
+  color: #1e3b17;
+  white-space: nowrap;
+}
+
+.plan-request-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 0;
+  border-top: 1px solid #e7e1d6;
+  border-bottom: 1px solid #e7e1d6;
+}
+
+.plan-request-safety ul {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: #62675d;
+}
+
+.account-feedback.is-error {
+  background: #fff0ec;
+  color: #8b2d1e;
+}
+
+@media (max-width: 767px) {
+  .account-main {
+    padding-top: 24px;
+    padding-inline: 14px;
+  }
+
+  .account-grid,
+  .plan-request-grid,
+  .account-links,
+  .account-list-item {
+    grid-template-columns: 1fr;
+  }
+
+  .account-list-thumbnail {
+    width: 100%;
+    height: min(220px, 55vw);
+  }
+
+  .account-card,
+  .account-hero {
+    padding: 24px 18px;
+  }
+
+  .account-form input,
+  .account-form textarea,
+  .account-form select {
+    font-size: 16px;
+  }
+
+  .commerce-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .commerce-actions .button,
+  .commerce-actions .commerce-clear-button {
+    width: 100%;
+    min-height: 46px;
+  }
+}

@@ -1,0 +1,66 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function hasActiveAccount() {
+      return request.auth != null
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.accountStatus == 'active'
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.plan in ['sprout', 'blooming', 'go_green'];
+    }
+
+    function isGoGreen(userId) {
+      return hasActiveAccount()
+        && request.auth.uid == userId
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.plan == 'go_green';
+    }
+
+    function hasExchangeAccess(userId) {
+      return hasActiveAccount()
+        && request.auth.uid == userId
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.plan in ['blooming', 'go_green'];
+    }
+
+    function canViewExchangeImages() {
+      return hasActiveAccount()
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.plan in ['blooming', 'go_green'];
+    }
+
+    function isValidImageUpload() {
+      return request.resource != null
+        && request.resource.size > 0
+        && request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType is string
+        && request.resource.contentType.matches('image/(jpeg|png|webp)');
+    }
+
+    match /seller-images/{userId}/{allPaths=**} {
+      // Sprout también puede visualizar los productos del Marketplace, pero
+      // únicamente Go Green puede crear, reemplazar o borrar imágenes Seller.
+      allow get: if hasActiveAccount();
+      allow create, update: if isGoGreen(userId) && isValidImageUpload();
+      allow delete: if isGoGreen(userId);
+    }
+
+    match /exchange-images/{userId}/{allPaths=**} {
+      allow get: if canViewExchangeImages();
+      allow create, update: if hasExchangeAccess(userId) && isValidImageUpload();
+      allow delete: if hasExchangeAccess(userId);
+    }
+
+    match /profile-images/{userId}/{allPaths=**} {
+      // Every active plan can manage its own profile photo.
+      allow get: if hasActiveAccount();
+      allow create, update: if hasActiveAccount()
+        && request.auth.uid == userId
+        && isValidImageUpload();
+      allow delete: if hasActiveAccount()
+        && request.auth.uid == userId;
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

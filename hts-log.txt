@@ -1,0 +1,13 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 17 Jun 2026 10:35:06 at https://livedemo00.template-help.com/wt_prod-10492/theme/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://livedemo00.template-help.com/wt_prod-10492/theme/index.html -O1 "C:\Users\super\OneDrive\Escritorio\httt" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+10:36:44	Error: 	"Bad Request" (400) at link www.googletagmanager.com/gtm.js?id= (from https://livedemo00.template-help.com/wt_prod-10492/theme/index.html)
+10:36:45	Error: 	"Not Found" (404) at link https://livedemo00.template-help.com/wt_prod-10492/theme/images/bg-pattern-boxed.png (from https://livedemo00.template-help.com/wt_prod-10492/theme/css/style.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 40 seconds : 402 links scanned, 399 files written (20541845 bytes overall) [14335125 bytes received at 143351 bytes/sec], 8350339 bytes transferred using HTTP compression in 64 files, ratio 21%, 80.4 requests per connection
+(2 errors, 0 warnings, 0 messages)

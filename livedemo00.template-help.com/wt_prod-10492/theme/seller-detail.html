@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+    <title>Seller Details | Hydronexis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/marketplace-sellers.css">
+    <link rel="stylesheet" href="css/home.css">
+    <style>.plan-guard-pending body { visibility: hidden; }</style>
+    <script type="module" src="js/plan-guard.js"></script>
+
+</head>
+<body data-required-permission="product_details">
+
+
+    <div id="header"></div>
+
+      <!-- SECCIÓN: Breadcrumb -->
+      <div class="sellers-breadcrumb">
+        <div class="container">
+          <ul id="detail-breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="grid-shop.html">Marketplace</a></li>
+            <li class="active">Details</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECCIÓN: Contenido principal del detalle del vendedor -->
+      <section class="seller-detail-section" id="seller-detail-content">
+        <div class="container">
+
+          <!-- SECCIÓN: Barra superior con info del vendedor -->
+          <div class="seller-top-bar" id="seller-top-bar">
+            <!-- Cargado dinámicamente por seller-detail.js -->
+          </div>
+
+          <!-- SECCIÓN: Producto - imagen y descripción -->
+          <div class="product-detail-row">
+            <div class="product-detail-image">
+              <img id="product-image" src="" alt="Product" width="280"/>
+              <p class="product-label" id="product-label"></p>
+            </div>
+            <div class="product-detail-info">
+              <div class="product-description-box" id="product-description">
+                <!-- Product description loaded dynamically -->
+              </div>
+              <div class="seller-detail-actions">
+                <a class="btn-add-cart" id="btn-add-cart" href="cart-page.html">Add to Cart</a>
+                <a class="btn-contact-seller" id="btn-contact-seller" href="hydrochat.html">Contact Seller</a>
+                <a class="btn-exchange plan-protected" id="btn-start-exchange" data-requires-permission="exchange" href="exchanges.html" hidden>Start Exchange</a>
+              </div>
+              <p class="marketplace-action-feedback" id="marketplaceActionFeedback" role="status" hidden></p>
+            </div>
+          </div>
+
+          <!-- SECCIÓN: Información adicional del vendedor -->
+          <div class="seller-extra-info" id="seller-extra-info">
+            <!-- Info del vendedor cargada dinámicamente -->
+          </div>
+
+          <!-- SECCIÓN: Tabs - Ubicación, Reviews, Enviar review -->
+          <div class="seller-tabs-section">
+            <nav class="seller-tabs-nav" role="tablist" aria-label="Seller information">
+              <button class="seller-tab-btn active" id="seller-tab-location" type="button" role="tab" aria-selected="true" aria-controls="tab-ubicacion" data-tab="ubicacion">Location</button>
+              <button class="seller-tab-btn" id="seller-tab-reviews" type="button" role="tab" aria-selected="false" aria-controls="tab-reviews" data-tab="reviews">Reviews</button>
+              <button class="seller-tab-btn" id="seller-tab-send-review" type="button" role="tab" aria-selected="false" aria-controls="tab-enviar-review" data-tab="enviar-review">Send a review</button>
+            </nav>
+
+            <!-- TAB: Ubicación con mapa -->
+            <div class="seller-tab-panel active" id="tab-ubicacion" role="tabpanel" aria-labelledby="seller-tab-location">
+              <div class="location-row">
+                <div class="location-map">
+                  <iframe id="location-map" src="" allowfullscreen="" loading="lazy" title="Seller location map"></iframe>
+                </div>
+                <div class="location-text">
+                  <h4 id="location-title">Location description (where to pick it up or exchange it depends on the case)</h4>
+                  <p id="location-description">Loading...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB: Reviews existentes -->
+            <div class="seller-tab-panel" id="tab-reviews" role="tabpanel" aria-labelledby="seller-tab-reviews" hidden>
+              <div id="reviews-list">
+                <!-- Reviews cargadas dinámicamente -->
+              </div>
+            </div>
+
+            <!-- TAB: Formulario para enviar review -->
+            <div class="seller-tab-panel" id="tab-enviar-review" role="tabpanel" aria-labelledby="seller-tab-send-review" hidden>
+              <div class="review-form-section">
+                <h4>Leave a Review</h4>
+                <p class="account-feedback" id="reviewAvailability" hidden></p>
+                <form class="review-form-grid" id="seller-review-form" aria-describedby="reviewAvailability">
+                  <div class="form-field">
+                    <label for="review-author">Name</label>
+                    <input id="review-author" name="author" type="text" autocomplete="name" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="review-stars">Rating</label>
+                    <select id="review-stars" name="stars" required>
+                      <option value="5">5 stars</option>
+                      <option value="4">4 stars</option>
+                      <option value="3">3 stars</option>
+                      <option value="2">2 stars</option>
+                      <option value="1">1 star</option>
+                    </select>
+                  </div>
+                  <div class="form-field message-field">
+                    <label for="review-message">Message</label>
+                    <textarea id="review-message" name="message" required></textarea>
+                  </div>
+                  <div class="form-field review-submit-field">
+                    <button class="btn-submit-review" type="submit">Send Review</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+<!-- PIE DE PÁGINA -->
+<footer class="section footer-classic">
+
+  <div class="footer-classic-body section-lg">
+    <div class="container">
+
+      <div class="row row-40 row-md-50 justify-content-xl-between">
+
+        <!-- LOGO, HORARIO Y REDES SOCIALES -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight">
+
+          <div class="footer-classic-brand">
+
+            <!-- Brand -->
+            <a class="brand">
+              <img
+                class="brand-logo-dark"
+                src="images/logo20.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+
+              <img
+                class="brand-logo-light"
+                src="images/logo-inverse-280x92.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+            </a>
+
+          </div>
+
+          <!-- Horario -->
+          <ul class="list-schedule">
+            <li>
+              <span>Weekdays:</span>
+              <span>01:00pm - 05:00pm</span>
+            </li>
+          </ul>
+
+          <!-- Redes sociales -->
+          <div class="footer-classic-social">
+            <div class="group-lg group-middle">
+
+              <p>Get Social</p>
+
+              <div>
+                <ul class="list-inline list-social list-inline-sm">
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-facebook"
+                      href="https://www.facebook.com/profile.php?id=61592514343911&mibextid=wwXIfr&rdid=832Ux9HTHNTAu76G&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19NXnrFn9S%2F%3Fmibextid%3DwwXIfr#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-twitter"
+                      href="https://x.com/hydronexisinfo?s=11"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="X"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-instagram"
+                      href="https://www.instagram.com/hydronexis.pa?igsh=dTYwbHd5dDN4a2ds"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    ></a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- CONTACTOS -->
+        <div
+          class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight"
+          data-wow-delay=".1s"
+        >
+
+          <h4 class="footer-classic-title">Contacts</h4>
+
+          <ul class="contacts-creative">
+
+            <!-- Ubicación -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/Maps.png"
+                    alt="Ubicación"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=La+Ciudad+del+Niño+La+Chorrera+Panamá+Oeste+Panamá"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    La Ciudad del Niño,<br>
+                    La Chorrera<br>
+                    Panamá Oeste, Panamá
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Teléfono -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/phone.png"
+                    alt="Teléfono"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="tel:+50769857901">
+                    +507 6985-7901
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Gmail de contacto -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/email.png"
+                    alt="Gmail"
+                    class="footer-contact-icon footer-gmail-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="mailto:hydronexis@gmail.com">
+                    info.hydronexis@gmail.com
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- NEXIS Y FORMULARIO DE CORREO -->
+        <div
+          class="col-lg-4 wow fadeInRight"
+          data-wow-delay=".2s"
+        >
+
+          <div class="nexis-footer-card">
+            <div class="nexis-footer-content">
+
+              <h4 class="footer-classic-title">Meet Nexis</h4>
+
+              <p>
+                Your intelligent guide to hydroponics, innovation,
+                and sustainable growing.
+              </p>
+
+
+            </div>
+          </div>
+
+          <!-- Formulario de suscripción -->
+          <form
+            class="rd-form rd-mailform rd-form-inline rd-form-inline-2 footer-email-form"
+            data-form-output="form-output-global"
+            data-form-type="subscribe"
+            method="post"
+          >
+
+            <div class="form-wrap">
+
+              <input
+                class="form-input"
+                id="subscribe-form-2-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                data-constraints="@Email @Required"
+                required
+              >
+
+              <label
+                class="form-label"
+                for="subscribe-form-2-email"
+              >
+                Enter your e-mail
+              </label>
+
+            </div>
+
+            <div class="form-button">
+
+              <button
+                class="button button-icon-2 button-zakaria button-secondary footer-email-button"
+                type="submit"
+                aria-label="Enviar correo"
+              >
+                <img
+                  src="images/icon/email.png"
+                  alt=""
+                  class="submit-icon"
+                >
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PANEL INFERIOR -->
+  <div class="footer-classic-panel">
+    <div class="container">
+
+      <div class="row row-10 align-items-center justify-content-sm-between">
+
+        <div class="col-md-auto">
+          <p class="rights">
+            <span>&copy;&nbsp;</span>
+            <span class="copyright-year"></span>
+            <span>&nbsp;</span>
+            <span>HydroNexis</span>
+            <span>.&nbsp; All rights reserved.</span>
+          </p>
+        </div>
+
+        <div class="col-md-auto order-md-1">
+          <a href="terms-of-use.html">
+            Privacy Policy
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+<!-- FIN DEL PIE DE PÁGINA -->
+
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+  <script src="js/header.js"></script>
+  <!-- <script src="js/core.min.js"></script> -->
+  <!-- <script src="js/script.js"></script> -->
+    <script src="js/marketplace-data.js"></script>
+    <script src="js/seller-detail.js"></script>
+    <script type="module" src="js/marketplace-actions.js"></script>
+</body>
+</html>

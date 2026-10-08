@@ -1,0 +1,741 @@
+:root {
+  --primary: #18391c;
+  --primary-dark: #102b14;
+  --primary-light: #23572c;
+
+  --accent: #d7b36a;
+  --accent-soft: #f3e2bf;
+
+  --cream: #f7f3eb;
+  --white: #ffffff;
+
+  --text: #233126;
+  --muted: #6b725f;
+  --border: #dcd6c7;
+}
+
+/* ================================
+   CONFIGURACIÓN GENERAL
+================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ================================
+   FONDO GENERAL
+================================ */
+
+body.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      rgba(12, 35, 17, 0.72),
+      rgba(12, 35, 17, 0.72)
+    );
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Para colocar una imagen detrás de toda la página:
+
+body.auth-page {
+  background:
+    linear-gradient(
+      rgba(12, 35, 17, 0.72),
+      rgba(12, 35, 17, 0.72)
+    ),
+    url("../images/login-page-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+*/
+
+/* ================================
+   CONTENEDOR PRINCIPAL
+================================ */
+
+.auth-shell {
+  width: min(100%, 1120px);
+  min-height: 680px;
+
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+
+  background: rgba(255, 255, 255, 0.98);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================
+   PANEL IZQUIERDO
+================================ */
+
+.auth-visual {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 55px 55px 60px;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      rgba(9, 34, 14, 0.48),
+      rgba(9, 34, 14, 0.58)
+    ),
+    url("../images/hydro.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* CAPA DECORATIVA */
+
+.auth-visual::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(215, 179, 106, 0.2),
+      transparent 43%
+    ),
+    linear-gradient(
+      to top,
+      rgba(5, 22, 9, 0.22),
+      transparent 50%
+    );
+
+  pointer-events: none;
+}
+
+/* CONTENIDO SOBRE LAS CAPAS */
+
+.auth-visual > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================
+   LOGO
+================================ */
+
+.visual-logo {
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.visual-logo a {
+  display: inline-block;
+}
+
+.visual-logo img {
+  display: block;
+
+  width: 365px;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 5px 12px rgba(0, 0, 0, 0.18));
+}
+
+/* ================================
+   ETIQUETA SECURE ACCESS
+================================ */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+
+  margin-bottom: 18px;
+  padding: 10px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.13);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ================================
+   TÍTULO DEL PANEL IZQUIERDO
+================================ */
+
+.auth-visual h2 {
+  max-width: 540px;
+
+  margin-bottom: 18px;
+
+  color: var(--white);
+
+  font-family: Optima, "Segoe UI", Candara, sans-serif;
+  font-size: clamp(2.35rem, 4vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.32);
+}
+
+/* ================================
+   TEXTO DEL PANEL IZQUIERDO
+================================ */
+
+.auth-visual p {
+  max-width: 520px;
+
+  color: rgba(255, 255, 255, 0.94);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1.04rem;
+  line-height: 1.72;
+
+  text-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* ================================
+   PANEL DERECHO
+================================ */
+
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 48px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8f8f5
+    );
+}
+
+/* ================================
+   TÍTULO Y SUBTÍTULO
+================================ */
+
+.title {
+  margin-bottom: 8px;
+
+  color: var(--primary);
+
+  font-family: Optima, "Segoe UI", Candara, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin-bottom: 28px;
+
+  color: var(--muted);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* ================================
+   FORMULARIOS
+================================ */
+
+form {
+  display: none;
+}
+
+form.active {
+  display: block;
+}
+
+/* ================================
+   CAMPOS
+================================ */
+
+.input-box {
+  margin-bottom: 14px;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+
+  padding: 16px;
+
+  border: 1.5px solid var(--border);
+  border-radius: 13px;
+
+  outline: none;
+
+  background: var(--white);
+  color: var(--text);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.98rem;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.input-box input::placeholder {
+  color: #777d72;
+}
+
+.input-box input:focus,
+.input-box select:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 4px rgba(24, 57, 28, 0.09);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   PASSWORD VISIBILITY
+========================================= */
+
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  padding-right: 60px;
+}
+
+.password-toggle {
+  position: absolute;
+
+  top: 50%;
+  right: 20px;
+
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  padding: 5px;
+
+  opacity: 0.65;
+}
+
+.password-toggle:hover {
+  opacity: 1;
+}
+
+.password-toggle:focus {
+  outline: none;
+}
+
+/* ================================
+   BOTÓN PRINCIPAL
+================================ */
+
+.main-btn {
+  width: 100%;
+
+  padding: 15px 18px;
+
+  border: none;
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+
+  color: var(--white);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px rgba(24, 57, 28, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.main-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 16px 32px rgba(24, 57, 28, 0.26);
+
+  filter: brightness(1.05);
+}
+
+.main-btn:active {
+  transform: translateY(0);
+}
+
+/* ================================
+   SEPARADOR
+================================ */
+
+.separator {
+  position: relative;
+
+  margin: 22px 0;
+
+  color: var(--muted);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+
+  width: 39%;
+  height: 1px;
+
+  background: var(--border);
+}
+
+.separator::before {
+  left: 0;
+}
+
+.separator::after {
+  right: 0;
+}
+
+/* ================================
+   BOTONES SECUNDARIOS
+================================ */
+
+.social-btn {
+  margin-bottom: 11px;
+  padding: 14px 16px;
+
+  border: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      var(--cream)
+    );
+
+  color: var(--primary);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.social-btn:hover {
+  border-color: var(--accent);
+
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+   MENSAJES
+================================ */
+
+.message {
+  display: none;
+
+  margin-bottom: 14px;
+  padding: 11px 13px;
+
+  border: 1px solid #f1d59b;
+  border-radius: 10px;
+
+  background: #fff6e0;
+  color: #8c5b00;
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.message.error {
+  display: block;
+
+  border-color: #f0c7c7;
+
+  background: #fff0f0;
+  color: #8d2f2f;
+}
+
+.message.success {
+  display: block;
+
+  border-color: #b7e4c7;
+
+  background: #effbf3;
+  color: #2b6637;
+}
+
+/* ================================
+   CAMBIO LOGIN / REGISTRO
+================================ */
+
+.toggle {
+  margin-top: 22px;
+
+  color: var(--muted);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.toggle button {
+  margin-left: 5px;
+
+  border: none;
+
+  background: none;
+  color: var(--primary);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.toggle button:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 900px) {
+  body.auth-page {
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .auth-shell {
+    grid-template-columns: 1fr;
+
+    width: min(100%, 700px);
+    min-height: auto;
+  }
+
+  .auth-visual {
+    min-height: 480px;
+
+    justify-content: center;
+
+    padding: 48px 42px;
+
+    background-position: center;
+  }
+
+  .visual-logo {
+    margin-bottom: 28px;
+  }
+
+  .visual-logo img {
+    width: 340px;
+  }
+
+  .auth-visual h2 {
+    max-width: 570px;
+    font-size: clamp(2.2rem, 7vw, 3.1rem);
+  }
+
+  .auth-card {
+    padding: 50px 42px;
+  }
+}
+
+/* ================================
+   CELULARES
+================================ */
+
+@media (max-width: 560px) {
+  body.auth-page {
+    padding: 12px;
+  }
+
+  .auth-shell {
+    border-radius: 22px;
+  }
+
+  .auth-visual {
+    min-height: 430px;
+
+    padding: 32px 24px;
+
+    background-position: center;
+  }
+
+  .visual-logo {
+    margin-bottom: 24px;
+  }
+
+  .visual-logo img {
+    width: 285px;
+  }
+
+  .eyebrow {
+    margin-bottom: 15px;
+    padding: 9px 14px;
+
+    font-size: 0.68rem;
+  }
+
+  .auth-visual h2 {
+    margin-bottom: 15px;
+
+    font-size: 2rem;
+    line-height: 1.08;
+  }
+
+  .auth-visual p {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .auth-card {
+    padding: 38px 22px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    margin-bottom: 24px;
+  }
+
+  .input-box input,
+  .input-box select {
+    padding: 14px;
+  }
+}
+
+/* ================================
+   CELULARES PEQUEÑOS
+================================ */
+
+@media (max-width: 380px) {
+  body.auth-page {
+    padding: 8px;
+  }
+
+  .auth-visual {
+    min-height: 410px;
+    padding: 28px 20px;
+  }
+
+  .visual-logo img {
+    width: 250px;
+  }
+
+  .auth-visual h2 {
+    font-size: 1.75rem;
+  }
+
+  .auth-card {
+    padding: 32px 18px;
+  }
+}
+
+.signup-plan-note {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  padding: 13px 15px;
+  border: 1px solid rgba(103, 158, 90, 0.3);
+  border-radius: 13px;
+  color: var(--primary);
+  background: rgba(103, 158, 90, 0.08);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.4;
+}
+
+.signup-plan-note span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}

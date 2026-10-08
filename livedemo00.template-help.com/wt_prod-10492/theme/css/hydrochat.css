@@ -1,0 +1,2215 @@
+/* =========================================================
+   HYDRONEXIS HYDROCHAT
+========================================================= */
+@font-face {
+    font-family: "Optima";
+    src: url("../fonts/Optima.woff") format("woff"),
+         url("../fonts/OPTIMA.TTF") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hydronexis Special Characters";
+    src: local("Segoe UI"),
+         url("../fonts/Helvetica.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0080-024F,
+        U+0300-036F,
+        U+1E00-1EFF,
+        U+2000-206F,
+        U+20A0-20CF;
+}
+
+@font-face {
+    font-family: "Optima Italic";
+    src: url("../fonts/Optima_Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+:root {
+
+    --hydro-dark:
+        #1e3b17;
+
+    --hydro-green:
+        #679e5a;
+
+    --hydro-gold:
+        #c68c49;
+
+    --hydro-white:
+        #ffffff;
+
+    --hydro-background:
+        #eef3eb;
+
+    --hydro-soft:
+        #f6f8f4;
+
+    --hydro-border:
+        rgba(30, 59, 23, 0.10);
+
+    --hydro-muted:
+        rgba(30, 59, 23, 0.54);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+}
+
+
+body {
+
+    overflow: hidden;
+
+    background:
+        var(--hydro-background);
+
+    color:
+        var(--hydro-dark);
+
+}
+
+
+button,
+input,
+textarea {
+
+    font-family: "Optima", "Segoe UI", Tahoma, Arial, sans-serif;
+
+}
+
+
+button {
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+/* =========================================================
+   APPLICATION
+========================================================= */
+
+.hydrochat-app {
+
+    width: 100%;
+    height: 100dvh;
+
+    display: grid;
+
+    grid-template-columns:
+        clamp(320px, 30vw, 440px)
+        minmax(0, 1fr);
+
+    overflow: hidden;
+
+    background:
+        var(--hydro-white);
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.hydrochat-sidebar {
+
+    min-width: 0;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background:
+        var(--hydro-white);
+
+    border-right:
+        1px solid var(--hydro-border);
+
+}
+
+
+/* =========================================================
+   HYDROCHAT BRAND IMAGE
+========================================================= */
+
+.hydrochat-brand {
+    width: 100%;
+
+    padding: 22px 24px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* IMAGEN DEL LOGO */
+
+.hydrochat-brand-image {
+    display: block;
+
+    width: 100%;
+    max-width: 310px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .hydrochat-brand-image {
+        max-width: 270px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .hydrochat-brand {
+        padding: 20px 18px 16px;
+    }
+
+    .hydrochat-brand-image {
+        max-width: 280px;
+    }
+
+}
+
+
+@media (max-width: 390px) {
+
+    .hydrochat-brand-image {
+        max-width: 240px;
+    }
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.hydrochat-search {
+
+    min-height: 50px;
+
+    margin:
+        0 18px 14px;
+
+    padding:
+        0 16px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        15px;
+
+    background:
+        #f0f4ee;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.hydrochat-search:focus-within {
+
+    border-color:
+        rgba(103, 158, 90, 0.48);
+
+    background:
+        var(--hydro-white);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(103, 158, 90, 0.08);
+
+}
+
+
+.hydrochat-search svg {
+
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+
+    fill: none;
+
+    stroke:
+        rgba(30, 59, 23, 0.48);
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+}
+
+
+.hydrochat-search input {
+
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background:
+        transparent;
+
+    color:
+        var(--hydro-dark);
+
+    font-size:
+        12px;
+
+}
+
+
+.hydrochat-search input::placeholder {
+
+    color:
+        rgba(30, 59, 23, 0.42);
+
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.hydrochat-filters {
+
+    padding:
+        0 18px 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+}
+
+
+.hydrochat-filters::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+.hydrochat-filter {
+
+    flex-shrink: 0;
+
+    min-height: 35px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid
+        rgba(30, 59, 23, 0.13);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--hydro-white);
+
+    color:
+        rgba(30, 59, 23, 0.72);
+
+    font-size:
+        10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.hydrochat-filter:hover {
+
+    border-color:
+        var(--hydro-green);
+
+    color:
+        var(--hydro-dark);
+
+}
+
+
+.hydrochat-filter.active {
+
+    border-color:
+        var(--hydro-green);
+
+    background:
+        rgba(103, 158, 90, 0.12);
+
+    color:
+        var(--hydro-dark);
+
+}
+
+
+/* =========================================================
+   CONVERSATION LABEL
+========================================================= */
+
+.hydrochat-list-label {
+
+    padding:
+        11px 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top:
+        1px solid
+        rgba(30, 59, 23, 0.06);
+
+    border-bottom:
+        1px solid
+        rgba(30, 59, 23, 0.07);
+
+    color:
+        rgba(30, 59, 23, 0.42);
+
+    font-size:
+        9px;
+
+    font-weight: 600;
+
+    letter-spacing:
+        0.5px;
+
+}
+
+
+/* =========================================================
+   CONTACT LIST
+========================================================= */
+
+.hydrochat-contact-list {
+
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(30, 59, 23, 0.20)
+        transparent;
+
+}
+
+
+.hydrochat-contact-list::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+
+.hydrochat-contact-list::-webkit-scrollbar-thumb {
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(30, 59, 23, 0.18);
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.chat-contact {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 86px;
+
+    padding:
+        12px 17px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border: 0;
+
+    border-bottom:
+        1px solid
+        rgba(30, 59, 23, 0.055);
+
+    background:
+        var(--hydro-white);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease;
+
+}
+
+
+.chat-contact:hover {
+
+    background:
+        #f6f9f4;
+
+}
+
+
+.chat-contact.active {
+
+    background:
+        rgba(103, 158, 90, 0.11);
+
+}
+
+
+.chat-contact.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 4px;
+
+    background:
+        var(--hydro-green);
+
+}
+
+
+/* =========================================================
+   CONTACT AVATAR
+========================================================= */
+
+.contact-avatar {
+
+    position: relative;
+
+    width: 54px;
+    height: 54px;
+
+    flex: 0 0 54px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius:
+        50%;
+
+    border:
+        1.5px solid
+        rgba(103, 158, 90, 0.35);
+
+    background:
+        #edf4e9;
+
+    color:
+        var(--hydro-dark);
+
+    font-size:
+        14px;
+
+    font-weight: 600;
+
+}
+
+
+.contact-avatar img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background:
+        #edf4e9;
+
+}
+
+
+/* =========================================================
+   CONTACT INFO
+========================================================= */
+
+.contact-content {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.contact-heading {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+}
+
+
+.contact-heading h3 {
+
+    min-width: 0;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    color:
+        var(--hydro-dark);
+
+    font-size:
+        clamp(12px, 1vw, 14px);
+
+    font-weight: 600;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.contact-time {
+
+    flex-shrink: 0;
+
+    color:
+        rgba(30, 59, 23, 0.40);
+
+    font-size:
+        8px;
+
+}
+
+
+.contact-product {
+
+    margin:
+        4px 0 0;
+
+    overflow: hidden;
+
+    color:
+        var(--hydro-gold);
+
+    font-size:
+        10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.contact-preview-row {
+
+    margin-top:
+        4px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.contact-preview {
+
+    min-width: 0;
+
+    flex: 1;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    color:
+        rgba(30, 59, 23, 0.52);
+
+    font-size:
+        9px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.contact-price {
+
+    flex-shrink: 0;
+
+    padding:
+        3px 7px;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(198, 140, 73, 0.10);
+
+    color:
+        var(--hydro-gold);
+
+    font-size:
+        8px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+.no-chat-results {
+
+    padding:
+        45px 25px;
+
+    color:
+        rgba(30, 59, 23, 0.48);
+
+    font-size:
+        11px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   CONVERSATION PANEL
+========================================================= */
+
+.hydrochat-conversation {
+
+    position: relative;
+
+    min-width: 0;
+    height: 100%;
+
+    overflow: hidden;
+
+    background:
+        var(--hydro-background);
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.hydrochat-empty-state {
+
+    width: 100%;
+    height: 100%;
+
+    padding:
+        30px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(103, 158, 90, 0.11),
+            transparent 44%
+        ),
+
+        #f0f4ee;
+
+}
+
+
+.empty-state-circle {
+
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius:
+        24px;
+
+    background:
+        var(--hydro-dark);
+
+    box-shadow:
+        0 15px 35px
+        rgba(30, 59, 23, 0.16);
+
+}
+
+
+.empty-state-circle svg {
+
+    width: 34px;
+    height: 34px;
+
+    fill: none;
+
+    stroke:
+        var(--hydro-white);
+
+    stroke-width: 1.7;
+
+    stroke-linejoin: round;
+
+}
+
+
+.hydrochat-empty-state h2 {
+
+    margin:
+        21px 0 6px;
+
+    color:
+        var(--hydro-dark);
+
+    font-size:
+        24px;
+
+    font-weight: 600;
+
+}
+
+
+.hydrochat-empty-state p {
+
+    max-width: 360px;
+
+    margin: 0;
+
+    color:
+        var(--hydro-muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   ACTIVE CHAT
+========================================================= */
+
+.hydrochat-active-chat {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.hydrochat-active-chat[hidden] {
+
+    display: none !important;
+
+}
+
+
+/* =========================================================
+   CHAT HEADER
+========================================================= */
+
+.conversation-header {
+
+    width: 100%;
+    min-height: 78px;
+
+    padding:
+        11px 23px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    flex-shrink: 0;
+
+    background:
+        var(--hydro-white);
+
+    border-bottom:
+        1px solid
+        rgba(30, 59, 23, 0.08);
+
+    box-shadow:
+        0 1px 8px
+        rgba(30, 59, 23, 0.025);
+
+    z-index: 5;
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.conversation-back {
+
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius:
+        50%;
+
+    background:
+        transparent;
+
+    color:
+        var(--hydro-dark);
+
+    cursor: pointer;
+
+}
+
+
+.conversation-back:hover {
+
+    background:
+        rgba(30, 59, 23, 0.06);
+
+}
+
+
+.conversation-back svg {
+
+    width: 21px;
+    height: 21px;
+
+    fill: none;
+
+    stroke:
+        currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+}
+
+
+/* =========================================================
+   CONVERSATION AVATAR
+========================================================= */
+
+.conversation-avatar {
+
+    position: relative;
+
+    width: 50px;
+    height: 50px;
+
+    flex: 0 0 50px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius:
+        50%;
+
+    border:
+        1.5px solid
+        rgba(103, 158, 90, 0.35);
+
+    background:
+        #edf4e9;
+
+    color:
+        var(--hydro-dark);
+
+    font-size:
+        14px;
+
+    font-weight: 600;
+
+}
+
+
+.conversation-avatar img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.conversation-heading {
+
+    min-width: 0;
+
+}
+
+
+.conversation-heading h2 {
+
+    margin: 0;
+
+    overflow: hidden;
+
+    color:
+        var(--hydro-dark);
+
+    font-size:
+        clamp(14px, 1.2vw, 17px);
+
+    font-weight: 600;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.conversation-heading p {
+
+    margin:
+        4px 0 0;
+
+    overflow: hidden;
+
+    color:
+        rgba(30, 59, 23, 0.49);
+
+    font-size:
+        9px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.heading-separator {
+
+    margin:
+        0 4px;
+
+    color:
+        var(--hydro-gold);
+
+}
+
+
+#conversationPrice {
+
+    color:
+        var(--hydro-gold);
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   MESSAGES AREA
+========================================================= */
+
+.conversation-messages {
+
+    position: relative;
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding:
+        30px clamp(18px, 6vw, 90px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background-color:
+        #eef3eb;
+
+    background-image:
+
+        radial-gradient(
+            circle at 18px 20px,
+            rgba(30, 59, 23, 0.025) 1.5px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 54px 58px,
+            rgba(198, 140, 73, 0.025) 1.5px,
+            transparent 1.5px
+        );
+
+    background-size:
+        74px 74px;
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        rgba(30, 59, 23, 0.16)
+        transparent;
+
+}
+
+
+/* =========================================================
+   DATE CHIP
+========================================================= */
+
+.chat-date-chip {
+
+    width:
+        max-content;
+
+    margin:
+        0 auto 27px;
+
+    padding:
+        6px 13px;
+
+    border:
+        1px solid
+        rgba(30, 59, 23, 0.05);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    color:
+        rgba(30, 59, 23, 0.45);
+
+    font-size:
+        8px;
+
+    box-shadow:
+        0 4px 14px
+        rgba(30, 59, 23, 0.04);
+
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message-row {
+
+    width: 100%;
+
+    display: flex;
+
+    margin-bottom:
+        9px;
+
+}
+
+
+.message-row.received {
+
+    justify-content:
+        flex-start;
+
+}
+
+
+.message-row.sent {
+
+    justify-content:
+        flex-end;
+
+}
+
+
+.chat-message-bubble {
+
+    position: relative;
+
+    width:
+        fit-content;
+
+    max-width:
+        min(620px, 76%);
+
+    padding:
+        10px 13px 7px;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--hydro-white);
+
+    color:
+        var(--hydro-dark);
+
+    box-shadow:
+        0 3px 10px
+        rgba(30, 59, 23, 0.06);
+
+}
+
+
+.message-row.sent
+.chat-message-bubble {
+
+    background:
+        #dcebd6;
+
+}
+
+
+.chat-message-bubble p {
+
+    margin: 0;
+
+    color:
+        Optima;
+
+    font-size:
+        clamp(11px, 0.9vw, 13px);
+
+    line-height:
+        1.55;
+
+    white-space:
+        pre-wrap;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+
+.message-time {
+
+    display: block;
+
+    margin-top:
+        4px;
+
+    color:
+        rgba(30, 59, 23, 0.40);
+
+    font-size:
+        7.5px;
+
+    text-align:
+        right;
+
+}
+
+
+/* =========================================================
+   COMPOSE AREA
+========================================================= */
+
+.conversation-compose {
+
+    width: 100%;
+
+    min-height: 72px;
+
+    padding:
+        10px
+        clamp(14px, 2.5vw, 32px);
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    background:
+        var(--hydro-white);
+
+    border-top:
+        1px solid
+        rgba(30, 59, 23, 0.08);
+
+}
+
+
+/* =========================================================
+   TEXT AREA
+========================================================= */
+
+.compose-input-wrapper {
+
+    min-width: 0;
+
+    flex: 1;
+
+    min-height: 48px;
+
+    padding:
+        4px 17px;
+
+    display: flex;
+    align-items: center;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        24px;
+
+    background:
+        #f0f3ee;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.compose-input-wrapper:focus-within {
+
+    border-color:
+        rgba(103, 158, 90, 0.45);
+
+    background:
+        var(--hydro-white);
+
+}
+
+
+.compose-input-wrapper textarea {
+
+    width: 100%;
+
+    min-height:
+        38px;
+
+    max-height:
+        110px;
+
+    padding:
+        9px 0;
+
+    border: 0;
+    outline: 0;
+
+    resize: none;
+
+    overflow-y: auto;
+
+    background:
+        transparent;
+
+    color:
+        var(--hydro-dark);
+
+    font-size:
+        12px;
+
+    line-height:
+        20px;
+
+}
+
+
+.compose-input-wrapper textarea::placeholder {
+
+    color:
+        rgba(30, 59, 23, 0.40);
+
+}
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+.send-message-button {
+
+    width: 48px;
+    height: 48px;
+
+    flex:
+        0 0 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--hydro-green);
+
+    color:
+        var(--hydro-white);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px
+        rgba(103, 158, 90, 0.20);
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+
+}
+
+
+.send-message-button:hover {
+
+    transform:
+        translateY(-1px);
+
+    background:
+        var(--hydro-dark);
+
+}
+
+
+.send-message-button:active {
+
+    transform:
+        scale(0.95);
+
+}
+
+
+.send-message-button svg {
+
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+
+    stroke:
+        currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media
+(max-width: 1100px) {
+
+    .hydrochat-app {
+
+        grid-template-columns:
+            340px minmax(0, 1fr);
+
+    }
+
+
+    .hydrochat-brand {
+
+        padding:
+            24px 18px
+            16px;
+
+    }
+
+
+    .conversation-messages {
+
+        padding:
+            25px 30px;
+
+    }
+
+
+    .chat-message-bubble {
+
+        max-width:
+            82%;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media
+(max-width: 850px) {
+
+    .hydrochat-app {
+
+        grid-template-columns:
+            300px minmax(0, 1fr);
+
+    }
+
+
+    .contact-avatar {
+
+        width: 48px;
+        height: 48px;
+
+        flex-basis:
+            48px;
+
+    }
+
+
+    .chat-contact {
+
+        padding:
+            11px 12px;
+
+    }
+
+
+    .conversation-messages {
+
+        padding:
+            22px 18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media
+(max-width: 700px) {
+
+    body {
+
+        overflow:
+            hidden;
+
+    }
+
+
+    .hydrochat-app {
+
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        height: 100dvh;
+
+    }
+
+
+    .hydrochat-sidebar {
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        border-right: 0;
+
+        z-index: 2;
+
+        transition:
+            transform 0.25s ease;
+
+    }
+
+
+    .hydrochat-conversation {
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 3;
+
+        transform:
+            translateX(100%);
+
+        transition:
+            transform 0.25s ease;
+
+    }
+
+
+    .hydrochat-app.mobile-chat-open
+    .hydrochat-sidebar {
+
+        transform:
+            translateX(-22%);
+
+    }
+
+
+    .hydrochat-app.mobile-chat-open
+    .hydrochat-conversation {
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    .conversation-back {
+
+        display:
+            flex;
+
+    }
+
+
+    .conversation-header {
+
+        min-height:
+            70px;
+
+        padding:
+            9px 12px;
+
+        gap:
+            9px;
+
+    }
+
+
+    .conversation-avatar {
+
+        width: 44px;
+        height: 44px;
+
+        flex-basis:
+            44px;
+
+    }
+
+
+    .conversation-heading {
+
+        flex: 1;
+
+    }
+
+
+    .conversation-messages {
+
+        padding:
+            20px 12px;
+
+    }
+
+
+    .chat-message-bubble {
+
+        max-width:
+            86%;
+
+    }
+
+
+    .conversation-compose {
+
+        min-height:
+            68px;
+
+        padding:
+            9px 10px;
+
+    }
+
+
+    .compose-input-wrapper {
+
+        min-height:
+            46px;
+
+    }
+
+
+    .send-message-button {
+
+        width: 46px;
+        height: 46px;
+
+        flex-basis:
+            46px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media
+(max-width: 390px) {
+
+    .hydrochat-brand {
+
+        padding:
+            21px 15px
+            14px;
+
+    }
+
+
+    .hydrochat-search {
+
+        margin-left:
+            13px;
+
+        margin-right:
+            13px;
+
+    }
+
+
+    .hydrochat-filters {
+
+        padding-left:
+            13px;
+
+        padding-right:
+            13px;
+
+    }
+
+
+    .chat-contact {
+
+        min-height:
+            80px;
+
+    }
+
+
+    .contact-avatar {
+
+        width: 46px;
+        height: 46px;
+
+        flex-basis:
+            46px;
+
+    }
+
+
+    .chat-message-bubble {
+
+        max-width:
+            90%;
+
+    }
+
+}
+
+/* =========================================================
+   HYDROCHAT - LARGER DESKTOP SCALE
+========================================================= */
+
+@media (min-width: 1101px) {
+
+    /* APP: sidebar un poco más ancha */
+    .hydrochat-app {
+        grid-template-columns:
+            clamp(430px, 31vw, 540px)
+            minmax(0, 1fr);
+    }
+
+
+    /* =====================================================
+       BRAND
+    ====================================================== */
+
+    .hydrochat-brand {
+        padding:
+            32px 28px
+            24px;
+    }
+
+    .hydrochat-eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.8px;
+    }
+
+    .hydrochat-brand h1 {
+        font-size: 36px;
+    }
+
+    .hydrochat-brand p {
+        margin-top: 10px;
+        font-size: 13px;
+    }
+
+
+    /* =====================================================
+       SEARCH
+    ====================================================== */
+
+    .hydrochat-search {
+        min-height: 64px;
+
+        margin:
+            0 24px 17px;
+
+        padding:
+            0 20px;
+
+        gap: 14px;
+
+        border-radius: 18px;
+    }
+
+    .hydrochat-search svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .hydrochat-search input {
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       FILTERS
+    ====================================================== */
+
+    .hydrochat-filters {
+        padding:
+            0 24px 20px;
+
+        gap: 10px;
+    }
+
+    .hydrochat-filter {
+        min-height: 43px;
+
+        padding:
+            0 20px;
+
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       CONVERSATIONS LABEL
+    ====================================================== */
+
+    .hydrochat-list-label {
+        padding:
+            14px 28px;
+
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       CONTACTS
+    ====================================================== */
+
+    .chat-contact {
+        min-height: 108px;
+
+        padding:
+            15px 24px;
+
+        gap: 16px;
+    }
+
+    .contact-avatar {
+        width: 64px;
+        height: 64px;
+
+        flex-basis: 64px;
+
+        font-size: 17px;
+    }
+
+    .contact-heading h3 {
+        font-size: 17px;
+    }
+
+    .contact-time {
+        font-size: 9px;
+    }
+
+    .contact-product {
+        margin-top: 5px;
+
+        font-size: 11px;
+    }
+
+    .contact-preview-row {
+        margin-top: 6px;
+    }
+
+    .contact-preview {
+        font-size: 10px;
+    }
+
+    .contact-price {
+        padding:
+            5px 9px;
+
+        font-size: 9px;
+    }
+
+
+    /* =====================================================
+       CHAT HEADER
+    ====================================================== */
+
+    .conversation-header {
+        min-height: 100px;
+
+        padding:
+            15px 34px;
+
+        gap: 17px;
+    }
+
+    .conversation-avatar {
+        width: 62px;
+        height: 62px;
+
+        flex-basis: 62px;
+
+        font-size: 17px;
+    }
+
+    .conversation-heading h2 {
+        font-size: 20px;
+    }
+
+    .conversation-heading p {
+        margin-top: 5px;
+
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       CHAT AREA
+    ====================================================== */
+
+    .conversation-messages {
+        padding:
+            46px
+            clamp(40px, 7vw, 120px);
+    }
+
+    .chat-date-chip {
+        margin-bottom: 34px;
+
+        padding:
+            8px 17px;
+
+        font-size: 9px;
+    }
+
+
+    /* =====================================================
+       MESSAGE BUBBLES
+    ====================================================== */
+
+    .chat-message-bubble {
+        max-width:
+            min(760px, 72%);
+
+        padding:
+            14px 17px 9px;
+
+        border-radius: 12px;
+    }
+
+    .chat-message-bubble p {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+    .message-time {
+        margin-top: 5px;
+
+        font-size: 9px;
+    }
+
+    .message-row {
+        margin-bottom: 12px;
+    }
+
+
+    /* =====================================================
+       INPUT AREA
+    ====================================================== */
+
+    .conversation-compose {
+        min-height: 94px;
+
+        padding:
+            14px 30px;
+
+        gap: 14px;
+    }
+
+    .compose-input-wrapper {
+        min-height: 62px;
+
+        padding:
+            5px 24px;
+
+        border-radius: 32px;
+    }
+
+    .compose-input-wrapper textarea {
+        min-height: 46px;
+
+        padding:
+            12px 0;
+
+        font-size: 14px;
+
+        line-height: 22px;
+    }
+
+    .send-message-button {
+        width: 62px;
+        height: 62px;
+
+        flex-basis: 62px;
+    }
+
+    .send-message-button svg {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+.hydrochat-plan-access {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+    margin: 0 18px 16px;
+    padding: 14px;
+    border: 1px solid var(--hydro-border);
+    border-radius: 14px;
+    background: var(--hydro-soft);
+}
+
+.hydrochat-plan-access span,
+.hydrochat-plan-access strong {
+    display: block;
+}
+
+.hydrochat-plan-access span {
+    color: var(--hydro-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.hydrochat-plan-access strong {
+    color: var(--hydro-dark);
+}
+
+.hydrochat-plan-access > a {
+    align-self: center;
+    color: var(--hydro-gold);
+    font-weight: 700;
+}
+
+#hydrochatPlanActions {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+#hydrochatPlanActions a {
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: #e7efe3;
+    color: var(--hydro-dark);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.hydrochat-storage-note {
+    margin: 0;
+    padding: 8px 18px;
+    border-top: 1px solid rgba(30, 59, 23, .1);
+    background: #fff9ed;
+    color: #756749;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: center;
+}
+
+/* Tipografia de toda la aplicacion, con respaldo automatico por glifo. */
+:root {
+    --hydronexis-font-family: "Hydronexis Special Characters", "Optima", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+optgroup {
+    font-family: var(--hydronexis-font-family) !important;
+}
+
+body *:not(.fa):not([class^="fa-"]):not([class*=" fa-"]):not(.mdi):not([class^="mdi-"]):not([class*=" mdi-"]):not(.material-symbols-rounded):not(.material-symbols-outlined):not([class^="fl-"]):not([class*=" fl-"]):not(.lg-icon):not(.owl-video-play-icon) {
+    font-family: var(--hydronexis-font-family) !important;
+}

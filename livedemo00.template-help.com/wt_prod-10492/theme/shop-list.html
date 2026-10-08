@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Shop List | HYDRONEXIS</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/shop-list.css">
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body data-required-permission="marketplace">
+  <div id="header"></div>
+
+  <main id="main-content">
+    <section class="breadcrumbs-custom">
+        <div class="parallax-container" data-parallax-img="images/encabezados/shoplist.png">
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">Shop List</h2>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom-footer">
+          <div class="container">
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="grid-shop.html">Shop</a></li>
+              <li class="active">Shop List</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Section Shop-->
+      <section class="section section-xxl bg-default text-md-start">
+        <div class="container">
+          <div class="row row-50">
+            <div class="col-lg-4 col-xl-3">
+              <div class="aside row row-30 row-md-50 justify-content-md-between">
+                <div class="aside-item col-12">
+                  <h6 class="aside-title">Filter by Price</h6>
+                  <div class="price-slider-box">
+                    <div class="price-slider" id="price-slider">
+                      <div class="price-slider-track"></div>
+                      <div class="price-slider-range" id="price-slider-range"></div>
+                      <input id="price-min" class="price-range-input" type="range" min="0" max="350" step="0.01" value="0" aria-label="Minimum price">
+                      <input id="price-max" class="price-range-input" type="range" min="0" max="350" step="0.01" value="350" aria-label="Maximum price">
+                    </div>
+                    <div class="price-slider-footer">
+                      <button class="button button-sm button-secondary button-zakaria" type="button" id="price-filter-btn">Filter</button>
+                      <div class="price-slider-values">Price: <strong id="price-filter-status">$0.00 &ndash; $350.00</strong></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="aside-item col-sm-6 col-md-5 col-lg-12">
+                  <h6 class="aside-title">Categories</h6>
+                  <!-- Categories: All, Seedlings, Seeds, Systems -->
+                  <ul class="list-shop-filter" id="category-filter-list">
+                    <li>
+                      <label class="checkbox-inline">
+                        <input value="all" data-cat="all" type="checkbox" checked>All
+                      </label><span class="list-shop-filter-number" id="count-all">(9)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input value="seedlings" data-cat="seedlings" type="checkbox">Seedlings
+                      </label><span class="list-shop-filter-number" id="count-seedlings">(5)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input value="seeds" data-cat="seeds" type="checkbox">Seeds
+                      </label><span class="list-shop-filter-number" id="count-seeds">(2)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input value="systems" data-cat="systems" type="checkbox">Systems
+                      </label><span class="list-shop-filter-number" id="count-systems">(2)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="aside-item col-sm-6 col-lg-12">
+                  <h6 class="aside-title">Popular products</h6>
+                  <!-- Popular products: two systems and tomato seedlings -->
+                  <div class="row row-10 row-lg-20 gutters-10">
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Producto popular: System Product #1 -->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left">
+                            <a class="product-minimal-figure" href="shop-list.html">
+                              <img class="product-image-sm" src="images/Sistemas/mini_hydroponic_system.png" alt="Hydroponic starter system">
+                            </a>
+                          </div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="shop-list.html">Starter System</a></p>
+                            <p class="product-minimal-price">$150.00</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Producto popular: System Product #2 -->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="shop-list.html"><img class="product-image-sm" src="images/Sistemas/mini_hydroponic_system_solar.png" alt="Vertical hydroponic grow system"></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="shop-list.html">Grow System</a></p>
+                            <p class="product-minimal-price">$350.00</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Producto popular: Tomato Seedlings -->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="shop-list.html"><img class="product-image-sm" src="images/Seedlings/mini_tomato_seedlings.png" alt="Tomato seedlings"></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="shop-list.html">Tomato Seedlings</a></p>
+                            <p class="product-minimal-price">$2.50</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 col-xl-9">
+              <div class="product-top-panel group-md">
+                <p class="product-top-panel-title" id="results-count-text" aria-live="polite">Showing 1&ndash;9 of 9 results</p>
+                <div>
+                  <div class="group-sm group-middle">
+                    <div class="product-top-panel-sorting">
+                      <label class="visually-hidden" for="sort-select">Sort products</label>
+                      <select class="product-sort-select" id="sort-select" aria-label="Sort products">
+                        <option value="default">Default sorting</option>
+                        <option value="popularity">Sort by popularity</option>
+                        <option value="alphabet">Sort alphabetically</option>
+                        <option value="price-low">Price: low to high</option>
+                        <option value="price-high">Price: high to low</option>
+                      </select>
+                    </div>
+                    <div class="product-view-toggle">
+                      <a class="mdi mdi-apps product-view-link product-view-grid" href="grid-shop.html" aria-label="Grid view"></a>
+                      <a class="mdi mdi-format-list-bulleted product-view-link product-view-list active" href="shop-list.html" aria-label="List view" aria-current="page"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-30 row-md-50 row-lg-60" id="product-list">
+
+                <!-- ===== SYSTEMS (2 productos) ===== -->
+
+                <div class="col-12" data-category="systems" data-price="150.00" data-name="Hydroponic Starter System" data-order="1" data-popularity="10">
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Sistemas/SISTEMA.BASE.png" alt="Hydroponic Starter System"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Hydroponic Starter System</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$150.00</div>
+                          </div>
+                          <p class="product-modern-text">A complete, beginner-friendly hydroponic system designed to grow leafy greens and herbs in small spaces with minimal setup.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-starter-system" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Hydroponic Starter System" data-cart-image="images/Sistemas/SISTEMA.BASE.png" data-cart-display-price="150.00" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-12" data-category="systems" data-price="350.00" data-name="Grow System" data-order="2" data-popularity="11">
+                  <!-- Producto: Sistema de Torre Vertical -->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Sistemas/big.system.png" alt="Vertical Grow Tower System"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Grow System</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$350.00</div>
+                          </div>
+                          <p class="product-modern-text">A space-saving vertical growing tower that lets you cultivate multiple plants indoors with efficient water circulation.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-grow-system" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Grow System" data-cart-image="images/Sistemas/big.system.png" data-cart-display-price="350.00" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- ===== SEEDLINGS (5 products) ===== -->
+
+                <div class="col-12" data-category="seedlings" data-price="2.50" data-name="Tomato Seedlings" data-order="3" data-popularity="1">
+                  <!-- Producto: plantones de Tomate -->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Seedlings/Tomato.seedlings.png" alt="Tomato Seedlings"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Tomato Seedlings</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$2.50</div>
+                          </div>
+                          <p class="product-modern-text">Healthy tomato seedlings ready for transplanting. Carefully grown to ensure strong roots, vigorous growth, and excellent adaptation to hydroponic or soil cultivation.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-tomato-seedlings" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Tomato Seedlings" data-cart-image="images/Seedlings/Tomato.seedlings.png" data-cart-display-price="2.50" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-12" data-category="seedlings" data-price="1.80" data-name="Romaine Lettuce Seedlings" data-order="4" data-popularity="2">
+                  <!-- Producto: plantones de Lechuga -->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Seedlings/planton romano.png" alt="Romaine Lettuce Seedlings"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Romaine Lettuce Seedlings</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$1.80</div>
+                          </div>
+                          <p class="product-modern-text">Fresh, healthy romaine lettuce seedlings with strong root development. Ready for transplanting into hydroponic systems or traditional gardens.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-romaine-seedlings" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Romaine Lettuce Seedlings" data-cart-image="images/Seedlings/planton romano.png" data-cart-display-price="1.80" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-12" data-category="seedlings" data-price="2.20" data-name="Chives Seedlings" data-order="5" data-popularity="4">
+                  <!-- Producto: plantones de Cebollin -->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Seedlings/chives.seedlings.png" alt="Chives Seedlings"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Chives Seedlings</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$2.20</div>
+                          </div>
+                          <p class="product-modern-text">High-quality chive seedlings with healthy green foliage and well-developed roots. Ideal for quick establishment and continuous harvests.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-chives-seedlings" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Chives Seedlings" data-cart-image="images/Seedlings/chives.seedlings.png" data-cart-display-price="2.20" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-12" data-category="seedlings" data-price="1.50" data-name="Bell Pepper Seedlings" data-order="6" data-popularity="6">
+                  <!-- Producto: Plantones de Peppers-->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Seedlings/red.bell.seedlings.png" alt="Bell Pepper Seedlings"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Bell Pepper Seedlings</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$1.50</div>
+                          </div>
+                          <p class="product-modern-text">Premium bell pepper seedlings grown for healthy development and easy transplanting. Suitable for hydroponic and conventional growing systems.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-bell-pepper-seedlings" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Bell Pepper Seedlings" data-cart-image="images/Seedlings/red.bell.seedlings.png" data-cart-display-price="1.50" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-12" data-category="seedlings" data-price="2.75" data-name="Spinach Seedlings" data-order="7" data-popularity="5">
+                  <!-- Producto: Plantones de Espinca -->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Seedlings/spinach.seedlings.png" alt="Spinach Seedlings"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Spinach Seedlings</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$2.75</div>
+                          </div>
+                          <p class="product-modern-text">Vigorous spinach seedlings with strong roots and healthy leaves. Ready for transplanting and rapid establishment in your growing system.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-spinach-seedlings" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Spinach Seedlings" data-cart-image="images/Seedlings/spinach.seedlings.png" data-cart-display-price="2.75" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- ===== SEEDS (2 products) ===== -->
+
+                <div class="col-12" data-category="seeds" data-price="2.99" data-name="Romaine Lettuce Seeds" data-order="8" data-popularity="7">
+                  <!-- Producto: Semillas de Lechuga Romana -->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Semilla/Romana.png" alt="Romaine Lettuce Seeds"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Romaine Lettuce Seeds</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$2.99</div>
+                          </div>
+                          <p class="product-modern-text">High-quality romaine lettuce seeds with excellent germination potential. Ideal for producing healthy, vigorous lettuce plants.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-romaine-seeds" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Romaine Lettuce Seeds" data-cart-image="images/Semilla/Romana.png" data-cart-display-price="2.99" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-12" data-category="seeds" data-price="2.99" data-name="Spinach Seeds" data-order="9" data-popularity="9">
+                  <!-- Producto: Semillas de Espinaca -->
+                  <article class="product-modern text-center text-sm-start">
+                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                      <div class="unit-left"><a class="product-modern-figure" href="shop-list.html"><img class="product-image-lg" src="images/Semilla/Espinaca.png" alt="Spinach Seeds"></a></div>
+                      <div class="unit-body">
+                        <div class="product-modern-body">
+                          <h4 class="product-modern-title"><a href="shop-list.html">Spinach Seeds</a></h4>
+                          <div class="product-price-wrap">
+                            <div class="product-price">$2.99</div>
+                          </div>
+                          <p class="product-modern-text">Premium spinach seeds selected for high germination and consistent growth. Perfect for hydroponic and traditional cultivation.</p>
+                          <a class="button button-primary button-zakaria" href="cart-page.html" data-cart-product-id="catalog-spinach-seeds" data-cart-seller-id="hydronexis-catalog" data-cart-seller-name="HYDRONEXIS" data-cart-product-name="Spinach Seeds" data-cart-image="images/Semilla/Espinaca.png" data-cart-display-price="2.99" data-cart-max-quantity="99">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+              </div>
+              <p id="marketplaceActionFeedback" class="shop-list-feedback" role="status" aria-live="polite" hidden></p>
+              <p id="no-results-message" style="display:none; text-align:center; padding:40px 0; font-size:16px; color:#7a7a7a;">No products match the selected filters.</p>
+              <div class="pagination-wrap">
+                <!-- Bootstrap Pagination-->
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    <li class="page-item page-item-control disabled"><span class="page-link" aria-label="Previous"><span class="icon" aria-hidden="true"></span></span></li>
+                    <li class="page-item active"><span class="page-link">1</span></li>
+                    <li class="page-item page-item-control disabled"><span class="page-link" aria-label="Next"><span class="icon" aria-hidden="true"></span></span></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </main>
+
+<!-- PIE DE PÁGINA -->
+<footer class="section footer-classic">
+
+  <div class="footer-classic-body section-lg">
+    <div class="container">
+
+      <div class="row row-40 row-md-50 justify-content-xl-between">
+
+        <!-- LOGO, HORARIO Y REDES SOCIALES -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight">
+
+          <div class="footer-classic-brand">
+
+            <!-- Brand -->
+            <a class="brand">
+              <img
+                class="brand-logo-dark"
+                src="images/logo20.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+
+              <img
+                class="brand-logo-light"
+                src="images/logo-inverse-280x92.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+            </a>
+
+          </div>
+
+          <!-- Horario -->
+          <ul class="list-schedule">
+            <li>
+              <span>Weekdays:</span>
+              <span>01:00pm - 05:00pm</span>
+            </li>
+          </ul>
+
+          <!-- Redes sociales -->
+          <div class="footer-classic-social">
+            <div class="group-lg group-middle">
+
+              <p>Get Social</p>
+
+              <div>
+                <ul class="list-inline list-social list-inline-sm">
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-facebook"
+                      href="https://www.facebook.com/profile.php?id=61592514343911&mibextid=wwXIfr&rdid=832Ux9HTHNTAu76G&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19NXnrFn9S%2F%3Fmibextid%3DwwXIfr#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-twitter"
+                      href="https://x.com/hydronexisinfo?s=11"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="X"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-instagram"
+                      href="https://www.instagram.com/hydronexis.pa?igsh=dTYwbHd5dDN4a2ds"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    ></a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- CONTACTOS -->
+        <div
+          class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight"
+          data-wow-delay=".1s"
+        >
+
+          <h4 class="footer-classic-title">Contacts</h4>
+
+          <ul class="contacts-creative">
+
+            <!-- Ubicación -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/Maps.png"
+                    alt="Ubicación"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=La+Ciudad+del+Niño+La+Chorrera+Panamá+Oeste+Panamá"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    La Ciudad del Niño,<br>
+                    La Chorrera<br>
+                    Panamá Oeste, Panamá
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Teléfono -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/phone.png"
+                    alt="Teléfono"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="tel:+50769857901">
+                    +507 6985-7901
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Gmail de contacto -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/email.png"
+                    alt="Gmail"
+                    class="footer-contact-icon footer-gmail-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="mailto:hydronexis@gmail.com">
+                    info.hydronexis@gmail.com
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- NEXIS Y FORMULARIO DE CORREO -->
+        <div
+          class="col-lg-4 wow fadeInRight"
+          data-wow-delay=".2s"
+        >
+
+          <div class="nexis-footer-card">
+            <div class="nexis-footer-content">
+
+              <h4 class="footer-classic-title">Meet Nexis</h4>
+
+              <p>
+                Your intelligent guide to hydroponics, innovation,
+                and sustainable growing.
+              </p>
+
+
+            </div>
+          </div>
+
+          <!-- Formulario de suscripción -->
+          <form
+            class="rd-form rd-mailform rd-form-inline rd-form-inline-2 footer-email-form"
+            data-form-output="form-output-global"
+            data-form-type="subscribe"
+            method="post"
+          >
+
+            <div class="form-wrap">
+
+              <input
+                class="form-input"
+                id="subscribe-form-2-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                data-constraints="@Email @Required"
+                required
+              >
+
+              <label
+                class="form-label"
+                for="subscribe-form-2-email"
+              >
+                Enter your e-mail
+              </label>
+
+            </div>
+
+            <div class="form-button">
+
+              <button
+                class="button button-icon-2 button-zakaria button-secondary footer-email-button"
+                type="submit"
+                aria-label="Enviar correo"
+              >
+                <img
+                  src="images/icon/email.png"
+                  alt=""
+                  class="submit-icon"
+                >
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PANEL INFERIOR -->
+  <div class="footer-classic-panel">
+    <div class="container">
+
+      <div class="row row-10 align-items-center justify-content-sm-between">
+
+        <div class="col-md-auto">
+          <p class="rights">
+            <span>&copy;&nbsp;</span>
+            <span class="copyright-year"></span>
+            <span>&nbsp;</span>
+            <span>HydroNexis</span>
+            <span>.&nbsp; All rights reserved.</span>
+          </p>
+        </div>
+
+        <div class="col-md-auto order-md-1">
+          <a href="terms-of-use.html">
+            Privacy Policy
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+
+  <div class="snackbars" id="form-output-global"></div>
+
+  <script src="js/header.js"></script>
+  <script src="js/shop-list.js"></script>
+  <script type="module" src="js/marketplace-actions.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* TERMS AND CONDITIONS */
+
+.terms-intro-text {
+  max-width: 850px;
+  margin: 25px auto 35px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.terms-full-content {
+  display: none;
+  margin-top: 70px;
+}
+
+.terms-full-content.is-visible {
+  display: flex;
+  animation: termsFadeIn 0.45s ease;
+}
+
+.terms-document {
+  padding: 45px;
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.terms-last-update {
+  margin-top: 15px;
+  margin-bottom: 45px;
+  color: #888888;
+}
+
+.terms-item {
+  margin-bottom: 38px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.terms-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.terms-item h4 {
+  margin-bottom: 15px;
+}
+
+.terms-item p {
+  margin-bottom: 14px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.terms-return-area {
+  margin-top: 45px;
+}
+
+@keyframes termsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .terms-document {
+    padding: 28px 20px;
+  }
+
+  .terms-intro-text {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .terms-item p {
+    font-size: 15px;
+    text-align: left;
+  }
+}

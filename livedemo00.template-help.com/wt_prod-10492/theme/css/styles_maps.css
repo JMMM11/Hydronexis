@@ -1,0 +1,727 @@
+/* =========================
+   FUENTES
+========================= */
+
+@font-face {
+    font-family: "Optima";
+    src: url("../fonts/Optima.woff") format("woff"),
+         url("../fonts/OPTIMA.TTF") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hydronexis Special Characters";
+    src: local("Segoe UI"),
+         url("../fonts/Helvetica.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0080-024F,
+        U+0300-036F,
+        U+1E00-1EFF,
+        U+2000-206F,
+        U+20A0-20CF;
+}
+
+@font-face {
+    font-family: "Optima Italic";
+    src: url("../fonts/Optima_Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "HelveticaThai";
+    src: url("../fonts/helvetica-light-587ebe5a59211.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --dark: #1e3b17;
+    --dark-2: #679e5a;
+
+    --mint: #e9f1e6;
+    --mint-light: #f6f9f5;
+
+    --gold: #c68c49;
+    --gold-light: #ead2b7;
+
+    --white: #ffffff;
+    --text: #53604f;
+    --border: #d9e2d6;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    /* FUENTE PRINCIPAL */
+    font-family: "Optima", Arial, Helvetica, sans-serif;
+
+    background: var(--mint-light);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    min-height: 72px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+    background: linear-gradient(
+        135deg,
+        #0c2e27,
+        var(--dark),
+        var(--dark-2)
+    );
+    border-bottom: 3px solid var(--gold);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-mark {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--dark);
+    background: var(--gold-light);
+    font-weight: 800;
+}
+
+.brand strong,
+.brand span {
+    display: block;
+}
+
+.brand strong {
+    font-family: "Optima", "Optima", serif;
+}
+
+.brand span {
+    margin-top: 3px;
+    color: var(--mint);
+    font-family: "HelveticaThai", "Optima", sans-serif;
+    font-size: 12px;
+}
+
+.connection-badge {
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: var(--dark);
+    background: var(--gold-light);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   MAPA
+========================= */
+
+.map-layout {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+}
+
+.sidebar {
+    padding: 24px;
+    overflow-y: auto;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-family: "HelveticaThai", "Optima", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.sidebar-intro h1 {
+    margin: 7px 0 8px;
+    color: var(--dark);
+    font-family: "Optima", "Optima", serif;
+    font-size: 25px;
+    line-height: 1.15;
+}
+
+.sidebar-intro p {
+    margin: 0 0 22px;
+    color: var(--text);
+    font-family: "Optima", sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.search-box > label,
+.filter-grid label {
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.search-row {
+    display: grid;
+    grid-template-columns: 1fr 44px;
+    gap: 8px;
+    margin-top: 7px;
+}
+
+.search-row input,
+select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--white);
+    outline: none;
+}
+
+.search-row input:focus,
+select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(205, 164, 52, .14);
+}
+
+.icon-button {
+    border: 0;
+    border-radius: 9px;
+    color: var(--dark);
+    background: var(--gold-light);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.filter-grid select {
+    margin-top: 7px;
+}
+
+.sidebar-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.button {
+    min-height: 42px;
+    border: 0;
+    border-radius: 9px;
+    font-family: "Optima", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.button-dark {
+    color: var(--white);
+    background: var(--dark-2);
+}
+
+.button-mint {
+    color: var(--dark);
+    background: var(--mint);
+}
+
+
+/* =========================
+   RESULTADOS
+========================= */
+
+.results-heading {
+    margin-top: 22px;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+}
+
+.results-heading h2 {
+    margin: 0;
+    color: var(--dark);
+    font-family: "Optima", serif;
+    font-size: 16px;
+}
+
+.results-heading span {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    color: var(--dark);
+    background: var(--gold-light);
+    font-weight: 800;
+}
+
+.places-list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.place-card {
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.place-card:hover {
+    border-color: var(--gold);
+    background: var(--mint-light);
+    transform: translateY(-1px);
+}
+
+.place-card h3 {
+    margin: 0 0 6px;
+    color: var(--dark);
+    font-family: "Optima", serif;
+    font-size: 15px;
+}
+
+.place-card p {
+    margin: 4px 0;
+    color: var(--text);
+    font-size: 12px;
+}
+
+.product-pill {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: var(--dark);
+    background: var(--mint);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.empty-results {
+    padding: 18px;
+    border-radius: 10px;
+    color: var(--text);
+    background: var(--mint-light);
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/* =========================
+   PANEL DEL MAPA
+========================= */
+
+.map-panel {
+    min-width: 0;
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    background: var(--mint);
+}
+
+.map-message {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    z-index: 1000;
+    transform: translateX(-50%);
+    padding: 11px 16px;
+    border-radius: 9px;
+    color: var(--white);
+    background: var(--dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   MARCADOR
+========================= */
+
+.hydronexis-marker {
+    background: transparent;
+    border: 0;
+}
+
+.marker-pin {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border: 3px solid var(--white);
+    border-radius: 50% 50% 50% 0;
+    color: var(--dark);
+    background: linear-gradient(
+        145deg,
+        var(--gold-light),
+        var(--gold)
+    );
+    box-shadow: 0 7px 15px rgba(18, 60, 50, .35);
+    transform: rotate(-45deg);
+}
+
+.marker-pin svg {
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+.place-popup h3 {
+    margin: 0 0 9px;
+    color: var(--dark);
+    font-family: "Optima", serif;
+}
+
+.place-popup p {
+    margin: 5px 0;
+    color: var(--text);
+    font-size: 13px;
+}
+
+
+/* =========================
+   REGISTRO DE VENDEDORES
+========================= */
+
+.brand-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar-link {
+    padding: 9px 13px;
+    border: 1px solid rgba(231, 199, 95, .65);
+    border-radius: 9px;
+    color: var(--dark);
+    background: var(--gold-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.form-page {
+    min-height: 100%;
+    background: linear-gradient(
+        145deg,
+        var(--mint-light),
+        #ffffff
+    );
+}
+
+.form-shell {
+    width: min(100% - 32px, 920px);
+    margin: 36px auto;
+}
+
+.form-card {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 18px 55px rgba(18, 60, 50, .12);
+}
+
+.form-card-header h1 {
+    margin: 8px 0;
+    color: var(--dark);
+    font-family: "Optima", serif;
+    font-size: clamp(25px, 4vw, 36px);
+}
+
+.form-card-header p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* =========================
+   AUTENTICACIÓN
+========================= */
+
+.auth-panel {
+    margin: 24px 0;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--mint-light);
+}
+
+.auth-panel > div {
+    flex: 1;
+}
+
+.auth-panel strong {
+    color: var(--dark);
+}
+
+.auth-panel p {
+    margin: 4px 0 0;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.button-gold {
+    color: var(--dark);
+    background: var(--gold-light);
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.seller-form fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.seller-form fieldset:disabled {
+    opacity: .55;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-field-wide {
+    grid-column: 1 / -1;
+}
+
+.form-field input {
+    width: 100%;
+    height: 46px;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    background: var(--white);
+}
+
+.form-field input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(205, 164, 52, .14);
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.form-message {
+    min-height: 22px;
+    margin: 18px 0 0;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.form-message.success {
+    color: #176b4b;
+}
+
+.form-message.error {
+    color: #a12b2b;
+}
+
+
+/* =========================
+   CLASES OPCIONALES DE FUENTE
+========================= */
+
+/* Para cualquier elemento que quieras en Optima */
+.font-optima {
+    font-family: "Optima", sans-serif;
+}
+
+/* Para textos en cursiva */
+.font-optima-italic {
+    font-family: "Optima Italic", "Optima", sans-serif;
+    font-style: italic;
+}
+
+/* Para texto más ligero */
+.font-helvetica {
+    font-family: "HelveticaThai", Arial, sans-serif;
+    font-weight: 300;
+}
+
+/* Para títulos elegantes */
+.font-monterchi {
+    font-family: "Optima", Georgia, serif;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 760px) {
+
+    .map-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 540px;
+    }
+
+    .sidebar {
+        max-height: 440px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .connection-badge {
+        display: none;
+    }
+}
+
+@media (max-width: 680px) {
+
+    .topbar-actions .connection-badge {
+        display: none;
+    }
+
+    .form-card {
+        padding: 22px;
+    }
+
+    .auth-panel {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field-wide {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  width: 180px;  /* cambia este valor para hacerla más grande o pequeña */
+  height: auto;
+  display: block;
+}
+
+/* Tipografia global de las pantallas de mapas. */
+:root {
+  --hydronexis-font-family: "Hydronexis Special Characters", "Optima", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+optgroup {
+  font-family: var(--hydronexis-font-family) !important;
+}
+
+body *:not(.fa):not([class^="fa-"]):not([class*=" fa-"]):not(.mdi):not([class^="mdi-"]):not([class*=" mdi-"]):not(.material-symbols-rounded):not(.material-symbols-outlined):not([class^="fl-"]):not([class*=" fl-"]):not(.lg-icon):not(.owl-video-play-icon) {
+  font-family: var(--hydronexis-font-family) !important;
+}

@@ -1,0 +1,195 @@
+/* ===========================================================
+   Shop List — page-specific styles
+   Extracted from the inline <style> block in shop-list.html
+=========================================================== */
+
+.price-slider-box {
+  margin-top: 6px;
+}
+
+.price-slider {
+  position: relative;
+  height: 44px;
+  margin: 8px 0 24px;
+}
+
+.price-slider-track,
+.price-slider-range {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  border-radius: 10px;
+}
+
+.price-slider-track {
+  background: #f1f1f1;
+}
+
+.price-slider-range {
+  right: 0;
+  width: auto;
+  background: #c68c49;
+}
+
+.price-range-input {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 27px;
+  margin: 0;
+  background: transparent;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.price-range-input::-webkit-slider-runnable-track {
+  height: 7px;
+  background: transparent;
+  border: 0;
+}
+
+.price-range-input::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+  margin-top: -8px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #c68c49;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .22);
+  cursor: pointer;
+  pointer-events: auto;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.price-range-input::-moz-range-track {
+  height: 7px;
+  background: transparent;
+  border: 0;
+}
+
+.price-range-input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #c68c49;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .22);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.price-slider-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.price-slider-footer .button {
+  flex: 0 0 auto;
+}
+
+.price-slider-values {
+  color: #111;
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.price-slider-values strong {
+  font-weight: 400;
+}
+
+.product-sort-select {
+  min-width: 220px;
+  padding: 11px 42px 11px 14px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.product-image-lg {
+  display: block;
+  width: 328px;
+  max-width: 100%;
+  height: 330px;
+  object-fit: cover;
+  background: #f4f2ee;
+}
+
+.product-image-sm {
+  display: block;
+  width: 106px;
+  height: 104px;
+  object-fit: cover;
+  background: #f4f2ee;
+}
+
+.shop-list-feedback {
+  margin: 28px 0 0;
+  padding: 14px 18px;
+  border-left: 4px solid #679e5a;
+  background: #eef5ea;
+  color: #1e3b17;
+}
+
+.shop-list-feedback.is-error {
+  border-left-color: #b94a48;
+  background: #f9ecea;
+  color: #7d2725;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+#product-list [data-category][style*="display: none"] {
+  display: none;
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .price-slider-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .product-sort-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .product-image-lg {
+    width: 100%;
+    height: 260px;
+  }
+}
+
+@media (max-width: 420px) {
+  .price-slider-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .price-slider-values {
+    font-size: 15px;
+  }
+}

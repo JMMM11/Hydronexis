@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+  
+<!-- Mirrored from livedemo00.template-help.com/wt_prod-10492/theme/grid-shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jun 2026 15:36:40 GMT -->
+<head>
+    <title>Marketplace | HYDRONEXIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/commerce.css">
+    <style>.plan-guard-pending body { visibility: hidden; }</style>
+    <script type="module" src="js/plan-guard.js"></script>
+  </head>
+  <body data-required-permission="marketplace">
+    <div id="header"></div>
+
+      <section class="breadcrumbs-custom">
+        <div class="parallax-container" data-parallax-img="images/darks.png">
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">Marketplace</h2>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom-footer">
+          <div class="container">
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="grid-shop.html">Shop</a></li>
+              <li class="active">Grid Shop</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Section Shop-->
+      <section class="section section-xxl bg-default text-md-start">
+        <div class="container">
+          <div class="row row-50">
+            <div class="col-lg-4 col-xl-3">
+              <div class="aside row row-30 row-md-50 justify-content-md-between">
+                <div class="aside-item col-12">
+                  <h6 class="aside-title">Filter by Price</h6>
+                  <!-- RD Range (custom functional dual slider) -->
+                  <div class="rd-range custom-price-range" id="price-range" data-min="0" data-max="3" data-step="0.05">
+                    <div class="custom-range-track">
+                      <div class="custom-range-highlight" id="price-range-highlight"></div>
+                    </div>
+                    <input type="range" class="custom-range-input" id="price-range-min" min="0" max="3" step="0.05" value="0">
+                    <input type="range" class="custom-range-input" id="price-range-max" min="0" max="3" step="0.05" value="3">
+                  </div>
+                  <div class="group-xs group-justify">
+                    <div>
+                      <button class="button button-sm button-secondary button-zakaria" type="button" id="price-filter-btn">Filter</button>
+                    </div>
+                    <div>
+                      <div class="rd-range-wrap">
+                        <div class="rd-range-title">Price:</div>
+                        <div class="rd-range-form-wrap"><span>$</span>
+                          <input class="rd-range-input rd-range-input-value-1" id="price-value-1" type="text" name="value-1" readonly>
+                        </div>
+                        <div class="rd-range-divider"></div>
+                        <div class="rd-range-form-wrap"><span>$</span>
+                          <input class="rd-range-input rd-range-input-value-2" id="price-value-2" type="text" name="value-2" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="aside-item col-sm-6 col-md-5 col-lg-12">
+                  <h6 class="aside-title">Categories</h6>
+                  <ul class="list-shop-filter" id="category-filter-list">
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="input-group-radio" value="checkbox-1" data-cat="all" type="checkbox" checked>All
+                      </label><span class="list-shop-filter-number">(9)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="input-group-radio" value="checkbox-2" data-cat="leafy" type="checkbox">Leafy Greens
+                      </label><span class="list-shop-filter-number">(3)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="input-group-radio" value="checkbox-3" data-cat="fruit" type="checkbox">Fruit Vegetables
+                      </label><span class="list-shop-filter-number">(4)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="input-group-radio" value="checkbox-4" data-cat="herbs" type="checkbox">Herbs & Steams
+                      </label><span class="list-shop-filter-number">(1)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="input-group-radio" value="checkbox-5" data-cat="root" type="checkbox">Root Vegetables
+                      </label><span class="list-shop-filter-number">(1)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="aside-item col-sm-6 col-lg-12">
+                  <h6 class="aside-title">Popular products</h6>
+                  <div class="row row-10 row-lg-20 gutters-10">
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Product Minimal-->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="sellers-tomatoes.html"><img src="images/product-mini-1-106x104.png" alt="Tomato" width="106" height="104"/></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="sellers-tomatoes.html">Tomato</a></p>
+                            <p class="product-minimal-price">(3) Sellers</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Product Minimal-->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="sellers-butterhead-lettuce.html"><img src="images/product-mini-2-106x104.png" alt="Butterhead Lettuce" width="106" height="104"/></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="sellers-butterhead-lettuce.html">Butterhead Lettuce</a></p>
+                            <p class="product-minimal-price">(3) Sellers</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Product Minimal-->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="sellers-romaine-lettuce.html"><img src="images/product-mini-3-106x104.png" alt="Romaine Lettuce" width="106" height="104"/></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="sellers-romaine-lettuce.html">Romaine Lettuce</a></p>
+                            <p class="product-minimal-price">(3) Sellers</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+                <!-- Buyers Map preview: links out to the real interactive map (maps.html) -->
+                <div class="aside-item col-sm-6 col-lg-12">
+                  <h6 class="aside-title">Buyer Locations</h6>
+                  <p class="buyers-map-text">Here you can see our buyers and where they're located.</p>
+                  <a href="maps.html" class="buyers-map-preview" aria-label="Open interactive buyers map">
+                    <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" class="buyers-map-svg" role="img" aria-hidden="true">
+                      <rect width="400" height="260" fill="#eee9e0"/>
+                      <path d="M0,130 C80,105 150,190 230,155 C290,130 350,175 400,150" stroke="#cfe3d0" stroke-width="20" fill="none"/>
+                      <path d="M55,0 L75,260" stroke="#f2c9a0" stroke-width="7" fill="none" opacity="0.55"/>
+                      <path d="M0,55 L400,85" stroke="#e3dac8" stroke-width="4" fill="none"/>
+                      <path d="M0,195 L400,215" stroke="#e3dac8" stroke-width="4" fill="none"/>
+                      <g>
+                        <circle cx="115" cy="75" r="9" fill="#c99356"/>
+                        <circle cx="115" cy="75" r="3" fill="#fff"/>
+                      </g>
+                      <g>
+                        <circle cx="235" cy="150" r="9" fill="#c99356"/>
+                        <circle cx="235" cy="150" r="3" fill="#fff"/>
+                      </g>
+                      <g>
+                        <circle cx="305" cy="95" r="9" fill="#c99356"/>
+                        <circle cx="305" cy="95" r="3" fill="#fff"/>
+                      </g>
+                    </svg>
+                    <span class="buyers-map-overlay">
+                      <span class="mdi mdi-map-marker"></span> View interactive map
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 col-xl-9">
+              <section class="marketplace-live-section" aria-labelledby="marketplace-live-title">
+                <div class="marketplace-live-heading">
+                  <div>
+                    <span class="commerce-eyebrow">GO GREEN SELLERS</span>
+                    <h3 id="marketplace-live-title">Products Published by Our Sellers</h3>
+                  </div>
+                  <p id="marketplace-live-status" role="status" aria-live="polite">Loading published products...</p>
+                </div>
+
+                <div class="marketplace-live-controls" role="search" aria-label="Filter published seller products">
+                  <label class="marketplace-live-search">
+                    <span>Search</span>
+                    <input id="marketplace-search" type="search" placeholder="Product, seller or location">
+                  </label>
+                  <label>
+                    <span>Category</span>
+                    <select id="marketplace-live-category">
+                      <option value="">All categories</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Availability</span>
+                    <select id="marketplace-live-availability">
+                      <option value="">Any availability</option>
+                      <option value="available">Available</option>
+                      <option value="low_stock">Low stock</option>
+                      <option value="out_of_stock">Out of stock</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Seller</span>
+                    <select id="marketplace-live-seller">
+                      <option value="">All sellers</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Location</span>
+                    <select id="marketplace-live-location">
+                      <option value="">All locations</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Operation</span>
+                    <select id="marketplace-live-operation">
+                      <option value="">Sale or exchange</option>
+                      <option value="sale">For sale</option>
+                      <option value="exchange">Exchange enabled</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Minimum price</span>
+                    <input id="marketplace-live-min-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="$0.00">
+                  </label>
+                  <label>
+                    <span>Maximum price</span>
+                    <input id="marketplace-live-max-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="No maximum">
+                  </label>
+                </div>
+
+                <div class="row row-30" id="marketplace-live-grid" aria-live="polite" aria-busy="true"></div>
+              </section>
+
+              <div class="product-top-panel group-md">
+                <div>
+                  <div class="group-sm group-middle">
+                    <div class="product-view-toggle"><a class="mdi mdi-apps product-view-link product-view-grid active" href="grid-shop.html"></a><a class="mdi mdi-format-list-bulleted product-view-link product-view-list" href="shop-list.html"></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-30 row-lg-50" id="product-grid">
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="leafy" data-price="0.60">
+
+
+                  <!-- Product: Romaine Lettuce -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-romaine-lettuce.html"><img src="images/product-1-220x160.png" alt="Romaine Lettuce" width="220" height="160"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-romaine-lettuce.html">ROMAINE LETTUCE</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-romaine-lettuce.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="fruit" data-price="1.15">
+
+
+                  <!-- Product: Tomatoes -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-tomatoes.html"><img src="images/product-2-191x132.png" alt="Tomatoes" width="191" height="132"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-tomatoes.html">TOMATOES</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-tomatoes.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="leafy" data-price="2.95">
+                <!-- Product: Spinach -->
+              <article class="product">
+                <div class="product-body">
+                  <div class="product-figure">
+                    <a href="sellers-spinach.html">
+                      <img src="images/product-3-238x158.png" alt="Spinach" width="238" height="158"/>
+                    </a>
+                  </div>
+
+                  <h5 class="product-title">
+                    <a href="sellers-spinach.html">SPINACH</a>
+                  </h5>
+
+                  <div class="product-price-wrap">
+                    <div class="product-price">(3) Sellers</div>
+                  </div>
+                </div>
+
+                <!-- Botón -->
+                <div class="product-button-wrap">
+                  <div class="product-button">
+                    <a class="button button-primary button-zakaria" href="sellers-spinach.html">
+                      <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                    </a>
+                  </div>
+                </div>
+
+              </article>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="herbs" data-price="0.30">
+                  <!-- Product: Chives -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-chives.html"><img src="images/product-4-204x125.png" alt="Chives" width="204" height="125"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-chives.html">CHIVES</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-chives.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="leafy" data-price="0.65">
+                  <!-- Product: Butterhead Lettuce -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-butterhead-lettuce.html"><img src="images/product-5-204x156.png" alt="Butterhead Lettuce" width="204" height="156"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-butterhead-lettuce.html">BUTTERHEAD LETTUCE</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-butterhead-lettuce.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="root" data-price="0.65">
+                  <!-- Product: Radish -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-radish.html"><img src="images/product-6-237x156.png" alt="Radish" width="237" height="156"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-radish.html">RADISH</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-radish.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="fruit" data-price="2.00">
+                  <!-- Product: Red Bell Peppers -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-red-bell-peppers.html"><img src="images/product-7-210x168.png" alt="Red Bell Peppers" width="210" height="168"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-red-bell-peppers.html">RED BELL PEPPERS</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-red-bell-peppers.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="fruit" data-price="2.00">
+                  <!-- Product: Yellow Bell Peppers -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-yellow-bell-peppers.html"><img src="images/product-8-210x133.png" alt="Yellow Bell Peppers" width="210" height="133"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-yellow-bell-peppers.html">YELLOW BELL PEPPERS</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-yellow-bell-peppers.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4" data-category="fruit" data-price="2.00">
+                  <!-- Product: Green Bell Peppers -->
+                  <article class="product">
+                    <div class="product-body">
+                      <div class="product-figure"><a href="sellers-green-bell-peppers.html"><img src="images/product-9-185x155.png" alt="Green Bell Peppers" width="185" height="155"/></a>
+                      </div>
+                      <h5 class="product-title"><a href="sellers-green-bell-peppers.html">GREEN BELL PEPPERS</a></h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">(3) Sellers</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria" href="sellers-green-bell-peppers.html">
+                          <img src="images/icon/shopping-cart.png" alt="View Sellers" class="product-button-icon">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <p id="no-results-message" style="display:none; text-align:center; padding:40px 0; font-size:16px; color:#7a7a7a;">No hay productos que coincidan con los filtros seleccionados.</p>
+              <div class="pagination-wrap">
+                <!-- Bootstrap Pagination-->
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    <li class="page-item page-item-control disabled"><a class="page-link" href="#" aria-label="Previous"><span class="icon" aria-hidden="true"></span></a></li>
+                    <li class="page-item active"><span class="page-link">1</span></li>
+
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- PIE DE PÁGINA -->
+<footer class="section footer-classic">
+
+  <div class="footer-classic-body section-lg">
+    <div class="container">
+
+      <div class="row row-40 row-md-50 justify-content-xl-between">
+
+        <!-- LOGO, HORARIO Y REDES SOCIALES -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight">
+
+          <div class="footer-classic-brand">
+
+            <!-- Brand -->
+            <a class="brand">
+              <img
+                class="brand-logo-dark"
+                src="images/logo20.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+
+              <img
+                class="brand-logo-light"
+                src="images/logo-inverse-280x92.png"
+                alt="Logo de HydroNexis"
+                width="140"
+                height="46"
+              >
+            </a>
+
+          </div>
+
+          <!-- Horario -->
+          <ul class="list-schedule">
+            <li>
+              <span>Weekdays:</span>
+              <span>01:00pm - 05:00pm</span>
+            </li>
+          </ul>
+
+          <!-- Redes sociales -->
+          <div class="footer-classic-social">
+            <div class="group-lg group-middle">
+
+              <p>Get Social</p>
+
+              <div>
+                <ul class="list-inline list-social list-inline-sm">
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-facebook"
+                      href="https://www.facebook.com/profile.php?id=61592514343911&mibextid=wwXIfr&rdid=832Ux9HTHNTAu76G&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19NXnrFn9S%2F%3Fmibextid%3DwwXIfr#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-twitter"
+                      href="https://x.com/hydronexisinfo?s=11"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="X"
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="icon mdi mdi-instagram"
+                      href="https://www.instagram.com/hydronexis.pa?igsh=dTYwbHd5dDN4a2ds"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    ></a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- CONTACTOS -->
+        <div
+          class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight"
+          data-wow-delay=".1s"
+        >
+
+          <h4 class="footer-classic-title">Contacts</h4>
+
+          <ul class="contacts-creative">
+
+            <!-- Ubicación -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/Maps.png"
+                    alt="Ubicación"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=La+Ciudad+del+Niño+La+Chorrera+Panamá+Oeste+Panamá"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    La Ciudad del Niño,<br>
+                    La Chorrera<br>
+                    Panamá Oeste, Panamá
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Teléfono -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/phone.png"
+                    alt="Teléfono"
+                    class="footer-contact-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="tel:+50769857901">
+                    +507 6985-7901
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+            <!-- Gmail de contacto -->
+            <li>
+              <div class="unit unit-spacing-sm flex-row footer-contact-item">
+
+                <div class="unit-left footer-contact-icon-box">
+                  <img
+                    src="images/icon/email.png"
+                    alt="Gmail"
+                    class="footer-contact-icon footer-gmail-icon"
+                  >
+                </div>
+
+                <div class="unit-body">
+                  <a href="mailto:hydronexis@gmail.com">
+                    info.hydronexis@gmail.com
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- NEXIS Y FORMULARIO DE CORREO -->
+        <div
+          class="col-lg-4 wow fadeInRight"
+          data-wow-delay=".2s"
+        >
+
+          <div class="nexis-footer-card">
+            <div class="nexis-footer-content">
+
+              <h4 class="footer-classic-title">Meet Nexis</h4>
+
+              <p>
+                Your intelligent guide to hydroponics, innovation,
+                and sustainable growing.
+              </p>
+
+
+            </div>
+          </div>
+
+          <!-- Formulario de suscripción -->
+          <form
+            class="rd-form rd-mailform rd-form-inline rd-form-inline-2 footer-email-form"
+            data-form-output="form-output-global"
+            data-form-type="subscribe"
+            method="post"
+          >
+
+            <div class="form-wrap">
+
+              <input
+                class="form-input"
+                id="subscribe-form-2-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                data-constraints="@Email @Required"
+                required
+              >
+
+              <label
+                class="form-label"
+                for="subscribe-form-2-email"
+              >
+                Enter your e-mail
+              </label>
+
+            </div>
+
+            <div class="form-button">
+
+              <button
+                class="button button-icon-2 button-zakaria button-secondary footer-email-button"
+                type="submit"
+                aria-label="Enviar correo"
+              >
+                <img
+                  src="images/icon/email.png"
+                  alt=""
+                  class="submit-icon"
+                >
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PANEL INFERIOR -->
+  <div class="footer-classic-panel">
+    <div class="container">
+
+      <div class="row row-10 align-items-center justify-content-sm-between">
+
+        <div class="col-md-auto">
+          <p class="rights">
+            <span>&copy;&nbsp;</span>
+            <span class="copyright-year"></span>
+            <span>&nbsp;</span>
+            <span>HydroNexis</span>
+            <span>.&nbsp; All rights reserved.</span>
+          </p>
+        </div>
+
+        <div class="col-md-auto order-md-1">
+          <a href="terms-of-use.html">
+            Privacy Policy
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+<!-- FIN DEL PIE DE PÁGINA -->
+ 
+    <!-- Custom styles for the functional price slider -->
+    <style>
+      .custom-price-range{position:relative;height:36px;margin:10px 0 6px;}
+      .custom-range-track{position:absolute;top:50%;left:0;right:0;height:4px;background:#e4e0d9;border-radius:4px;transform:translateY(-50%);}
+      .custom-range-highlight{position:absolute;top:0;bottom:0;left:0;right:0;background:#c99356;border-radius:4px;}
+      .custom-range-input{position:absolute;top:50%;left:0;width:100%;margin:0;transform:translateY(-50%);appearance:none;-webkit-appearance:none;background:transparent;pointer-events:none;height:20px;}
+      .custom-range-input::-webkit-slider-runnable-track{-webkit-appearance:none;background:transparent;}
+      .custom-range-input::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:16px;height:16px;border-radius:50%;background:#c99356;cursor:pointer;box-shadow:0 0 0 2px #fff, 0 1px 3px rgba(0,0,0,.25);margin-top:0;}
+      .custom-range-input::-moz-range-track{background:transparent;border:none;}
+      .custom-range-input::-moz-range-thumb{pointer-events:auto;width:16px;height:16px;border-radius:50%;background:#c99356;cursor:pointer;box-shadow:0 0 0 2px #fff, 0 1px 3px rgba(0,0,0,.25);border:none;}
+      .rd-range-input[readonly]{background:transparent;cursor:default;}
+      .product[data-hidden="true"]{display:none !important;}
+      .col-sm-6[data-hidden-col="true"]{display:none !important;}
+
+      /* Product grid alignment */
+      #product-grid > [data-category]{display:flex;}
+      #product-grid .product{width:100%;}
+
+      /* Icono de imagen para los botones de cada producto */
+      .product-button .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .product-button-icon {
+        width: 26px;
+        height: 26px;
+        object-fit: contain;
+        display: block;
+      }
+
+      /* Tarjeta de vista previa del mapa de compradores (enlaza a maps.html) */
+      .buyers-map-text{font-size:14px;line-height:1.5;color:#7a7a7a;margin-bottom:14px;}
+      .buyers-map-preview{position:relative;display:block;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:box-shadow .2s ease;}
+      .buyers-map-preview:hover{box-shadow:0 4px 14px rgba(0,0,0,.2);}
+      .buyers-map-svg{display:block;width:100%;height:auto;}
+      .buyers-map-overlay{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(0deg, rgba(0,0,0,.6), rgba(0,0,0,0));color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;}
+      .buyers-map-overlay .mdi{font-size:16px;}
+
+      /* Seller products published from Seller Dashboard */
+      .marketplace-live-section{margin-bottom:42px;padding:clamp(22px,4vw,36px);border:1px solid rgba(103,158,90,.28);border-radius:22px;background:#fffdf8;box-shadow:0 16px 38px rgba(30,59,23,.08);}
+      .marketplace-live-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px;}
+      .marketplace-live-heading h3{margin:0;color:#1e3b17;font-size:clamp(25px,3vw,34px);}
+      .marketplace-live-heading p{max-width:280px;margin:0;color:rgba(30,59,23,.68);font-size:14px;text-align:right;}
+      .marketplace-live-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:28px;}
+      .marketplace-live-controls label{display:grid;gap:6px;margin:0;color:#1e3b17;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+      .marketplace-live-controls input,.marketplace-live-controls select{width:100%;min-height:44px;padding:9px 11px;border:1px solid #ccd6c8;border-radius:9px;background:#fff;color:#263523;font:inherit;font-size:14px;letter-spacing:normal;text-transform:none;}
+      .marketplace-live-controls input:focus,.marketplace-live-controls select:focus{border-color:#679e5a;outline:3px solid rgba(103,158,90,.18);}
+      .marketplace-live-search{grid-column:span 2;}
+      #marketplace-live-grid{margin-top:0;}
+      #marketplace-live-grid[aria-busy="true"]{min-height:120px;}
+      .marketplace-live-product{display:flex;}
+      .marketplace-live-card{width:100%;height:100%;}
+      .marketplace-live-card .product-body{height:100%;}
+      .marketplace-live-card .product-figure{display:grid;min-height:180px;place-items:center;overflow:hidden;border-radius:12px;background:rgba(103,158,90,.08);}
+      .marketplace-live-card .product-figure img{width:100%;height:180px;object-fit:contain;}
+      .marketplace-live-placeholder{display:grid;width:100%;min-height:180px;place-items:center;padding:20px;color:rgba(30,59,23,.58);font-weight:700;text-align:center;}
+      .marketplace-live-card .product-title{margin-top:18px;}
+      .marketplace-live-card .product-button-wrap .button{width:100%;}
+      @media (max-width:767px){.marketplace-live-heading{display:block;}.marketplace-live-heading p{max-width:none;margin-top:10px;text-align:left;}.marketplace-live-controls{grid-template-columns:1fr 1fr;}.marketplace-live-search{grid-column:1/-1;}}
+      @media (max-width:479px){.marketplace-live-controls{grid-template-columns:1fr;}.marketplace-live-search{grid-column:auto;}}
+    </style>
+    <script src="js/header.js"></script>
+    <script type="module" src="js/marketplace-firestore.js"></script>
+    <!-- header.js carga core.min.js y script.js en orden después de insertar el navbar. -->
+    <!-- Functional shop filters: price range + category checkboxes -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var minInput = document.getElementById('price-range-min');
+        var maxInput = document.getElementById('price-range-max');
+        var highlight = document.getElementById('price-range-highlight');
+        var valueDisplay1 = document.getElementById('price-value-1');
+        var valueDisplay2 = document.getElementById('price-value-2');
+        var filterBtn = document.getElementById('price-filter-btn');
+        var checkboxList = document.getElementById('category-filter-list');
+        var productCols = document.querySelectorAll('#product-grid > [data-category]');
+        var noResultsMsg = document.getElementById('no-results-message');
+
+        if (!minInput || !maxInput) { return; }
+
+        var rangeMin = parseFloat(minInput.min);
+        var rangeMax = parseFloat(minInput.max);
+        var rangeMid = (rangeMin + rangeMax) / 2;
+
+        function formatPrice(v) {
+          return v.toFixed(2);
+        }
+
+        // Corrige el problema de los sliders superpuestos: cuando el handle
+        // "min" y el "max" están cerca uno del otro, el que esté encima en
+        // el DOM bloqueaba los clics del otro y parecía que no se podía
+        // arrastrar / filtrar bien. Ajustamos el z-index dinámicamente
+        // según qué tan cerca esté cada valor del centro del rango.
+        function updateThumbStacking() {
+          var minVal = parseFloat(minInput.value);
+          if (minVal > rangeMid) {
+            minInput.style.zIndex = 4;
+            maxInput.style.zIndex = 3;
+          } else {
+            minInput.style.zIndex = 3;
+            maxInput.style.zIndex = 4;
+          }
+        }
+
+        function updateSliderVisual() {
+          var minVal = parseFloat(minInput.value);
+          var maxVal = parseFloat(maxInput.value);
+
+          // Keep handles from crossing each other
+          if (minVal > maxVal) {
+            var tmp = minVal;
+            minVal = maxVal;
+            maxVal = tmp;
+          }
+
+          var minPercent = ((minVal - rangeMin) / (rangeMax - rangeMin)) * 100;
+          var maxPercent = ((maxVal - rangeMin) / (rangeMax - rangeMin)) * 100;
+
+          highlight.style.left = minPercent + '%';
+          highlight.style.right = (100 - maxPercent) + '%';
+
+          valueDisplay1.value = formatPrice(minVal);
+          valueDisplay2.value = formatPrice(maxVal);
+
+          updateThumbStacking();
+        }
+
+        minInput.addEventListener('input', function () {
+          if (parseFloat(minInput.value) > parseFloat(maxInput.value)) {
+            minInput.value = maxInput.value;
+          }
+          updateSliderVisual();
+          applyFilters();
+        });
+
+        maxInput.addEventListener('input', function () {
+          if (parseFloat(maxInput.value) < parseFloat(minInput.value)) {
+            maxInput.value = minInput.value;
+          }
+          updateSliderVisual();
+          applyFilters();
+        });
+
+        function getActiveCategories() {
+          var checked = checkboxList.querySelectorAll('input[type="checkbox"]:checked');
+          var cats = [];
+          checked.forEach(function (cb) {
+            cats.push(cb.getAttribute('data-cat'));
+          });
+          return cats;
+        }
+
+        function applyFilters() {
+          var min = parseFloat(valueDisplay1.value || minInput.value);
+          var max = parseFloat(valueDisplay2.value || maxInput.value);
+          var activeCats = getActiveCategories();
+          var showAll = activeCats.length === 0 || activeCats.indexOf('all') !== -1;
+          var visibleCount = 0;
+
+          productCols.forEach(function (col) {
+            var price = parseFloat(col.getAttribute('data-price'));
+            var category = col.getAttribute('data-category');
+            var matchesPrice = price >= min && price <= max;
+            var matchesCategory = showAll || activeCats.indexOf(category) !== -1;
+
+            if (matchesPrice && matchesCategory) {
+              col.removeAttribute('data-hidden-col');
+              visibleCount++;
+            } else {
+              col.setAttribute('data-hidden-col', 'true');
+            }
+          });
+
+          if (noResultsMsg) {
+            noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        }
+
+        // Category checkbox behaviour: "All" clears the rest, any specific one clears "All"
+        checkboxList.addEventListener('change', function (e) {
+          var target = e.target;
+          if (target.tagName !== 'INPUT') { return; }
+          var allCheckbox = checkboxList.querySelector('input[data-cat="all"]');
+
+          if (target.getAttribute('data-cat') === 'all') {
+            if (target.checked) {
+              checkboxList.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+                if (cb !== target) { cb.checked = false; }
+              });
+            }
+          } else {
+            if (target.checked && allCheckbox) {
+              allCheckbox.checked = false;
+            }
+            var anyChecked = Array.prototype.some.call(
+              checkboxList.querySelectorAll('input[type="checkbox"]'),
+              function (cb) { return cb.checked; }
+            );
+            if (!anyChecked && allCheckbox) {
+              allCheckbox.checked = true;
+            }
+          }
+
+          applyFilters();
+        });
+
+        if (filterBtn) {
+          filterBtn.addEventListener('click', applyFilters);
+        }
+
+        // Initialize
+        updateSliderVisual();
+        applyFilters();
+      });
+    </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9FT69');
+  </script>
+  <!-- End Google Tag Manager -->
+</body>
+
+<!-- Mirrored from livedemo00.template-help.com/wt_prod-10492/theme/grid-shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jun 2026 15:36:41 GMT -->
+</html>

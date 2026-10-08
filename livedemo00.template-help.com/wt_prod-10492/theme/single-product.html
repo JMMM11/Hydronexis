@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opening Marketplace | HYDRONEXIS</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      box-sizing: border-box;
+      color: #1e3b17;
+      background: #f4f6ef;
+      font-family: "Segoe UI", sans-serif;
+    }
+    .legacy-route-card {
+      width: min(520px, 100%);
+      padding: 32px;
+      border: 1px solid #679e5a;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 18px 45px rgba(30, 59, 23, .12);
+      text-align: center;
+    }
+    .legacy-route-card a { color: #1e3b17; font-weight: 700; }
+  </style>
+  <script src="js/legacy-route.js" data-legacy-target="grid-shop.html"></script>
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body data-required-permission="product_details">
+  <main class="legacy-route-card" aria-labelledby="route-title">
+    <h1 id="route-title">Opening Marketplace</h1>
+    <p role="status" aria-live="polite">We are verifying your account access before continuing.</p>
+    <p><a href="index.html">Return Home</a></p>
+    <noscript><p>JavaScript is required to verify access to Marketplace.</p></noscript>
+  </main>
+</body>
+</html>

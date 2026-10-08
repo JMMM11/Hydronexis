@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="plan-guard-pending">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community | HYDRONEXIS</title>
+  <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/commerce.css">
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  <script type="module" src="js/plan-guard.js"></script>
+</head>
+<body class="account-page" data-required-permission="community">
+  <div class="page">
+    <div id="header"></div>
+    <main class="account-main">
+      <section class="account-hero">
+        <h1>HYDRONEXIS Community</h1>
+        <p>Share growing questions, tips and experiences with Blooming and Go Green members.</p>
+      </section>
+
+      <div class="account-grid">
+        <aside class="account-card">
+          <h2>Create a Post</h2>
+          <form class="account-form" id="communityForm">
+            <label for="communityCategory">Category
+              <select id="communityCategory" name="category" required>
+                <option value="question">Question</option>
+                <option value="tip">Tip</option>
+                <option value="cultivation">Cultivation</option>
+                <option value="experience">Experience</option>
+              </select>
+            </label>
+            <label for="communityContent">Message
+              <textarea id="communityContent" name="content" rows="7" minlength="2" maxlength="1500" required></textarea>
+            </label>
+            <button class="button button-secondary button-zakaria" id="communitySubmitButton" type="submit">Publish</button>
+          </form>
+          <p class="account-feedback" id="communityFeedback" role="status" hidden></p>
+        </aside>
+
+        <section class="account-card" aria-labelledby="communityFeedTitle">
+          <h2 id="communityFeedTitle">Recent Posts</h2>
+          <div class="account-list" id="communityFeed" aria-live="polite">
+            <p class="account-empty">Loading community posts...</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="js/header.js"></script>
+  <script type="module" src="js/community.js"></script>
+</body>
+</html>

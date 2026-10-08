@@ -1,0 +1,604 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function hasActiveAccount() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.accountStatus == 'active'
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.plan in ['sprout', 'blooming', 'go_green'];
+    }
+
+    function isGoGreen() {
+      return hasActiveAccount()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.plan == 'go_green';
+    }
+
+    function hasExchangeAccess() {
+      return hasActiveAccount()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.plan in ['blooming', 'go_green'];
+    }
+
+    function isHttpsImageOrEmpty(value) {
+      return value is string
+        && value.size() <= 2000
+        && (value == '' || value.matches('https://.+'));
+    }
+
+    function hasValidStoragePath(data, folder, ownerId) {
+      return !data.keys().hasAny(['imageStoragePath'])
+        || (
+          data.imageStoragePath is string
+          && data.imageStoragePath.size() <= 1000
+          && (
+            data.imageStoragePath == ''
+            || data.imageStoragePath.matches(folder + '/' + ownerId + '/.+')
+          )
+        );
+    }
+
+    function hasConsistentProductStatus(data) {
+      return data.status == 'inactive'
+        || (data.stock == 0 && data.status == 'out_of_stock')
+        || (data.stock > 0 && data.stock <= 3 && data.status == 'low_stock')
+        || (data.stock > 3 && data.status == 'available');
+    }
+
+    function hasValidProductData(data) {
+      return data.keys().hasOnly([
+          'sellerId',
+          'sellerName',
+          'name',
+          'description',
+          'category',
+          'price',
+          'stock',
+          'status',
+          'location',
+          'image',
+          'imageStoragePath',
+          'exchangeEnabled',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.keys().hasAll([
+          'sellerId',
+          'sellerName',
+          'name',
+          'description',
+          'category',
+          'price',
+          'stock',
+          'status',
+          'location',
+          'image',
+          'exchangeEnabled',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.sellerId is string
+        && data.sellerId.size() > 0
+        && data.sellerName is string
+        && data.sellerName.size() > 0
+        && data.sellerName.size() <= 120
+        && data.name is string
+        && data.name.size() >= 2
+        && data.name.size() <= 120
+        && data.description is string
+        && data.description.size() > 0
+        && data.description.size() <= 1500
+        && data.category is string
+        && data.category.size() > 0
+        && data.category.size() <= 80
+        && data.price is number
+        && data.price >= 0
+        && data.price <= 1000000000
+        && data.stock is int
+        && data.stock >= 0
+        && data.stock <= 1000000
+        && data.status in ['available', 'low_stock', 'out_of_stock', 'inactive']
+        && hasConsistentProductStatus(data)
+        && data.location is string
+        && data.location.size() > 0
+        && data.location.size() <= 150
+        && isHttpsImageOrEmpty(data.image)
+        && hasValidStoragePath(data, 'products', data.sellerId)
+        && data.exchangeEnabled is bool
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function hasValidExchangeItemData(data) {
+      return data.keys().hasOnly([
+          'ownerId',
+          'name',
+          'description',
+          'image',
+          'imageStoragePath',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.keys().hasAll([
+          'ownerId',
+          'name',
+          'description',
+          'image',
+          'imageStoragePath',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.ownerId is string
+        && data.ownerId.size() > 0
+        && data.name is string
+        && data.name.size() >= 2
+        && data.name.size() <= 100
+        && data.description is string
+        && data.description.size() > 0
+        && data.description.size() <= 500
+        && isHttpsImageOrEmpty(data.image)
+        && hasValidStoragePath(data, 'exchanges', data.ownerId)
+        && data.status in ['active', 'inactive']
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function hasValidExchangeRequest(data) {
+      return data.keys().hasOnly([
+          'creatorId',
+          'receiverId',
+          'offeredProductId',
+          'requestedProductId',
+          'message',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.keys().hasAll([
+          'creatorId',
+          'receiverId',
+          'offeredProductId',
+          'requestedProductId',
+          'message',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.creatorId == request.auth.uid
+        && data.receiverId is string
+        && data.receiverId.size() > 0
+        && data.receiverId != request.auth.uid
+        && data.offeredProductId is string
+        && data.offeredProductId.size() > 0
+        && data.offeredProductId.size() <= 128
+        && data.requestedProductId is string
+        && data.requestedProductId.size() > 0
+        && data.requestedProductId.size() <= 128
+        && data.offeredProductId != data.requestedProductId
+        && data.message is string
+        && data.message.size() <= 500
+        && data.status == 'pending'
+        && data.createdAt == request.time
+        && data.updatedAt == request.time
+        && exists(/databases/$(database)/documents/exchangeItems/$(data.offeredProductId))
+        && get(/databases/$(database)/documents/exchangeItems/$(data.offeredProductId)).data.ownerId == request.auth.uid
+        && get(/databases/$(database)/documents/exchangeItems/$(data.offeredProductId)).data.status == 'active'
+        && exists(/databases/$(database)/documents/exchangeItems/$(data.requestedProductId))
+        && get(/databases/$(database)/documents/exchangeItems/$(data.requestedProductId)).data.ownerId == data.receiverId
+        && get(/databases/$(database)/documents/exchangeItems/$(data.requestedProductId)).data.status == 'active';
+    }
+
+    function isValidExchangeTransition(before, after) {
+      return (
+          before.status == 'pending'
+          && after.status == 'cancelled'
+          && before.creatorId == request.auth.uid
+        )
+        || (
+          before.status == 'pending'
+          && after.status in ['accepted', 'rejected']
+          && before.receiverId == request.auth.uid
+        )
+        || (
+          before.status == 'accepted'
+          && after.status == 'completed'
+          && request.auth.uid in [before.creatorId, before.receiverId]
+        );
+    }
+
+    function hasValidTrackingData(data) {
+      return data.keys().hasOnly([
+          'ownerId',
+          'plant',
+          'variety',
+          'startDate',
+          'stage',
+          'notes',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.keys().hasAll([
+          'ownerId',
+          'plant',
+          'variety',
+          'startDate',
+          'stage',
+          'notes',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.ownerId == request.auth.uid
+        && data.plant is string
+        && data.plant.size() >= 2
+        && data.plant.size() <= 100
+        && data.variety is string
+        && data.variety.size() <= 100
+        && data.startDate is string
+        && data.startDate.size() <= 20
+        && data.stage in ['seed', 'germination', 'seedling', 'vegetative', 'ready_to_harvest', 'harvested']
+        && data.notes is string
+        && data.notes.size() <= 1000
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    match /users/{userId} {
+      // El cliente necesita leer su propio perfil para resolver plan y estado.
+      // Los campos sensibles de plan/accountStatus solo los administra backend.
+      allow get: if request.auth != null
+        && request.auth.uid == userId;
+
+      allow update: if request.auth != null
+        && request.auth.uid == userId
+        && resource.data.accountStatus == 'active'
+        && resource.data.plan in ['sprout', 'blooming', 'go_green']
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'name',
+          'photoUrl',
+          'photoStoragePath',
+          'updatedAt'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.photoUrl is string
+        && isHttpsImageOrEmpty(request.resource.data.photoUrl)
+        && request.resource.data.photoStoragePath is string
+        && request.resource.data.photoStoragePath.size() <= 1000
+        && (
+          request.resource.data.photoStoragePath == ''
+          || request.resource.data.photoStoragePath.matches('profiles/' + userId + '/.+')
+        )
+        && request.resource.data.updatedAt == request.time;
+
+      allow create: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly([
+          'uid',
+          'name',
+          'email',
+          'plan',
+          'requestedPlan',
+          'role',
+          'accountStatus',
+          'provider',
+          'createdAt',
+          'updatedAt'
+        ])
+        && request.resource.data.keys().hasAll([
+          'uid',
+          'name',
+          'email',
+          'plan',
+          'requestedPlan',
+          'role',
+          'accountStatus',
+          'provider',
+          'createdAt',
+          'updatedAt'
+        ])
+        && request.resource.data.uid == userId
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.email is string
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.plan == 'sprout'
+        && request.resource.data.requestedPlan == 'sprout'
+        && request.resource.data.role == 'user'
+        && request.resource.data.accountStatus == 'active'
+        && request.resource.data.provider is string
+        && request.resource.data.provider.size() > 0
+        && request.resource.data.provider.size() <= 40
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      allow list, delete: if false;
+    }
+
+    match /carts/{userId} {
+      // Cada cuenta activa solo puede leer y modificar su propio carrito.
+      allow read, delete: if hasActiveAccount()
+        && request.auth.uid == userId;
+
+      allow create, update: if hasActiveAccount()
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['userId', 'items', 'updatedAt'])
+        && request.resource.data.userId == userId
+        && request.resource.data.items is list
+        && request.resource.data.items.size() <= 100;
+    }
+
+    match /checkoutRequests/{requestId} {
+      // Una cuenta solo puede consultar solicitudes que ya le pertenecen.
+      allow get: if hasActiveAccount()
+        && resource.data.buyerId == request.auth.uid;
+
+      // El navegador crea una solicitud inmutable; el backend autorizado
+      // valida existencias, precios e impuesto antes de crear una orden.
+      allow create: if hasActiveAccount()
+        && request.resource.data.keys().hasOnly([
+          'buyerId',
+          'items',
+          'customer',
+          'paymentMethod',
+          'status',
+          'idempotencyKey',
+          'createdAt'
+        ])
+        && request.resource.data.buyerId == request.auth.uid
+        && request.resource.data.items is list
+        && request.resource.data.items.size() > 0
+        && request.resource.data.items.size() <= 100
+        && request.resource.data.customer is map
+        && request.resource.data.customer.keys().hasOnly([
+          'name', 'email', 'phone', 'district', 'address'
+        ])
+        && request.resource.data.paymentMethod == 'pending_provider'
+        && request.resource.data.status == 'pending_validation'
+        && request.resource.data.idempotencyKey is string
+        && request.resource.data.idempotencyKey.size() == 64
+        && request.resource.data.createdAt == request.time;
+
+      allow list, update, delete: if false;
+    }
+
+    match /planUpgradeRequests/{requestId} {
+      allow get: if hasActiveAccount()
+        && (
+          requestId.matches(request.auth.uid + '_(blooming|go_green)')
+          || resource.data.userId == request.auth.uid
+        );
+
+      allow create: if hasActiveAccount()
+        && request.resource.data.keys().hasOnly([
+          'userId',
+          'currentPlan',
+          'requestedPlan',
+          'status',
+          'source',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasAll([
+          'userId',
+          'currentPlan',
+          'requestedPlan',
+          'status',
+          'source',
+          'createdAt'
+        ])
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.currentPlan in ['sprout', 'blooming', 'go_green']
+        && request.resource.data.requestedPlan in ['blooming', 'go_green']
+        && request.resource.data.currentPlan != request.resource.data.requestedPlan
+        && request.resource.data.status == 'pending'
+        && request.resource.data.source == 'web'
+        && request.resource.data.createdAt == request.time;
+
+      allow list, update, delete: if false;
+    }
+
+    match /products/{productId} {
+      // El Marketplace muestra productos publicables a cualquier cuenta activa;
+      // el vendedor también puede consultar sus publicaciones inactivas.
+      allow get, list: if hasActiveAccount()
+        && (
+          resource.data.sellerId == request.auth.uid
+          || resource.data.status in ['available', 'low_stock', 'out_of_stock']
+        );
+
+      allow create: if isGoGreen()
+        && request.resource.data.sellerId == request.auth.uid
+        && hasValidProductData(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      allow update: if isGoGreen()
+        && resource.data.sellerId == request.auth.uid
+        && request.resource.data.sellerId == resource.data.sellerId
+        && (
+          (
+            resource.data.keys().hasAny(['createdAt'])
+            && request.resource.data.createdAt == resource.data.createdAt
+          )
+          || (
+            !resource.data.keys().hasAny(['createdAt'])
+            && request.resource.data.createdAt == request.time
+          )
+        )
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'sellerName',
+          'name',
+          'description',
+          'category',
+          'price',
+          'stock',
+          'status',
+          'location',
+          'image',
+          'imageStoragePath',
+          'exchangeEnabled',
+          'createdAt',
+          'updatedAt'
+        ])
+        && hasValidProductData(request.resource.data);
+
+      allow delete: if isGoGreen()
+        && resource.data.sellerId == request.auth.uid;
+    }
+
+    match /orders/{orderId} {
+      // Las órdenes se crean y actualizan únicamente desde el backend. El
+      // navegador solo puede consultar las propias compras o ventas.
+      allow get, list: if hasActiveAccount();
+
+      allow create, update, delete: if false;
+    }
+
+    match /plantTracking/{trackingId} {
+      allow get, list: if hasExchangeAccess()
+        && resource.data.ownerId == request.auth.uid;
+
+      allow create: if hasExchangeAccess()
+        && hasValidTrackingData(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      allow update: if hasExchangeAccess()
+        && resource.data.ownerId == request.auth.uid
+        && request.resource.data.ownerId == resource.data.ownerId
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['stage', 'notes', 'updatedAt'])
+        && request.resource.data.updatedAt == request.time
+        && hasValidTrackingData(request.resource.data);
+
+      allow delete: if hasExchangeAccess()
+        && resource.data.ownerId == request.auth.uid;
+    }
+
+    match /exchangeItems/{itemId} {
+      // Blooming y Go Green pueden ver listados activos; cada propietario
+      // también conserva acceso a sus listados inactivos.
+      allow get, list: if hasExchangeAccess()
+        && (
+          resource.data.ownerId == request.auth.uid
+          || resource.data.status == 'active'
+        );
+
+      allow create: if hasExchangeAccess()
+        && request.resource.data.ownerId == request.auth.uid
+        && hasValidExchangeItemData(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      allow update: if hasExchangeAccess()
+        && resource.data.ownerId == request.auth.uid
+        && request.resource.data.ownerId == resource.data.ownerId
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'name',
+          'description',
+          'image',
+          'imageStoragePath',
+          'status',
+          'updatedAt'
+        ])
+        && hasValidExchangeItemData(request.resource.data);
+
+      allow delete: if hasExchangeAccess()
+        && resource.data.ownerId == request.auth.uid;
+    }
+
+    match /exchanges/{exchangeId} {
+      allow get, list: if hasExchangeAccess();
+
+      allow create: if hasExchangeAccess()
+        && hasValidExchangeRequest(request.resource.data);
+
+      allow update: if hasExchangeAccess()
+        && (
+          request.auth.uid == resource.data.creatorId
+          || request.auth.uid == resource.data.receiverId
+        )
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+        && request.resource.data.updatedAt == request.time
+        && isValidExchangeTransition(resource.data, request.resource.data);
+
+      allow delete: if false;
+    }
+
+    match /community/{postId} {
+      // Solo Blooming y Go Green pueden ver y participar en la comunidad.
+      // La lectura es estricta: solo posts activos.
+      allow get, list: if hasExchangeAccess()
+        && resource.data.status == 'active';
+
+      allow create: if hasExchangeAccess()
+        && request.resource.data.keys().hasOnly([
+          'authorId',
+          'authorName',
+          'category',
+          'content',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ])
+        && request.resource.data.keys().hasAll([
+          'authorId',
+          'authorName',
+          'category',
+          'content',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ])
+        && request.resource.data.authorId == request.auth.uid
+        && request.resource.data.authorName is string
+        && request.resource.data.authorName.size() > 0
+        && request.resource.data.authorName.size() <= 120
+        && request.resource.data.category is string
+        && request.resource.data.category.size() > 0
+        && request.resource.data.category.size() <= 50
+        && request.resource.data.content is string
+        && request.resource.data.content.size() > 0
+        && request.resource.data.content.size() <= 2000
+        && request.resource.data.status == 'active'
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      // Solo el autor puede marcar su propio post como eliminado.
+      allow update: if hasExchangeAccess()
+        && resource.data.authorId == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+        && request.resource.data.status == 'deleted'
+        && request.resource.data.updatedAt == request.time;
+
+      allow delete: if false;
+    }
+
+    match /locations/{locationId} {
+
+      // Permite leer únicamente ubicaciones activas
+      allow read: if isGoGreen()
+        && (
+          locationId == request.auth.uid
+          || resource.data.active == true
+        );
+
+      // Permite crear ubicaciones a usuarios autenticados
+      allow create: if isGoGreen()
+        && request.resource.data.ownerId == request.auth.uid
+        && request.resource.data.active == true
+        && request.resource.data.latitude is number
+        && request.resource.data.longitude is number;
+
+      // Solo el propietario puede editar o eliminar
+      allow update, delete: if isGoGreen()
+        && resource.data.ownerId == request.auth.uid;
+    }
+  }
+}

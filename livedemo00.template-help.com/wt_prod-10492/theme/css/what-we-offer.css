@@ -1,0 +1,994 @@
+/* Hydronexis plans */
+@font-face {
+  font-family: "Optima";
+  src: url("../fonts/OPTIMA.TTF");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("../fonts/helvetica-light-587ebe5a59211.ttf");
+  font-display: swap;
+}
+
+:root {
+  --hydro-green: #679e5a;
+  --hydro-mustard: #c68c49;
+  --hydro-green-dark: #1e3b17;
+  --hydro-card: #fbfaf5;
+  --hydro-text: #172515;
+  --hydro-text-soft: #3f493d;
+  --hydro-line: rgba(103, 158, 90, 0.34);
+}
+
+/* =====================================================
+   FONDO ORIGINAL — SE MANTIENE
+===================================================== */
+.hydro-plans {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  margin: 0 !important;
+  padding: 92px 24px 108px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.06), transparent 25%),
+    radial-gradient(circle at 92% 78%, rgba(198, 140, 73, 0.18), transparent 28%),
+    linear-gradient(135deg, #1e3b17 0%, #315c27 43%, #679e5a 100%);
+}
+
+.hydro-plans::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.23) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.hydro-plans::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.08), transparent 27%),
+    radial-gradient(circle at 82% 75%, rgba(255, 255, 255, 0.07), transparent 30%);
+  pointer-events: none;
+}
+
+.hydro-plans-container {
+  position: relative;
+  z-index: 5;
+  width: min(100%, 1480px);
+  margin: 0 auto;
+}
+
+/* =====================================================
+   AVISO DE ACCESO
+===================================================== */
+.hydro-access-notice {
+  width: min(100%, 820px);
+  margin: 0 auto 36px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-left: 5px solid var(--hydro-mustard);
+  border-radius: 14px;
+  color: #fff;
+  background: rgba(13, 42, 10, 0.72);
+  box-shadow: 0 14px 32px rgba(10, 28, 7, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.hydro-access-notice strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #fff;
+  font-family: "Optima", Georgia, serif;
+  font-size: 23px;
+}
+
+.hydro-access-notice p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+.hydro-plans-header {
+  position: relative;
+  margin: 0 auto 52px;
+  color: #fff;
+  text-align: center;
+}
+
+.hydro-plans-header h1 {
+  margin: 0;
+  color: #fff;
+  font-family: "Optima", Georgia, serif;
+  font-size: clamp(60px, 7vw, 100px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(10, 28, 7, 0.22);
+}
+
+.hydro-title-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: min(420px, 62vw);
+  margin: 22px auto 0;
+}
+
+.hydro-title-ornament span {
+  flex: 1;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #97c75f);
+}
+
+.hydro-title-ornament span:last-child {
+  background: linear-gradient(90deg, #97c75f, transparent);
+}
+
+.hydro-title-ornament svg {
+  width: 42px;
+  height: 26px;
+  fill: #97c75f;
+}
+
+/* =====================================================
+   CONTENEDOR COMPARATIVO
+===================================================== */
+.hydro-comparison-scroll {
+  width: 100%;
+  padding: 12px 0 18px;
+}
+
+.hydro-comparison-table {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+    minmax(340px, 1.34fr)
+    repeat(3, minmax(230px, 1fr));
+  grid-template-rows:
+    178px
+    repeat(12, minmax(51px, auto))
+    104px;
+  width: 100%;
+  min-width: 1120px;
+  filter: drop-shadow(0 24px 38px rgba(10, 28, 7, 0.22));
+}
+
+.hydro-cell {
+  min-width: 0;
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+/* =====================================================
+   COLUMNA FEATURE
+===================================================== */
+.hydro-feature-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  border: 2px solid #679e5a;
+  border-bottom: 0;
+  border-radius: 27px 27px 0 0;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.06), transparent 28%),
+    linear-gradient(145deg, #163b21 0%, #0c351d 100%);
+  font-family: "Optima", Georgia, serif;
+  font-size: clamp(28px, 2.7vw, 43px);
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.hydro-feature-head::before,
+.hydro-feature-head::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 70% 30% 65% 35%;
+  background: rgba(103, 158, 90, 0.09);
+  transform: rotate(35deg);
+}
+
+.hydro-feature-head::before {
+  left: -45px;
+  bottom: -55px;
+}
+
+.hydro-feature-head::after {
+  right: -48px;
+  top: -58px;
+}
+
+.hydro-feature-head span {
+  position: relative;
+  z-index: 1;
+}
+
+.hydro-feature-cell {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-right: 8px;
+  padding: 10px 26px;
+  border-right: 2px solid #679e5a;
+  border-left: 2px solid #679e5a;
+  border-bottom: 1px solid var(--hydro-line);
+  color: #171d16;
+  background: linear-gradient(90deg, #fffefa 0%, #f8f7f1 100%);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hydro-feature-number {
+  flex: 0 0 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, #72ad61, #4d843e);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.35);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hydro-feature-footer {
+  margin-right: 8px;
+  border-right: 2px solid #679e5a;
+  border-bottom: 2px solid #679e5a;
+  border-left: 2px solid #679e5a;
+  border-radius: 0 0 27px 27px;
+  background:
+    radial-gradient(circle at 90% 80%, rgba(103,158,90,.16), transparent 25%),
+    linear-gradient(135deg, #fffefa, #f6f5ee);
+}
+
+/* =====================================================
+   CABECERAS DE PLAN
+===================================================== */
+.hydro-plan-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 4px;
+  padding: 26px 18px 25px;
+  border-top: 2px solid var(--plan-border);
+  border-right: 2px solid var(--plan-border);
+  border-left: 2px solid var(--plan-border);
+  border-radius: 27px 27px 0 0;
+  overflow: visible;
+  color: var(--hydro-green-dark);
+  background:
+    radial-gradient(circle at 15% 8%, rgba(103,158,90,.12), transparent 25%),
+    linear-gradient(155deg, #fffefa 0%, #f8f7f1 100%);
+}
+
+.hydro-sprout-head {
+  --plan-border: #679e5a;
+}
+
+.hydro-blooming-head {
+  --plan-border: #d88b15;
+  z-index: 3;
+  border-width: 3px 3px 0;
+  box-shadow:
+    0 -4px 20px rgba(216, 139, 21, 0.24),
+    0 0 28px rgba(216, 139, 21, 0.12);
+}
+
+.hydro-green-head {
+  --plan-border: #4f813e;
+}
+
+.hydro-plan-head h2 {
+  margin: 11px 0 6px;
+  color: #16351d;
+  font-family: "Optima", Georgia, serif;
+  font-size: clamp(29px, 2.55vw, 42px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hydro-plan-head p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #5d963f;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.hydro-blooming-head p {
+  color: #c67e12;
+}
+
+.hydro-plan-head p span {
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+}
+
+.hydro-plan-round-icon {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border: 3px solid rgba(255,255,255,.92);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #eff9d9, #dceec2);
+  box-shadow:
+    0 9px 20px rgba(23, 56, 17, 0.18),
+    inset 0 0 0 1px rgba(103,158,90,.25);
+  transform: translateX(-50%);
+}
+
+.hydro-plan-round-icon svg {
+  width: 54px;
+  height: 54px;
+  fill: none;
+  stroke: #173325;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hydro-plan-round-icon-gold {
+  background: linear-gradient(145deg, #f3ac28, #cc7b0b);
+  box-shadow:
+    0 10px 23px rgba(198,140,73,.34),
+    inset 0 0 0 1px rgba(255,255,255,.3);
+}
+
+.hydro-plan-round-icon-gold svg {
+  stroke: #fff;
+}
+
+.hydro-plan-round-icon-light {
+  background: linear-gradient(145deg, #d9f58d, #a9d75c);
+}
+
+/* =====================================================
+   MOST POPULAR — BLOOMING
+===================================================== */
+.hydro-popular-dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fdf7e8 100%
+  );
+
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 72%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.14),
+    0 3px 8px rgba(255, 255, 255, 0.16);
+
+  position: relative;
+  left: -6px;
+}
+
+.hydro-most-popular {
+  position: absolute;
+
+  /* Lo subimos para que NO tape el icono */
+  top: -58px;
+  left: 50%;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 170px;
+  height: 34px;
+  padding: 0 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d88b15 0%,
+      #e99a19 50%,
+      #c9790c 100%
+    );
+
+  box-shadow:
+    0 8px 18px rgba(130, 74, 5, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.10em;
+
+  white-space: nowrap;
+
+  transform: translateX(-50%);
+}
+
+/* =====================================================
+   CELDAS DE CHECK / DASH
+===================================================== */
+.hydro-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+  border-right: 2px solid var(--plan-border);
+  border-left: 2px solid var(--plan-border);
+  border-bottom: 1px solid var(--hydro-line);
+  background: rgba(255, 254, 250, 0.98);
+}
+
+.hydro-sprout-cell {
+  --plan-border: #679e5a;
+}
+
+.hydro-blooming-cell {
+  --plan-border: #d88b15;
+  z-index: 2;
+  border-right-width: 3px;
+  border-left-width: 3px;
+  background:
+    linear-gradient(90deg, rgba(255,248,234,.86), rgba(255,254,250,.98), rgba(255,248,234,.86));
+}
+
+.hydro-green-cell {
+  --plan-border: #4f813e;
+}
+
+.hydro-yes {
+  color: #3e782d;
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255,255,255,.7);
+}
+
+.hydro-no {
+  color: #558545;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  opacity: 0.88;
+}
+
+/* =====================================================
+   FOOTERS Y PRECIOS
+===================================================== */
+.hydro-plan-footer {
+  display: flex;
+  align-items: center;
+  padding: 15px 17px 17px;
+  margin: 0 4px;
+  border-right: 2px solid var(--plan-border);
+  border-bottom: 2px solid var(--plan-border);
+  border-left: 2px solid var(--plan-border);
+  border-radius: 0 0 27px 27px;
+  background:
+    radial-gradient(circle at 88% 70%, rgba(103,158,90,.12), transparent 22%),
+    #fffefa;
+}
+
+.hydro-sprout-footer {
+  --plan-border: #679e5a;
+}
+
+.hydro-blooming-footer {
+  --plan-border: #d88b15;
+  z-index: 3;
+  border-width: 0 3px 3px;
+  box-shadow: 0 13px 22px rgba(198,140,73,.16);
+}
+
+.hydro-green-footer {
+  --plan-border: #4f813e;
+}
+
+.hydro-plan-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 15px;
+  color: #fff !important;
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: clamp(23px, 2vw, 31px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.025em;
+  text-align: center;
+  text-decoration: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    0 8px 14px rgba(10,28,7,.18);
+  transition: transform .25s ease, filter .25s ease, box-shadow .25s ease;
+}
+
+.hydro-plan-button-sprout {
+  background:
+    radial-gradient(circle at 18% 25%, rgba(255,255,255,.14), transparent 28%),
+    linear-gradient(100deg, #679e5a 0%, #76aa69 50%, #56894b 100%);
+}
+
+.hydro-plan-button-blooming {
+  background:
+    radial-gradient(circle at 18% 25%, rgba(255,255,255,.13), transparent 28%),
+    linear-gradient(100deg, #dc9019 0%, #eca528 52%, #cb780b 100%);
+}
+
+.hydro-plan-button-green {
+  background:
+    radial-gradient(circle at 18% 25%, rgba(255,255,255,.08), transparent 28%),
+    linear-gradient(100deg, #173325 0%, #235233 52%, #0f2d1d 100%);
+}
+
+.hydro-plan-button:hover {
+  color: #fff !important;
+  filter: brightness(1.07);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    0 12px 22px rgba(10,28,7,.25);
+}
+
+.hydro-plan-button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+/* =====================================================
+   DECORACIONES DEL FONDO ORIGINAL
+===================================================== */
+.hydro-decoration {
+  position: absolute;
+  z-index: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 35px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  pointer-events: none;
+}
+
+.hydro-decoration-1 {
+  top: 250px;
+  left: -100px;
+  width: 270px;
+  height: 370px;
+  animation: hydroFloatOne 10s ease-in-out infinite;
+}
+
+.hydro-decoration-2 {
+  top: 390px;
+  left: 70px;
+  width: 180px;
+  height: 270px;
+  animation: hydroFloatTwo 13s ease-in-out infinite;
+}
+
+.hydro-decoration-3 {
+  top: 210px;
+  right: -90px;
+  width: 270px;
+  height: 390px;
+  animation: hydroFloatOne 11s ease-in-out infinite reverse;
+}
+
+.hydro-decoration-4 {
+  top: 420px;
+  right: 70px;
+  width: 180px;
+  height: 290px;
+  animation: hydroFloatTwo 14s ease-in-out infinite reverse;
+}
+
+/* =====================================================
+   FRASE FINAL
+===================================================== */
+.hydro-plans-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 46px;
+  text-align: center;
+}
+
+.hydro-plans-note p {
+  flex: 0 0 auto;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.hydro-plans-note strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.hydro-mobile-plans {
+  display: none;
+}
+
+.hydro-mobile-plan {
+  position: relative;
+  width: 100%;
+  padding: 58px 22px 22px;
+  border: 2px solid var(--mobile-plan-border);
+  border-radius: 22px;
+  color: var(--hydro-green-dark);
+  background:
+    radial-gradient(circle at 15% 8%, rgba(103,158,90,.12), transparent 25%),
+    linear-gradient(155deg, #fffefa 0%, #f8f7f1 100%);
+  box-shadow: 0 18px 32px rgba(10, 28, 7, 0.18);
+}
+
+.hydro-mobile-plan h2 {
+  margin: 0 0 8px;
+  color: #16351d;
+  font-family: "Optima", Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hydro-mobile-plan-type {
+  margin: 0 0 22px;
+  color: #5d963f;
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.hydro-mobile-plan ul {
+  display: grid;
+  gap: 11px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.hydro-mobile-plan li {
+  position: relative;
+  min-height: 30px;
+  padding-left: 38px;
+  color: #172515;
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.hydro-mobile-plan li::before {
+  content: "\2713";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--mobile-plan-border);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.hydro-mobile-plan-sprout {
+  --mobile-plan-border: #679e5a;
+}
+
+.hydro-mobile-plan-blooming {
+  --mobile-plan-border: #d88b15;
+  border-width: 3px;
+}
+
+.hydro-mobile-plan-blooming .hydro-mobile-plan-type {
+  color: #c67e12;
+}
+
+.hydro-mobile-plan-green {
+  --mobile-plan-border: #4f813e;
+}
+
+.hydro-note-line {
+  width: min(210px, 18vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent);
+}
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+@keyframes hydroFloatOne {
+  0%,
+  100% {
+    opacity: 0.58;
+    transform: translate3d(0, 0, 0) scale(1) rotate(4deg);
+  }
+
+  50% {
+    opacity: 0.28;
+    transform: translate3d(28px, -38px, 0) scale(1.13) rotate(0deg);
+  }
+}
+
+@keyframes hydroFloatTwo {
+  0%,
+  100% {
+    opacity: 0.36;
+    transform: translate3d(0, 0, 0) scale(0.94) rotate(-3deg);
+  }
+
+  50% {
+    opacity: 0.65;
+    transform: translate3d(-18px, 30px, 0) scale(1.12) rotate(3deg);
+  }
+}
+
+.hydro-reveal {
+  opacity: 0;
+  transform: translateY(38px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hydro-reveal.hydro-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 1250px) {
+  .hydro-plans {
+    padding-inline: 18px;
+  }
+
+  .hydro-comparison-table {
+    min-width: 1060px;
+    grid-template-columns:
+      minmax(310px, 1.3fr)
+      repeat(3, minmax(225px, 1fr));
+  }
+
+  .hydro-feature-cell {
+    padding-inline: 20px;
+    font-size: 16px;
+  }
+
+  .hydro-plan-head h2 {
+    font-size: 33px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hydro-comparison-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 34px 0 22px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.55) rgba(255,255,255,.12);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hydro-comparison-scroll::-webkit-scrollbar {
+    height: 9px;
+  }
+
+  .hydro-comparison-scroll::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+  }
+
+  .hydro-comparison-scroll::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(255,255,255,.55);
+  }
+
+  .hydro-comparison-table {
+    min-width: 1040px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hydro-plans {
+    padding: 66px 14px 76px;
+  }
+
+  .hydro-plans-header {
+    margin-bottom: 32px;
+  }
+
+  .hydro-plans-header h1 {
+    font-size: 52px;
+  }
+
+  .hydro-title-ornament {
+    width: 260px;
+  }
+
+  .hydro-comparison-scroll {
+    display: none;
+  }
+
+  .hydro-mobile-plans {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hydro-mobile-plan .hydro-most-popular {
+    top: 18px;
+    min-width: 190px;
+  }
+
+  .hydro-comparison-table {
+    min-width: 980px;
+    grid-template-columns: 285px repeat(3, 225px);
+    grid-template-rows:
+      164px
+      repeat(12, minmax(50px, auto))
+      96px;
+  }
+
+  /* Mantiene Feature visible mientras se desliza horizontalmente. */
+  .hydro-feature-head,
+  .hydro-feature-cell,
+  .hydro-feature-footer {
+    position: sticky;
+    left: 0;
+    z-index: 7;
+  }
+
+  .hydro-feature-head {
+    z-index: 9;
+  }
+
+  .hydro-feature-cell {
+    font-size: 15px;
+  }
+
+  .hydro-feature-number {
+    flex-basis: 31px;
+    width: 31px;
+    height: 31px;
+  }
+
+  .hydro-plan-head h2 {
+    font-size: 30px;
+  }
+
+  .hydro-plan-head p {
+    font-size: 13px;
+  }
+
+  .hydro-most-popular {
+    min-width: 205px;
+    font-size: 11px;
+  }
+
+  .hydro-plans-note {
+    gap: 10px;
+  }
+
+  .hydro-plans-note p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hydro-plans {
+    padding-inline: 10px;
+  }
+
+  .hydro-comparison-table {
+    min-width: 920px;
+    grid-template-columns: 265px repeat(3, 215px);
+  }
+
+  .hydro-feature-cell {
+    gap: 11px;
+    padding-inline: 14px;
+  }
+
+  .hydro-plan-round-icon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .hydro-plan-round-icon svg {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hydro-plan-button {
+    min-height: 58px;
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hydro-decoration {
+    animation: none !important;
+  }
+
+  .hydro-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hydro-plan-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,1569 @@
+/* ==========================================================
+   HYDRONEXIS - OUR HISTORY
+   NUEVO DISEÑO
+   ========================================================== */
+
+
+/* ==============================
+   SECCIÓN PRINCIPAL
+   ============================== */
+
+.hn-history {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 900px !important;
+  padding: 75px 30px 45px !important;
+  overflow: hidden !important;
+
+  display: block !important;
+
+  background: #102318 !important;
+
+  isolation: isolate !important;
+}
+
+
+/* ==============================
+   IMAGEN DE FONDO
+   ============================== */
+
+.hn-history__background {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  z-index: -5 !important;
+
+  transform: scale(1.04) !important;
+
+  animation:
+    hnHistoryBackground 18s ease-in-out infinite alternate !important;
+}
+
+
+@keyframes hnHistoryBackground {
+
+  0% {
+    transform: scale(1.04) translate3d(0, 0, 0) !important;
+  }
+
+  100% {
+    transform: scale(1.10) translate3d(-1%, -1%, 0) !important;
+  }
+
+}
+
+
+/* ==============================
+   CAPA OSCURA
+   ============================== */
+
+.hn-history__overlay {
+  position: absolute !important;
+  inset: 0 !important;
+
+  z-index: -4 !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.05) 0%,
+      rgba(255,255,255,0.02) 35%,
+      rgba(7,29,19,0.45) 67%,
+      rgba(4,24,16,0.92) 100%
+    ) !important;
+}
+
+
+/* ==============================
+   LUZ CINEMATOGRÁFICA
+   ============================== */
+
+.hn-history__light {
+  position: absolute !important;
+
+  top: -300px !important;
+  left: -180px !important;
+
+  width: 900px !important;
+  height: 900px !important;
+
+  border-radius: 50% !important;
+
+  pointer-events: none !important;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.50) 0%,
+      rgba(255,239,200,0.20) 28%,
+      rgba(255,255,255,0) 68%
+    ) !important;
+
+  filter: blur(10px) !important;
+
+  z-index: -3 !important;
+
+  animation:
+    hnHistoryLight 10s ease-in-out infinite alternate !important;
+}
+
+
+@keyframes hnHistoryLight {
+
+  from {
+    opacity: .65 !important;
+    transform: translate3d(0,0,0) !important;
+  }
+
+  to {
+    opacity: .95 !important;
+    transform: translate3d(70px,30px,0) !important;
+  }
+
+}
+
+
+/* ==============================
+   CONTENEDOR
+   ============================== */
+
+.hn-history__container {
+  position: relative !important;
+
+  width: min(1420px, 100%) !important;
+
+  margin: 0 auto !important;
+
+  z-index: 5 !important;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.hn-history__header {
+  position: relative !important;
+
+  text-align: center !important;
+
+  margin: 0 auto 80px !important;
+
+  animation:
+    hnHistoryHeaderIn 1s cubic-bezier(.2,.8,.2,1) both !important;
+}
+
+
+@keyframes hnHistoryHeaderIn {
+
+  from {
+    opacity: 0 !important;
+    transform: translateY(-30px) !important;
+  }
+
+  to {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+}
+
+
+/* ICONO ARRIBA */
+
+.hn-history__mini-icon {
+  width: 36px !important;
+  height: 36px !important;
+
+  margin: 0 auto 12px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  animation:
+    hnLeafFloat 4s ease-in-out infinite !important;
+}
+
+
+.hn-history__mini-icon img {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain !important;
+
+  display: block !important;
+}
+
+
+@keyframes hnLeafFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg) !important;
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(5deg) !important;
+  }
+
+}
+
+
+/* TÍTULO */
+
+.hn-history__title {
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  line-height: 1 !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: -2px !important;
+
+  text-transform: uppercase !important;
+
+  color: #171b1b !important;
+}
+
+
+.hn-history__title span {
+  color: #171b1b !important;
+}
+
+
+.hn-history__title strong {
+  color: #277e17 !important;
+
+  font-weight: 800 !important;
+}
+
+
+/* RAYITA */
+
+.hn-history__title-line {
+  width: 70px !important;
+  height: 3px !important;
+
+  margin:
+    25px auto 20px !important;
+
+  border-radius: 100px !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #5fb444,
+      #2f8c20
+    ) !important;
+
+  box-shadow:
+    0 0 15px rgba(91,180,68,.25) !important;
+}
+
+
+/* SUBTÍTULO */
+
+.hn-history__subtitle {
+  margin: 0 !important;
+
+  color: #404747 !important;
+
+  font-size:
+    clamp(15px, 1.2vw, 19px) !important;
+
+  line-height: 1.55 !important;
+
+  font-weight: 400 !important;
+
+  letter-spacing: 0 !important;
+
+  text-align: center !important;
+}
+
+
+/* ==========================================================
+   GRID DE TARJETAS
+   ========================================================== */
+
+.hn-history__cards {
+  width: 100% !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    46px
+    minmax(0,1fr)
+    46px
+    minmax(0,1fr) !important;
+
+  gap: 20px !important;
+
+  align-items: center !important;
+
+  position: relative !important;
+
+  z-index: 4 !important;
+}
+
+
+/* ==========================================================
+   TARJETAS
+   ========================================================== */
+
+.hn-history-card {
+  position: relative !important;
+
+  min-height: 315px !important;
+
+  padding:
+    65px 38px 35px !important;
+
+  border-radius: 24px !important;
+
+  border:
+    1px solid rgba(255,255,255,.75) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.78),
+      rgba(255,255,255,.47)
+    ) !important;
+
+  backdrop-filter:
+    blur(17px) saturate(140%) !important;
+
+  -webkit-backdrop-filter:
+    blur(17px) saturate(140%) !important;
+
+  box-shadow:
+    0 24px 50px rgba(4,25,15,.15),
+    inset 0 1px 0 rgba(255,255,255,.95) !important;
+
+  overflow: visible !important;
+
+  transform-style: preserve-3d !important;
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .45s ease !important;
+
+  animation:
+    hnHistoryCardIn .8s cubic-bezier(.2,.8,.2,1) both !important;
+}
+
+
+.hn-history-card:nth-of-type(1) {
+  animation-delay: .15s !important;
+}
+
+
+.hn-history-card:nth-of-type(2) {
+  animation-delay: .35s !important;
+}
+
+
+.hn-history-card:nth-of-type(3) {
+  animation-delay: .55s !important;
+}
+
+
+@keyframes hnHistoryCardIn {
+
+  from {
+    opacity: 0 !important;
+    transform:
+      translateY(60px)
+      scale(.94) !important;
+  }
+
+  to {
+    opacity: 1 !important;
+    transform:
+      translateY(0)
+      scale(1) !important;
+  }
+
+}
+
+
+/* RESPLANDOR INTERIOR */
+
+.hn-history-card::before {
+  content: "" !important;
+
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  border-radius: inherit !important;
+
+  pointer-events: none !important;
+
+  background:
+    linear-gradient(
+      130deg,
+      rgba(255,255,255,.65),
+      transparent 45%,
+      rgba(255,255,255,.14)
+    ) !important;
+
+  opacity: .65 !important;
+}
+
+
+/* hover */
+
+.hn-history-card:hover {
+  transform:
+    translateY(-14px)
+    scale(1.018) !important;
+
+  border-color:
+    #679e5a !important;
+
+  box-shadow:
+    0 35px 75px rgba(4,28,15,.26),
+    0 0 0 1px rgba(97,180,74,.18),
+    inset 0 1px 0 rgba(255,255,255,1) !important;
+}
+
+
+/* TARJETA CENTRAL */
+
+.hn-history-card--featured {
+  border:
+    1.5px solid rgba(88,181,63,.75) !important;
+
+  box-shadow:
+    0 30px 75px rgba(6,35,18,.20),
+    0 0 32px rgba(101,189,74,.13),
+    inset 0 1px 0 rgba(255,255,255,.95) !important;
+
+  transform: scale(1.025) !important;
+}
+
+
+.hn-history-card--featured:hover {
+  transform:
+    translateY(-14px)
+    scale(1.045) !important;
+}
+
+
+/* ==========================================================
+   ICONOS REDONDOS
+   ========================================================== */
+
+.hn-history-card__icon {
+  position: absolute !important;
+
+  width: 106px !important;
+  height: 106px !important;
+
+  top: -53px !important;
+  left: 50% !important;
+
+  transform:
+    translateX(-50%) !important;
+
+  border-radius: 50% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background:
+    rgba(255,255,255,.91) !important;
+
+  border:
+    8px solid rgba(255,255,255,.48) !important;
+
+  box-shadow:
+    0 15px 35px rgba(13,54,26,.15),
+    0 0 0 1px rgba(255,255,255,.8) !important;
+
+  backdrop-filter:
+    blur(8px) !important;
+
+  z-index: 5 !important;
+
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease !important;
+}
+
+
+.hn-history-card:hover
+.hn-history-card__icon {
+  transform:
+    translateX(-50%)
+    translateY(-8px)
+    rotate(4deg)
+    scale(1.06) !important;
+
+  box-shadow:
+    0 22px 45px rgba(13,54,26,.23),
+    0 0 35px rgba(93,179,67,.17) !important;
+}
+
+
+/* IMAGEN DEL ICONO */
+
+.hn-history-card__icon img {
+  width: 48px !important;
+  height: 48px !important;
+
+  object-fit: contain !important;
+
+  display: block !important;
+}
+
+
+/* ==========================================================
+   CONTENIDO TARJETAS
+   ========================================================== */
+
+.hn-history-card__content {
+  position: relative !important;
+
+  z-index: 3 !important;
+
+  text-align: center !important;
+}
+
+
+.hn-history-card__title {
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  color: #171d1b !important;
+
+  font-family:
+    "Poppins",
+    Arial,
+    sans-serif !important;
+
+  font-size:
+    clamp(18px,1.5vw,23px) !important;
+
+  line-height: 1.25 !important;
+
+  font-weight: 700 !important;
+
+  letter-spacing:
+    -.4px !important;
+
+  text-transform: none !important;
+}
+
+
+/* MINI LÍNEA */
+
+.hn-history-card__mini-line {
+  display: block !important;
+
+  width: 26px !important;
+  height: 2px !important;
+
+  margin:
+    18px auto 18px !important;
+
+  background:
+    #58a83d !important;
+
+  border-radius:
+    100px !important;
+
+  transition:
+    width .35s ease !important;
+}
+
+
+.hn-history-card:hover
+.hn-history-card__mini-line {
+  width: 65px !important;
+}
+
+
+/* TEXTO */
+
+.hn-history-card__text {
+  margin: 0 auto !important;
+
+  max-width: 360px !important;
+
+  color: #454b49 !important;
+
+  font-size:
+    clamp(13px,1.05vw,16px) !important;
+
+  line-height: 1.55 !important;
+
+  font-weight: 400 !important;
+
+  letter-spacing: 0 !important;
+
+  text-align: center !important;
+}
+
+
+/* INDICADOR DEBAJO */
+
+.hn-history-card__indicator {
+  width: 80px !important;
+
+  height: 4px !important;
+
+  margin:
+    28px auto 0 !important;
+
+  border-radius:
+    100px !important;
+
+  background:
+    rgba(255,255,255,.62) !important;
+
+  overflow: hidden !important;
+}
+
+
+.hn-history-card__indicator span {
+  display: block !important;
+
+  width: 50% !important;
+  height: 100% !important;
+
+  border-radius:
+    inherit !important;
+
+  background:
+    #5eb33f !important;
+
+  animation:
+    hnCardIndicator 3.5s ease-in-out infinite !important;
+}
+
+
+@keyframes hnCardIndicator {
+
+  0%,
+  100% {
+    transform:
+      translateX(0) !important;
+  }
+
+  50% {
+    transform:
+      translateX(100%) !important;
+  }
+
+}
+
+
+/* ==========================================================
+   FLECHAS
+   ========================================================== */
+
+.hn-history__arrow {
+  width: 46px !important;
+  height: 70px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+.hn-history__arrow span {
+  width: 20px !important;
+  height: 20px !important;
+
+  border-top:
+    7px solid rgba(255,255,255,.95) !important;
+
+  border-right:
+    7px solid rgba(255,255,255,.95) !important;
+
+  border-radius:
+    3px !important;
+
+  transform:
+    rotate(45deg) !important;
+
+  filter:
+    drop-shadow(
+      0 3px 7px rgba(0,0,0,.2)
+    ) !important;
+
+  animation:
+    hnArrowPulse 2s ease-in-out infinite !important;
+}
+
+
+@keyframes hnArrowPulse {
+
+  0%,
+  100% {
+    opacity: .65 !important;
+    transform:
+      translateX(-4px)
+      rotate(45deg) !important;
+  }
+
+  50% {
+    opacity: 1 !important;
+    transform:
+      translateX(5px)
+      rotate(45deg) !important;
+  }
+
+}
+
+.hn-history-timeline {
+  position: relative !important;
+  width: 100% !important;
+  margin-top: 65px !important;
+}
+
+
+/* =========================================
+   LÍNEA BASE
+   ========================================= */
+
+.hn-history-timeline__track {
+  position: absolute !important;
+
+  left: 7% !important;
+  right: 7% !important;
+  top: 13px !important;
+
+  height: 2px !important;
+
+  border-radius: 50px !important;
+
+  background: rgba(255, 255, 255, 0.30) !important;
+
+  box-shadow: none !important;
+
+  overflow: hidden !important;
+}
+
+
+/* =========================================
+   LÍNEA VERDE
+   AHORA LLEGA HASTA 2026
+   ========================================= */
+
+.hn-history-timeline__progress {
+  width: 100% !important;
+  height: 100% !important;
+
+  border-radius: inherit !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 59, 23, 0.65) 0%,
+      #1e3b17 45%,
+      #1e3b17 100%
+    ) !important;
+
+  box-shadow:
+    0 0 8px rgba(30, 59, 23, 0.25) !important;
+
+  transform-origin: left center !important;
+
+  animation:
+    hnTimelineGrow 1.8s
+    cubic-bezier(.2,.8,.2,1)
+    both !important;
+}
+
+
+@keyframes hnTimelineGrow {
+
+  from {
+    transform: scaleX(0) !important;
+  }
+
+  to {
+    transform: scaleX(1) !important;
+  }
+
+}
+
+
+/* =========================================
+   DISTRIBUCIÓN DE LOS AÑOS
+   ========================================= */
+
+.hn-history-timeline__years {
+  position: relative !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, 1fr) !important;
+
+  z-index: 3 !important;
+}
+
+
+.hn-history-year {
+  position: relative !important;
+
+  text-align: center !important;
+}
+
+
+/* =========================================
+   PUNTOS
+   MÁS PEQUEÑOS Y SOFT
+   ========================================= */
+
+.hn-history-year__dot {
+  width: 26px !important;
+  height: 26px !important;
+
+  margin:
+    0 auto 17px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50% !important;
+
+  border:
+    3px solid rgba(255, 255, 255, 0.95) !important;
+
+  background:
+    rgba(30, 59, 23, 0.92) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(30, 59, 23, 0.08),
+    0 3px 12px rgba(0, 0, 0, 0.12) !important;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease !important;
+
+  animation:
+    hnTimelineDotSoft 3s ease-in-out infinite !important;
+}
+
+
+/* punto central interno */
+
+.hn-history-year__dot span {
+  width: 6px !important;
+  height: 6px !important;
+
+  border-radius: 50% !important;
+
+  background:
+    #ffffff !important;
+
+  box-shadow:
+    none !important;
+}
+
+
+/* =========================================
+   2026 ACTUAL
+   UN POCO MÁS MARCADO
+   ========================================= */
+
+.hn-history-year:nth-child(3)
+.hn-history-year__dot {
+  background:
+    #1e3b17 !important;
+
+  border-color:
+    rgba(255, 255, 255, 1) !important;
+
+  box-shadow:
+    0 0 0 4px rgba(30, 59, 23, 0.12),
+    0 4px 15px rgba(30, 59, 23, 0.20) !important;
+
+  transform:
+    scale(1.08) !important;
+}
+
+
+/* puntito interior de 2026 */
+
+.hn-history-year:nth-child(3)
+.hn-history-year__dot span {
+  background:
+    #ffffff !important;
+}
+
+
+/* animación suave */
+
+@keyframes hnTimelineDotSoft {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(30, 59, 23, 0.06),
+      0 3px 12px rgba(0, 0, 0, 0.10) !important;
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 5px rgba(30, 59, 23, 0.10),
+      0 4px 14px rgba(0, 0, 0, 0.13) !important;
+  }
+
+}
+
+
+/* =========================================
+   AÑOS
+   ========================================= */
+
+.hn-history-year h4 {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color:
+    #ffffff !important;
+
+  font-family:
+    "Poppins",
+    Arial,
+    sans-serif !important;
+
+  font-size:
+    28px !important;
+
+  line-height:
+    1 !important;
+
+  font-weight:
+    700 !important;
+
+  letter-spacing:
+    -0.5px !important;
+
+  text-transform:
+    none !important;
+}
+
+
+/* 2026 un poco más destacado */
+
+.hn-history-year:nth-child(3) h4 {
+  color:
+    #ffffff !important;
+
+  font-weight:
+    800 !important;
+}
+
+
+/* =========================================
+   TEXTO DE ABAJO
+   ========================================= */
+
+.hn-history-year p {
+  margin:
+    17px auto 0 !important;
+
+  color:
+    rgba(255, 255, 255, 0.92) !important;
+
+  font-size:
+    14px !important;
+
+  line-height:
+    1.45 !important;
+
+  font-weight:
+    400 !important;
+
+  letter-spacing:
+    0 !important;
+
+  text-align:
+    center !important;
+}
+
+
+/* =========================================
+   HOVER ELEGANTE
+   ========================================= */
+
+.hn-history-year:hover
+.hn-history-year__dot {
+  transform:
+    translateY(-3px)
+    scale(1.10) !important;
+
+  background:
+    #1e3b17 !important;
+
+  box-shadow:
+    0 0 0 5px rgba(30, 59, 23, 0.10),
+    0 6px 18px rgba(0, 0, 0, 0.16) !important;
+}
+
+
+/* ==========================================================
+   RESPONSIVE MOBILE
+   ========================================================== */
+
+@media (max-width: 767px) {
+
+  .hn-history-timeline {
+    margin-top:
+      75px !important;
+
+    padding-left:
+      20px !important;
+  }
+
+
+  .hn-history-timeline__track {
+    left:
+      35px !important;
+
+    right:
+      auto !important;
+
+    top:
+      13px !important;
+
+    bottom:
+      55px !important;
+
+    width:
+      2px !important;
+
+    height:
+      auto !important;
+  }
+
+
+  .hn-history-timeline__progress {
+    width:
+      100% !important;
+
+    height:
+      100% !important;
+
+    transform-origin:
+      top center !important;
+  }
+
+
+  @keyframes hnTimelineGrow {
+
+    from {
+      transform:
+        scaleY(0) !important;
+    }
+
+    to {
+      transform:
+        scaleY(1) !important;
+    }
+
+  }
+
+
+  .hn-history-timeline__years {
+    grid-template-columns:
+      1fr !important;
+
+    gap:
+      42px !important;
+  }
+
+
+  .hn-history-year {
+    display:
+      grid !important;
+
+    grid-template-columns:
+      48px 1fr !important;
+
+    grid-template-rows:
+      auto auto !important;
+
+    text-align:
+      left !important;
+  }
+
+
+  .hn-history-year__dot {
+    grid-row:
+      1 / 3 !important;
+
+    width:
+      24px !important;
+
+    height:
+      24px !important;
+
+    margin:
+      0 !important;
+  }
+
+
+  .hn-history-year h4 {
+    text-align:
+      left !important;
+
+    font-size:
+      25px !important;
+  }
+
+
+  .hn-history-year p {
+    margin:
+      8px 0 0 !important;
+
+    text-align:
+      left !important;
+  }
+
+
+  .hn-history-year p br {
+    display:
+      none !important;
+  }
+
+}
+
+
+/* ==========================================================
+   PARTÍCULAS / HOJAS
+   ========================================================== */
+
+.hn-history__particle {
+  position:
+    absolute !important;
+
+  display:
+    block !important;
+
+  width:
+    15px !important;
+
+  height:
+    27px !important;
+
+  border-radius:
+    100% 0 100% 0 !important;
+
+  background:
+    rgba(94,191,67,.60) !important;
+
+  filter:
+    blur(.2px) !important;
+
+  box-shadow:
+    0 0 14px
+    rgba(94,191,67,.25) !important;
+
+  z-index:
+    2 !important;
+
+  pointer-events:
+    none !important;
+}
+
+
+.hn-history__particle--1 {
+  left:
+    8% !important;
+
+  top:
+    44% !important;
+
+  animation:
+    hnParticleOne 8s ease-in-out infinite !important;
+}
+
+
+.hn-history__particle--2 {
+  left:
+    17% !important;
+
+  top:
+    63% !important;
+
+  animation:
+    hnParticleTwo 11s ease-in-out infinite !important;
+}
+
+
+.hn-history__particle--3 {
+  right:
+    9% !important;
+
+  top:
+    34% !important;
+
+  animation:
+    hnParticleOne 10s ease-in-out infinite reverse !important;
+}
+
+
+.hn-history__particle--4 {
+  right:
+    17% !important;
+
+  bottom:
+    17% !important;
+
+  animation:
+    hnParticleTwo 9s ease-in-out infinite !important;
+}
+
+
+.hn-history__particle--5 {
+  left:
+    47% !important;
+
+  top:
+    18% !important;
+
+  opacity:
+    .35 !important;
+
+  animation:
+    hnParticleOne 13s ease-in-out infinite !important;
+}
+
+
+@keyframes hnParticleOne {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0,0,0)
+      rotate(15deg) !important;
+  }
+
+  50% {
+    transform:
+      translate3d(45px,-75px,0)
+      rotate(130deg) !important;
+  }
+
+}
+
+
+@keyframes hnParticleTwo {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0,0,0)
+      rotate(-30deg)
+      scale(.8) !important;
+  }
+
+  50% {
+    transform:
+      translate3d(-55px,-100px,0)
+      rotate(180deg)
+      scale(1.1) !important;
+  }
+
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1100px) {
+
+  .hn-history {
+    padding:
+      70px 25px 50px !important;
+  }
+
+
+  .hn-history__cards {
+    grid-template-columns:
+      1fr !important;
+
+    gap:
+      70px !important;
+
+    max-width:
+      650px !important;
+
+    margin:
+      0 auto !important;
+  }
+
+
+  .hn-history__arrow {
+    display:
+      none !important;
+  }
+
+
+  .hn-history-card {
+    min-height:
+      auto !important;
+
+    padding:
+      70px 35px 38px !important;
+  }
+
+
+  .hn-history-card--featured {
+    transform:
+      none !important;
+  }
+
+
+  .hn-history-card--featured:hover {
+    transform:
+      translateY(-10px) !important;
+  }
+
+
+  .hn-history-timeline {
+    max-width:
+      650px !important;
+
+    margin:
+      80px auto 0 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 767px) {
+
+  .hn-history {
+    min-height:
+      auto !important;
+
+    padding:
+      55px 18px 40px !important;
+  }
+
+
+  .hn-history__header {
+    margin-bottom:
+      75px !important;
+  }
+
+
+  .hn-history__title {
+    font-size:
+      clamp(38px,12vw,55px) !important;
+
+    letter-spacing:
+      -1.5px !important;
+  }
+
+
+  .hn-history__subtitle br {
+    display:
+      none !important;
+  }
+
+
+  .hn-history__cards {
+    gap:
+      75px !important;
+  }
+
+
+  .hn-history-card {
+    padding:
+      68px 22px 32px !important;
+
+    border-radius:
+      20px !important;
+  }
+
+
+  .hn-history-card__icon {
+    width:
+      90px !important;
+
+    height:
+      90px !important;
+
+    top:
+      -45px !important;
+  }
+
+
+  .hn-history-card__icon img {
+    width:
+      40px !important;
+
+    height:
+      40px !important;
+  }
+
+
+  /* Timeline vertical en teléfono */
+
+  .hn-history-timeline {
+    margin-top:
+      80px !important;
+
+    padding-left:
+      25px !important;
+  }
+
+
+  .hn-history-timeline__track {
+    left:
+      42px !important;
+
+    right:
+      auto !important;
+
+    top:
+      15px !important;
+
+    bottom:
+      60px !important;
+
+    width:
+      4px !important;
+
+    height:
+      auto !important;
+  }
+
+
+  .hn-history-timeline__progress {
+    width:
+      100% !important;
+
+    height:
+      70% !important;
+
+    transform-origin:
+      top center !important;
+  }
+
+
+  @keyframes hnTimelineGrow {
+
+    from {
+      transform:
+        scaleY(0) !important;
+    }
+
+    to {
+      transform:
+        scaleY(1) !important;
+    }
+
+  }
+
+
+  .hn-history-timeline__years {
+    grid-template-columns:
+      1fr !important;
+
+    gap:
+      45px !important;
+  }
+
+
+  .hn-history-year {
+    display:
+      grid !important;
+
+    grid-template-columns:
+      55px 1fr !important;
+
+    grid-template-rows:
+      auto auto !important;
+
+    text-align:
+      left !important;
+  }
+
+
+  .hn-history-year__dot {
+    grid-row:
+      1 / 3 !important;
+
+    margin:
+      0 !important;
+  }
+
+
+  .hn-history-year h4 {
+    text-align:
+      left !important;
+  }
+
+
+  .hn-history-year p {
+    margin:
+      8px 0 0 !important;
+
+    text-align:
+      left !important;
+  }
+
+
+  .hn-history-year p br {
+    display:
+      none !important;
+  }
+
+
+  .hn-history__scroll {
+    margin-top:
+      55px !important;
+  }
+
+}
+
+
+/* ==========================================================
+   REDUCIR ANIMACIÓN SI EL USUARIO LO PREFIERE
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hn-history *,
+  .hn-history *::before,
+  .hn-history *::after {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+
+}

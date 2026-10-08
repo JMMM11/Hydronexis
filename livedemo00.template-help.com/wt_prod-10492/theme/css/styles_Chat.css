@@ -1,0 +1,789 @@
+/* Íconos de Material Symbols */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0");
+
+/* Usa una fuente segura solo para caracteres especiales. El resto del texto
+   conserva Optima porque esta fuente se limita mediante unicode-range. */
+@font-face {
+    font-family: "Hydronexis Special Characters";
+    src: local("Segoe UI"),
+         url("../fonts/Helvetica.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0080-024F,
+        U+0300-036F,
+        U+1E00-1EFF,
+        U+2000-206F,
+        U+20A0-20CF;
+}
+
+/* =====================================================
+   CHATBOT HYDRONEXIS
+===================================================== */
+
+:root {
+    --chat-dark: #1e3b17;
+    --chat-light: #679e5a;
+    --chat-white: #ffffff;
+    --chat-soft: #f2f7f0;
+    --chat-border: rgba(103, 158, 90, 0.4);
+}
+
+.bot-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;   /* Hace la imagen circular */
+    object-fit: cover;    /* Evita que se deforme */
+    flex-shrink: 0;
+}
+
+/* Asegura que los iconos no se muestren como texto */
+.material-symbols-rounded,
+.material-symbols-outlined {
+    font-family: "Material Symbols Rounded" !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    -webkit-font-feature-settings: "liga" !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-feature-settings: "liga" !important;
+}
+
+/* =====================================================
+   BOTÓN FLOTANTE IZQUIERDO
+===================================================== */
+
+#chatbot-toggler {
+    position: fixed !important;
+    left: 25px !important;
+    right: auto !important;
+    bottom: 25px !important;
+
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: 2px solid var(--chat-light) !important;
+    border-radius: 50% !important;
+
+    color: var(--chat-white) !important;
+    background: var(--chat-dark) !important;
+
+    cursor: pointer !important;
+    overflow: hidden !important;
+    z-index: 999999 !important;
+
+    box-shadow: 0 8px 25px rgba(30, 59, 23, 0.35) !important;
+    transition: transform 0.25s ease, background 0.25s ease !important;
+}
+
+#chatbot-toggler:hover {
+    background: var(--chat-light) !important;
+    transform: scale(1.06);
+}
+
+#chatbot-toggler span {
+    position: absolute !important;
+    color: var(--chat-white) !important;
+    font-size: 25px !important;
+}
+
+#chatbot-toggler span:last-child {
+    opacity: 0;
+}
+
+body.show-chatbot #chatbot-toggler {
+    transform: rotate(90deg);
+}
+
+body.show-chatbot #chatbot-toggler span:first-child {
+    opacity: 0;
+}
+
+body.show-chatbot #chatbot-toggler span:last-child {
+    opacity: 1;
+}
+
+/* =====================================================
+   VENTANA DEL CHAT
+===================================================== */
+
+.chatbot-popup {
+    position: fixed !important;
+
+    left: 25px !important;
+    right: auto !important;
+    bottom: 92px !important;
+    top: auto !important;
+
+    width: min(380px, calc(100vw - 30px)) !important;
+    height: min(560px, calc(100vh - 120px)) !important;
+    max-height: calc(100vh - 120px) !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    background: var(--chat-white) !important;
+    border: 1px solid var(--chat-border) !important;
+    border-radius: 18px !important;
+
+    overflow: hidden !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: scale(0.7);
+    transform-origin: bottom left;
+
+    z-index: 999998 !important;
+
+    box-shadow:
+        0 18px 50px rgba(30, 59, 23, 0.2),
+        0 8px 22px rgba(0, 0, 0, 0.12) !important;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease !important;
+
+    font-family: "Hydronexis Special Characters", "Optima", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+body.show-chatbot .chatbot-popup {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* Evita que la plantilla modifique los elementos internos */
+.chatbot-popup *,
+.chatbot-popup *::before,
+.chatbot-popup *::after {
+    box-sizing: border-box !important;
+}
+
+.chatbot-popup *:not(.material-symbols-rounded):not(.material-symbols-outlined) {
+    font-family: "Hydronexis Special Characters", "Optima", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.chatbot-popup .chat-header {
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 66px !important;
+
+    padding: 12px 16px !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    background: var(--chat-dark) !important;
+    border: none !important;
+    border-bottom: 3px solid var(--chat-light) !important;
+
+    flex-shrink: 0 !important;
+}
+
+.chatbot-popup .header-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.chatbot-popup .chatbot-logo {
+    display: block !important;
+
+    width: 50px !important;
+    height: 50px !important;
+
+    padding: 7px !important;
+    margin: 0 !important;
+
+    fill: var(--chat-dark) !important;
+    color: var(--chat-dark) !important;
+    background: var(--chat-white) !important;
+
+    border: none !important;
+    border-radius: 50% !important;
+}
+
+.chatbot-popup .logo-text {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    color: var(--chat-white) !important;
+    font-family: "Hydronexis Special Characters", "Optima", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    text-transform: uppercase !important;
+}
+
+.chatbot-popup #close-chatbot {
+    position: static !important;
+
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: none !important;
+    border-radius: 50% !important;
+
+    color: var(--chat-white) !important;
+    background: transparent !important;
+
+    cursor: pointer !important;
+    box-shadow: none !important;
+}
+
+.chatbot-popup #close-chatbot:hover {
+    background: var(--chat-light) !important;
+}
+
+/* =====================================================
+   CUERPO DEL CHAT
+===================================================== */
+
+.chatbot-popup .chat-body {
+    position: relative !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    padding: 18px 16px !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+
+    background: var(--chat-white) !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: var(--chat-light) transparent;
+}
+
+.chatbot-popup .chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatbot-popup .chat-body::-webkit-scrollbar-thumb {
+    background: var(--chat-light);
+    border-radius: 20px;
+}
+
+.chatbot-popup .message {
+    position: static !important;
+
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: flex-end !important;
+    gap: 9px !important;
+
+    border: none !important;
+    background: transparent !important;
+}
+
+.chatbot-popup .bot-message {
+    justify-content: flex-start !important;
+}
+
+.chatbot-popup .user-message {
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+}
+
+/* Avatar del bot */
+.chatbot-popup .bot-avatar {
+    display: block !important;
+
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+
+    padding: 6px !important;
+    margin: 0 0 2px 0 !important;
+
+    fill: var(--chat-white) !important;
+    color: var(--chat-white) !important;
+    background: var(--chat-dark) !important;
+
+    border: 2px solid var(--chat-light) !important;
+    border-radius: 50% !important;
+}
+
+/* Burbuja general */
+.chatbot-popup .message-text {
+    display: block !important;
+
+    width: auto !important;
+    max-width: 78% !important;
+    min-width: 0 !important;
+
+    padding: 10px 14px !important;
+    margin: 0 !important;
+
+    font-family: "Hydronexis Special Characters", "Optima", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+    text-transform: none !important;
+
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+
+    border: none !important;
+}
+
+/* Burbuja del bot */
+.chatbot-popup .bot-message .message-text {
+    color: var(--chat-dark) !important;
+    background: var(--chat-soft) !important;
+
+    border: 1px solid var(--chat-border) !important;
+    border-radius: 17px 17px 17px 5px !important;
+
+    box-shadow: 0 3px 10px rgba(30, 59, 23, 0.07) !important;
+}
+
+/* Burbuja del usuario */
+.chatbot-popup .user-message .message-text {
+    color: var(--chat-white) !important;
+    background: var(--chat-dark) !important;
+
+    border: 1px solid var(--chat-light) !important;
+    border-radius: 17px 17px 5px 17px !important;
+
+    box-shadow: 0 3px 10px rgba(30, 59, 23, 0.16) !important;
+}
+
+/* Imagen adjunta */
+.chatbot-popup .user-message .attachment {
+    display: block !important;
+    width: min(65%, 220px) !important;
+    height: auto !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    object-fit: cover !important;
+
+    border: 2px solid var(--chat-light) !important;
+    border-radius: 16px 5px 16px 16px !important;
+}
+
+/* Indicador de escritura */
+.chatbot-popup .thinking-indicator {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+
+    padding: 8px 0 !important;
+}
+
+.chatbot-popup .thinking-indicator .dot {
+    width: 7px !important;
+    height: 7px !important;
+
+    background: var(--chat-light) !important;
+    border-radius: 50% !important;
+
+    animation: chatbotDotPulse 1.5s ease-in-out infinite;
+}
+
+.chatbot-popup .thinking-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.chatbot-popup .thinking-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes chatbotDotPulse {
+    0%,
+    44%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    22% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+/* =====================================================
+   PIE Y CAMPO DE TEXTO
+===================================================== */
+
+.chatbot-popup .chat-footer {
+    position: relative !important;
+    inset: auto !important;
+
+    width: 100% !important;
+
+    padding: 12px 14px 15px !important;
+    margin: 0 !important;
+
+    flex-shrink: 0 !important;
+
+    background: var(--chat-white) !important;
+    border: none !important;
+    border-top: 1px solid rgba(103, 158, 90, 0.2) !important;
+}
+
+.chatbot-popup .chat-form {
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 46px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: flex-end !important;
+    gap: 0 !important;
+
+    background: var(--chat-white) !important;
+
+    border: 1px solid var(--chat-border) !important;
+    border-radius: 25px !important;
+    outline: none !important;
+
+    overflow: visible !important;
+    box-shadow: none !important;
+}
+
+.chatbot-popup .chat-form:focus-within {
+    border-color: var(--chat-light) !important;
+    box-shadow: 0 0 0 2px rgba(103, 158, 90, 0.18) !important;
+}
+
+/* Corrige el textarea alterado por la plantilla */
+.chatbot-popup .message-input {
+    position: static !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 110px !important;
+
+    padding: 12px 8px 10px 15px !important;
+    margin: 0 !important;
+
+    display: block !important;
+    flex: 1 1 auto !important;
+
+    color: var(--chat-dark) !important;
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 25px !important;
+    outline: none !important;
+
+    font-family: "Hydronexis Special Characters", "Optima", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 20px !important;
+    text-align: left !important;
+    text-transform: none !important;
+
+    resize: none !important;
+    box-shadow: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+.chatbot-popup .message-input::placeholder {
+    color: rgba(30, 59, 23, 0.58) !important;
+    opacity: 1 !important;
+}
+
+/* Contenedor de botones */
+.chatbot-popup .chat-controls {
+    position: static !important;
+
+    width: auto !important;
+    height: 44px !important;
+
+    padding: 0 5px 0 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    align-self: flex-end !important;
+    gap: 2px !important;
+
+    flex-shrink: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Corrige los botones alterados por la plantilla */
+.chatbot-popup .chat-controls button {
+    position: static !important;
+
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    color: var(--chat-light) !important;
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 50% !important;
+    outline: none !important;
+
+    font-size: 20px !important;
+    line-height: 1 !important;
+
+    cursor: pointer !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.chatbot-popup .chat-controls button::before,
+.chatbot-popup .chat-controls button::after {
+    display: none !important;
+}
+
+.chatbot-popup .chat-controls button:hover {
+    color: var(--chat-white) !important;
+    background: var(--chat-light) !important;
+}
+
+/* Botón enviar */
+.chatbot-popup #send-message {
+    display: none !important;
+
+    color: var(--chat-white) !important;
+    background: var(--chat-dark) !important;
+}
+
+.chatbot-popup .message-input:valid ~ .chat-controls #send-message {
+    display: flex !important;
+}
+
+.chatbot-popup #send-message:hover {
+    background: var(--chat-light) !important;
+}
+
+/* =====================================================
+   CARGA DE ARCHIVOS
+===================================================== */
+
+.chatbot-popup .file-upload-wrapper {
+    position: relative !important;
+
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.chatbot-popup .file-upload-wrapper img,
+.chatbot-popup .file-upload-wrapper button {
+    position: absolute !important;
+    inset: 0 !important;
+}
+
+.chatbot-popup .file-upload-wrapper img {
+    display: none !important;
+
+    width: 34px !important;
+    height: 34px !important;
+
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
+.chatbot-popup .file-upload-wrapper #file-cancel {
+    display: none !important;
+    color: #d83434 !important;
+    background: var(--chat-white) !important;
+}
+
+.chatbot-popup .file-upload-wrapper.file-uploaded #file-upload {
+    display: none !important;
+}
+
+.chatbot-popup .file-upload-wrapper.file-uploaded img {
+    display: block !important;
+}
+
+.chatbot-popup .file-upload-wrapper.file-uploaded:hover #file-cancel {
+    display: flex !important;
+}
+
+/* =====================================================
+   SELECTOR DE EMOJIS
+===================================================== */
+
+.chatbot-popup em-emoji-picker {
+    position: absolute !important;
+
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 58px !important;
+
+    width: min(330px, calc(100vw - 45px)) !important;
+    max-width: 330px !important;
+    height: 320px !important;
+    max-height: min(320px, 45vh) !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+
+    transform: translateX(-50%) translateY(8px) !important;
+
+    z-index: 100 !important;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease !important;
+}
+
+body.show-emoji-picker .chatbot-popup em-emoji-picker {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+
+    transform: translateX(-50%) translateY(0) !important;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and (max-width: 768px) {
+    #chatbot-toggler {
+        left: 15px !important;
+        right: auto !important;
+        bottom: 15px !important;
+    }
+
+    .chatbot-popup {
+        left: 15px !important;
+        right: auto !important;
+        bottom: 78px !important;
+
+        width: min(360px, calc(100vw - 30px)) !important;
+        height: min(540px, calc(100dvh - 100px)) !important;
+    }
+}
+
+/* =====================================================
+   CELULARES
+===================================================== */
+
+@media screen and (max-width: 520px) {
+    #chatbot-toggler {
+        left: 12px !important;
+        right: auto !important;
+        bottom: 12px !important;
+
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        min-height: 50px !important;
+    }
+
+    .chatbot-popup {
+        left: 8px !important;
+        right: auto !important;
+        bottom: 70px !important;
+
+        width: calc(100vw - 16px) !important;
+        height: min(520px, calc(100dvh - 85px)) !important;
+        max-height: calc(100dvh - 85px) !important;
+
+        border-radius: 16px !important;
+    }
+
+    .chatbot-popup .chat-header {
+        min-height: 58px !important;
+        padding: 10px 13px !important;
+    }
+
+    .chatbot-popup .logo-text {
+        font-size: 16px !important;
+    }
+
+    .chatbot-popup .chat-body {
+        padding: 14px 11px !important;
+    }
+
+    .chatbot-popup .message-text {
+        max-width: 82% !important;
+        font-size: 13px !important;
+    }
+
+    .chatbot-popup .chat-footer {
+        padding: 10px 10px 12px !important;
+    }
+}
