@@ -74,10 +74,12 @@ const generateBotResponse = async (
             },
             body: JSON.stringify({
                 prompt: userMessage
-            })
+            }),
+            // Render (plan gratuito) puede tardar ~50 s en despertar.
+            signal: AbortSignal.timeout(60000)
         });
 
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
 
         if (!response.ok) {
             throw new Error(
@@ -101,9 +103,13 @@ const generateBotResponse = async (
     } catch (error) {
         console.error("Error del chatbot:", error);
 
+        // fetch lanza TypeError cuando el servidor no es alcanzable.
         messageElement.textContent =
-            error.message ||
-            "No se pudo conectar con el servidor.";
+            error.name === "TimeoutError"
+                ? "NEXIS tardó demasiado en responder. Inténtalo de nuevo en unos segundos."
+                : error instanceof TypeError
+                    ? "NEXIS no está disponible en este momento. Inténtalo más tarde."
+                    : error.message || "No se pudo conectar con el servidor.";
 
         messageElement.style.color = "#ff0000";
 

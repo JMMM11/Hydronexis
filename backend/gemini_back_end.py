@@ -21,8 +21,8 @@ GEMINI_API_KEY = os.getenv(
 ).strip()
 
 
-# Conserva el modelo que ya te funciona
-GEMINI_MODEL = "gemini-3.5-flash-lite"
+# Conserva el modelo que ya te funciona (se puede cambiar con la variable GEMINI_MODEL)
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite").strip()
 
 
 # Información y reglas del asistente
@@ -272,7 +272,8 @@ def create_gemini_client():
     """
     if not GEMINI_API_KEY:
         raise RuntimeError(
-            "No se encontró GEMINI_API_KEY en el archivo .env."
+            "No se encontró GEMINI_API_KEY (archivo .env en local "
+            "o variable de entorno en Render)."
         )
 
     return genai.Client(
@@ -366,7 +367,7 @@ def chat():
             return jsonify({
                 "error": (
                     "Google rechazó la API key. "
-                    "Revisa la clave guardada en el archivo .env."
+                    "Revisa GEMINI_API_KEY (.env en local o Environment en Render)."
                 )
             }), 401
 
@@ -381,11 +382,9 @@ def chat():
                 )
             }), 400
 
+        # El detalle ya quedó en el log del servidor; no se expone al navegador.
         return jsonify({
-            "error": (
-                error_text
-                or "Ocurrió un error al consultar Gemini."
-            )
+            "error": "Ocurrió un error al consultar Gemini."
         }), 500
 
 

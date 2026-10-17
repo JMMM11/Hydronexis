@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html class="plan-guard-pending" lang="en">
   
-<!-- Mirrored from livedemo00.template-help.com/wt_prod-10492/theme/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jun 2026 15:36:44 GMT -->
 <head>
-    <title>Checkout</title>
+    <title>Cart Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,21 +14,16 @@
     <link rel="stylesheet" href="css/commerce.css">
 
   </head>
-  <body class="commerce-page" data-required-permission="checkout">
-    <div class="preloader">
-      <div class="preloader-body">
-      </div>
-    </div>
-    <div class="page">
-    
+  <body class="commerce-page" data-required-permission="cart">
+
+
     <div id="header"></div>
 
-
       <section class="breadcrumbs-custom">
-        <div class="parallax-container" data-parallax-img="images/encabezados/bg-checkout1.png">
+        <div class="parallax-container" data-parallax-img="images/encabezados/bg-cartpage.png">
           <div class="breadcrumbs-custom-body parallax-content context-dark">
             <div class="container">
-              <h2 class="breadcrumbs-custom-title">Checkout</h2>
+              <h2 class="breadcrumbs-custom-title">Cart Page</h2>
             </div>
           </div>
         </div>
@@ -38,79 +32,68 @@
             <ul class="breadcrumbs-custom-path">
               <li><a href="index.html">Home</a></li>
               <li><a href="grid-shop.html">Shop</a></li>
-              <li class="active">Checkout</li>
+              <li class="active">Cart Page</li>
             </ul>
           </div>
         </div>
       </section>
-      <!-- Checkout connected to the shared persistent cart. -->
-      <section class="section section-xl commerce-checkout-section">
+      <!-- Shopping Cart connected to the shared persistent store. -->
+      <section class="section section-xl commerce-cart-section">
         <div class="container">
           <header class="commerce-header">
             <div>
-              <span class="commerce-eyebrow">SECURE ORDER REQUEST</span>
-              <h1>Checkout</h1>
-              <p>Confirm your contact and delivery details. Stock and prices are validated before an order is approved.</p>
+              <span class="commerce-eyebrow">HYDRONEXIS MARKETPLACE</span>
+              <h1>Shopping Cart</h1>
+              <p>Review your products, adjust quantities and continue when your order is ready.</p>
             </div>
-            <a class="button button-sm button-secondary button-zakaria" href="cart-page.html">Back to cart</a>
+            <strong class="commerce-cart-count" id="cartItemCount">0 items</strong>
           </header>
 
-          <p class="commerce-feedback" id="checkoutFeedback" role="status" hidden></p>
+          <p class="commerce-feedback" id="cartFeedback" role="status" hidden></p>
+          <span class="sr-only" id="cartLiveStatus" aria-live="polite" aria-atomic="true"></span>
 
-          <form class="commerce-layout" id="checkoutForm">
-            <section class="commerce-card" aria-labelledby="checkoutDetailsTitle">
-              <h2 id="checkoutDetailsTitle">Billing &amp; Delivery</h2>
-              <div class="commerce-form">
-                <label class="commerce-field-wide" for="checkoutName">
-                  Full name
-                  <input id="checkoutName" name="name" type="text" autocomplete="name" required>
-                </label>
-                <label for="checkoutEmail">
-                  Email
-                  <input id="checkoutEmail" name="email" type="email" autocomplete="email" readonly required>
-                </label>
-                <label for="checkoutPhone">
-                  Phone
-                  <input id="checkoutPhone" name="phone" type="tel" autocomplete="tel" required>
-                </label>
-                <label for="checkoutDistrict">
-                  District
-                  <input id="checkoutDistrict" name="district" type="text" autocomplete="address-level2" required>
-                </label>
-                <label class="commerce-field-wide" for="checkoutAddress">
-                  Delivery address
-                  <textarea id="checkoutAddress" name="address" rows="4" autocomplete="street-address" required></textarea>
-                </label>
-              </div>
-              <p class="commerce-note">No payment is charged here. HYDRONEXIS first validates availability, seller and final price.</p>
+          <div class="commerce-layout">
+            <section class="commerce-card" aria-labelledby="cartProductsTitle">
+              <h2 id="cartProductsTitle">Your products</h2>
+              <p class="commerce-empty" id="cartEmptyState" tabindex="-1">
+                Your cart is empty. Visit the Marketplace to add a product.
+              </p>
+              <div
+                class="commerce-cart-list"
+                id="cartItems"
+                role="list"
+                hidden
+              ></div>
             </section>
 
-            <aside class="commerce-card commerce-summary" aria-labelledby="checkoutSummaryTitle">
-              <h2 id="checkoutSummaryTitle">Order Summary</h2>
-              <p class="commerce-cart-count">
-                <span id="checkoutItemCount">0</span>&nbsp;<span id="checkoutItemLabel">items</span>
-              </p>
-              <div class="commerce-checkout-items" id="checkoutItems" role="list"></div>
+            <aside class="commerce-card commerce-summary" aria-labelledby="cartSummaryTitle">
+              <h2 id="cartSummaryTitle">Order Summary</h2>
               <div class="commerce-summary-row">
                 <span>Subtotal</span>
-                <strong id="checkoutSubtotal">$0.00</strong>
+                <strong id="cartSubtotal">$0.00</strong>
               </div>
               <div class="commerce-summary-row commerce-summary-total">
                 <span>Total</span>
-                <strong id="checkoutDisplayTotal">$0.00</strong>
+                <strong id="cartTotal">$0.00</strong>
               </div>
+              <a
+                class="button button-lg button-primary button-zakaria is-disabled"
+                id="cartCheckoutLink"
+                href="checkout.html"
+                aria-disabled="true"
+              >Checkout</a>
               <button
-                class="button button-lg button-primary button-zakaria"
-                id="checkoutSubmitButton"
-                type="submit"
+                class="commerce-clear-button"
+                id="cartClearButton"
+                type="button"
                 disabled
-              >Submit for Validation</button>
-              <p class="commerce-note">Your request is recorded once. An authorized backend must validate it before creating an order.</p>
+              >Clear Cart</button>
+              <p class="commerce-note">Prices and availability are validated again before the order is created.</p>
             </aside>
-          </form>
+          </div>
         </div>
       </section>
-
+      
 <!-- PIE DE PÁGINA -->
 <footer class="section footer-classic">
 
@@ -389,21 +372,13 @@
 </footer>
 <!-- FIN DEL PIE DE PÁGINA -->
 
-    </div><!-- .page -->
-
     <div class="snackbars" id="form-output-global"></div>
-    <script src="js/header.js"></script>
-    <!-- <script src="js/core.min.js"></script> -->
-    <!-- <script src="js/script.js"></script> -->
-    <script type="module" src="js/checkout.js"></script>
+  <script src="js/header.js"></script>
+  <!-- <script src="js/core.min.js"></script> -->
+  <!-- <script src="js/script.js"></script> -->
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9FT69');
-  </script>
-  <!-- End Google Tag Manager -->
+    <script type="module" src="js/cart.js"></script>
+
 </body>
 
-<!-- Mirrored from livedemo00.template-help.com/wt_prod-10492/theme/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jun 2026 15:36:44 GMT -->
 </html>

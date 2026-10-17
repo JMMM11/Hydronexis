@@ -1,0 +1,25 @@
+# Secretos (nunca subir)
+.env
+.env.*
+!.env.example
+
+# Python (backend de Nexis)
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Firebase CLI
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.code-workspace
+
+# Restos de HTTrack (no deben volver al repo)
+hts-cache/
+hts-log.txt
