@@ -1,30 +1,76 @@
-<!--ESTO ES LA PAG DE TUTORIALS-->
 <!DOCTYPE html>
-<html lang="en">
-  
+<html lang="en" class="plan-guard-pending">
 <head>
-    <title>Grid Blog</title>
+    <title>Plant Growth Tracking | HYDRONEXIS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
-    <!--borrar el link este de google en todas las páginas-->
+    <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/account.css">
+    <style>.plan-guard-pending body { visibility: hidden; }</style>
+    <script type="module" src="js/plan-guard.js"></script>
+</head>
 
-  </head>
-
-<body>
+<body class="account-page" data-required-permission="plant_tracking">
 
 <div id="header"></div>
+
+<main class="account-main">
+  <section class="account-hero">
+    <p class="plan-request-eyebrow">MY GARDEN</p>
+    <h1>Plant growth tracking</h1>
+    <p>Register each crop you plant and update its stage as it grows. Only you can see these records.</p>
+  </section>
+
+  <div class="account-grid">
+    <section class="account-card" aria-labelledby="trackingFormTitle">
+      <h2 id="trackingFormTitle">Add a plant</h2>
+      <form class="account-form" id="trackingForm">
+        <label for="trackingPlant">Plant</label>
+        <input id="trackingPlant" name="plant" required maxlength="80" placeholder="E.g. Butterhead lettuce">
+        <label for="trackingVariety">Variety (optional)</label>
+        <input id="trackingVariety" name="variety" maxlength="80" placeholder="E.g. Bibb">
+        <label for="trackingStartDate">Start date</label>
+        <input id="trackingStartDate" name="startDate" type="date" required>
+        <label for="trackingStage">Current stage</label>
+        <select id="trackingStage" name="stage">
+          <option value="seed">Seed</option>
+          <option value="germination">Germination</option>
+          <option value="seedling">Seedling</option>
+          <option value="vegetative">Vegetative</option>
+          <option value="ready_to_harvest">Ready to Harvest</option>
+          <option value="harvested">Harvested</option>
+        </select>
+        <label for="trackingNotes">Notes (optional)</label>
+        <textarea id="trackingNotes" name="notes" rows="3" maxlength="1000" placeholder="pH, nutrients, anything you noticed"></textarea>
+        <button class="button button-secondary button-zakaria" id="trackingSubmitButton" type="submit">Save plant</button>
+      </form>
+    </section>
+
+    <section class="account-card" aria-labelledby="trackingListTitle">
+      <h2 id="trackingListTitle">My plants</h2>
+      <p class="account-feedback" id="trackingFeedback" role="status" hidden></p>
+      <div class="account-list" id="trackingList" aria-live="polite">
+        <p class="account-empty">Loading your plants...</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="nexis-growth-heading">
+  <p>From seed to table,</p>
+  <h2>we cultivate wellness</h2>
+</div>
 
 <section class="nexis-growth-process">
   <div class="nexis-growth-wrapper">
     <!-- TITLE -->
     <div class="nexis-growth-heading">
-        <p>From seed to table,</p> <h2>we cultivate wellness</h2>
+        <p>4-week cycle</p> <h2>Butterhead lettuce</h2>
     </div>
 
 
@@ -138,7 +184,7 @@
   <div class="nexis-growth-wrapper">
     <!-- TITLE -->
     <div class="nexis-growth-heading">
-        <p>From seed to table,</p> <h2>we cultivate wellness</h2>
+        <p>4-week cycle</p> <h2>Arugula</h2>
     </div>
 
 
@@ -252,7 +298,7 @@
   <div class="nexis-growth-wrapper">
     <!-- TITLE -->
     <div class="nexis-growth-heading">
-        <p>From seed to table,</p> <h2>we cultivate wellness</h2>
+        <p>4-week cycle</p> <h2>Spinach</h2>
     </div>
 
 
@@ -366,7 +412,7 @@
   <div class="nexis-growth-wrapper">
     <!-- TITLE -->
     <div class="nexis-growth-heading">
-        <p>From seed to table,</p> <h2>we cultivate wellness</h2>
+        <p>4-week cycle</p> <h2>Cherry tomatoes</h2>
     </div>
 
 
@@ -476,4 +522,10 @@
   </div>
 </section>
 
+  <footer class="dashboard-footer">
+    <span>&copy; <span class="copyright-year"></span> HYDRONEXIS</span>
+    <a href="terms-of-use.html">Terms and Conditions</a>
+  </footer>
+
 <script src="js/header.js"></script>
+<script type="module" src="js/tracking.js"></script>

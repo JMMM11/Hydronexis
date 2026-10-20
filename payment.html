@@ -1,307 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-  
+<html lang="en" class="plan-guard-pending">
 <head>
-  <title>Hydronexis</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upgrade Plan | HYDRONEXIS</title>
   <link rel="icon" href="images/futurehydri.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/styles_Chat.css">
-  <link rel="stylesheet" href="css/payment.css"> 
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/account.css">
+  <style>.plan-guard-pending body { visibility: hidden; }</style>
+  <script type="module" src="js/plan-guard.js"></script>
 </head>
-
-<body class="payment-page">
-
-
-  <main class="checkout">
-    <section class="checkout-card" aria-labelledby="checkoutTitle">
-
-
-    <a class="back-link" href="index.html">
-        <span aria-hidden="true">←</span>
-        Back
-      </a>
-
-      <div class="checkout-heading">
-        <p class="checkout-eyebrow">Secure checkout</p>
-        <h1 id="checkoutTitle">Choose your Hydronexis plan </h1>
-        <p>Select a plan and complete your payment information.</p>
-      </div>
-
-
-      <!-- =====================================================
-           PLAN SELECTOR
-      ====================================================== -->
-      <fieldset class="plan-selector">
-        <legend>Select a plan</legend>
-
-        <div class="plan-grid">
-
-          <label class="plan-option">
-            <input
-              type="radio"
-              name="plan"
-              value="sprout"
-              data-name="Sprout"
-              data-price="0"
-              checked
-            >
-
-            <span class="plan-option__content">
-              <span class="plan-option__top">
-                <span class="plan-option__name">Sprout</span>
-                <span class="plan-option__price">$0.00</span>
-              </span>
-
-              <span class="plan-option__description">
-                Free plan to start exploring Hydronexis.
-              </span>
-
-              <span class="plan-option__badge">Free</span>
-            </span>
-          </label>
-
-
-          <label class="plan-option">
-            <input
-              type="radio"
-              name="plan"
-              value="blooming"
-              data-name="Blooming"
-              data-price="90.00"
-            >
-
-            <span class="plan-option__content">
-              <span class="plan-option__top">
-                <span class="plan-option__name">Blooming</span>
-                <span class="plan-option__price">$90.00</span>
-              </span>
-
-              <span class="plan-option__description">
-                More tools for active growers.
-              </span>
-
-              <span class="plan-option__badge">Monthly</span>
-            </span>
-          </label>
-
-
-          <label class="plan-option">
-            <input
-              type="radio"
-              name="plan"
-              value="go-green"
-              data-name="Go Green"
-              data-price="149.00"
-            >
-
-            <span class="plan-option__content">
-              <span class="plan-option__top">
-                <span class="plan-option__name">Go Green</span>
-                <span class="plan-option__price">$149.00</span>
-              </span>
-
-              <span class="plan-option__description">
-                Complete access for advanced growing.
-              </span>
-
-              <span class="plan-option__badge">Monthly</span>
-            </span>
-          </label>
-
-        </div>
-      </fieldset>
-
-
-      <!-- =====================================================
-           ORDER SUMMARY
-      ====================================================== -->
-      <section class="order-summary" aria-label="Order summary">
-        <div>
-          <span>Selected plan</span>
-          <strong id="summaryPlan">Sprout</strong>
-        </div>
-
-        <div>
-          <span>Total due today</span>
-          <strong id="summaryPrice">$0.00</strong>
-        </div>
+<body class="account-page" data-required-permission="authenticated">
+  <div class="page">
+    <div id="header"></div>
+    <main class="account-main" id="planRequestMain" aria-busy="true">
+      <section class="account-hero">
+        <p class="plan-request-eyebrow">MY PLAN</p>
+        <h1>Upgrade your plan</h1>
+        <p>Request Blooming or Go Green. An administrator reviews every request and activates the new plan on your account.</p>
       </section>
 
-
-      <!-- =====================================================
-           PAYMENT FORM
-           This demo validates fields but does not make real charges.
-      ====================================================== -->
-      <form id="paymentForm" novalidate>
-
-        <div class="payment-method-title">
-          <div>
-            <span class="selection-dot" aria-hidden="true"></span>
-            <strong>Credit or debit card</strong>
+      <div class="account-grid plan-request-grid">
+        <aside class="account-card">
+          <h2>Current plan</h2>
+          <span class="account-plan-badge" id="currentPlanBadge">Loading...</span>
+          <p class="account-field-help" id="currentPlanDescription">Checking your account...</p>
+          <div class="plan-request-safety">
+            <h3>Good to know</h3>
+            <ul>
+              <li>No card details are requested and nothing is charged here.</li>
+              <li>You keep your current access until the new plan appears in your Profile.</li>
+              <li>Never share card numbers or passwords in Community, Exchange, HydroChat or NEXIS.</li>
+            </ul>
           </div>
+        </aside>
 
-          <div class="card-brands" aria-label="Accepted cards">
-            <span class="brand-chip brand-chip--visa">VISA</span>
-            <span class="brand-chip brand-chip--mastercard">
-              <i></i><i></i>
-            </span>
-            <span class="brand-chip brand-chip--amex">AMEX</span>
-          </div>
-        </div>
+        <section class="account-card" aria-labelledby="planRequestTitle">
+          <h2 id="planRequestTitle">Choose a plan</h2>
+          <form class="account-form" id="planRequestForm">
+            <fieldset class="plan-request-options">
+              <legend class="visually-hidden">Requested plan</legend>
+              <label class="plan-request-option">
+                <input type="radio" name="requestedPlan" value="sprout">
+                <span>
+                  <strong>Sprout</strong>
+                  <small>Marketplace, cart, checkout requests, orders and HydroChat purchase mode.</small>
+                </span>
+                <b>Free</b>
+              </label>
+              <label class="plan-request-option">
+                <input type="radio" name="requestedPlan" value="blooming">
+                <span>
+                  <strong>Blooming</strong>
+                  <small>Electric hydroponic system, Exchange, Community, Tutorials and plant tracking.</small>
+                </span>
+                <b>B/. 90.00 / month</b>
+              </label>
+              <label class="plan-request-option">
+                <input type="radio" name="requestedPlan" value="go_green">
+                <span>
+                  <strong>Go Green</strong>
+                  <small>Solar system with maintenance, seller tools, business location and Premium Experience.</small>
+                </span>
+                <b>B/. 149.00 / month</b>
+              </label>
+            </fieldset>
 
-
-        <div id="cardFields" class="card-fields" aria-live="polite">
-
-          <div class="form-group form-group--full">
-            <label for="cardNumber">Card number</label>
-
-            <div class="input-shell">
-              <input
-                id="cardNumber"
-                name="cardNumber"
-                type="text"
-                inputmode="numeric"
-                autocomplete="cc-number"
-                placeholder="1234 1234 1234 1234"
-                maxlength="23"
-                aria-describedby="cardNumberError"
-              >
-
-              <span class="input-icon" aria-hidden="true">▰</span>
+            <div class="plan-request-summary">
+              <span>Requested plan</span>
+              <strong id="requestedPlanSummary">No eligible upgrade selected</strong>
             </div>
 
-            <small class="field-message" id="cardNumberError"></small>
-          </div>
-
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="expiryDate">Expiration date</label>
-
-              <input
-                id="expiryDate"
-                name="expiryDate"
-                type="text"
-                inputmode="numeric"
-                autocomplete="cc-exp"
-                placeholder="MM / YY"
-                maxlength="7"
-                aria-describedby="expiryDateError"
-              >
-
-              <small class="field-message" id="expiryDateError"></small>
-            </div>
-
-
-            <div class="form-group">
-              <label for="cvc">Security code (CVC)</label>
-
-              <div class="input-shell">
-                <input
-                  id="cvc"
-                  name="cvc"
-                  type="password"
-                  inputmode="numeric"
-                  autocomplete="cc-csc"
-                  placeholder="CVC"
-                  maxlength="4"
-                  aria-describedby="cvcError"
-                >
-
-                <span
-                  class="help-icon"
-                  title="Usually the 3 digits on the back of your card."
-                  aria-hidden="true"
-                >?</span>
-              </div>
-
-              <small class="field-message" id="cvcError"></small>
-            </div>
-          </div>
-
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First name on card</label>
-
-              <input
-                id="firstName"
-                name="firstName"
-                type="text"
-                autocomplete="cc-given-name"
-                placeholder="First name"
-                maxlength="60"
-                aria-describedby="firstNameError"
-              >
-
-              <small class="field-message" id="firstNameError"></small>
-            </div>
-
-
-            <div class="form-group">
-              <label for="lastName">Last name on card</label>
-
-              <input
-                id="lastName"
-                name="lastName"
-                type="text"
-                autocomplete="cc-family-name"
-                placeholder="Last name"
-                maxlength="60"
-                aria-describedby="lastNameError"
-              >
-
-              <small class="field-message" id="lastNameError"></small>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="security-message">
-
-          <p>
-            This demonstration validates the information in your browser.
-            Do not use it to process real cards without a payment provider.
-          </p>
-        </div>
-
-
-        <label class="terms-check">
-          <input id="terms" name="terms" type="checkbox">
-          <span>
-            I agree to the
-            <a href="terms-of-use.html">Terms of Service</a>
-          </span>
-        </label>
-
-        <small class="field-message field-message--terms" id="termsError"></small>
-
-
-        <button class="submit-button" id="submitButton" type="submit">
-          <span id="submitButtonText">Activate Sprout for $0.00</span>
-          <span aria-hidden="true">→</span>
-        </button>
-
-
-        <div
-          class="form-alert"
-          id="formAlert"
-          role="status"
-          aria-live="polite"
-        ></div>
-
-      </form>
-    </section>
-  </main>
-
-
-  <script src="js/payment.js"></script>
+            <p class="account-feedback" id="planRequestFeedback" role="status" hidden></p>
+            <button class="button button-secondary button-zakaria" id="planRequestButton" type="submit">Submit Plan Request</button>
+            <a class="account-field-help" href="what-we-offer.html">Compare all plan features</a>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="dashboard-footer">
+      <span>&copy; <span class="copyright-year"></span> HYDRONEXIS</span>
+      <a href="terms-of-use.html">Terms and Conditions</a>
+    </footer>
+  </div>
+  <script src="js/header.js"></script>
+  <script type="module" src="js/payment.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ const hydroChatSellers = [
             "herbs",
 
         image:
-            "images/chives.png",
+            "images/product-4-204x125.png",
 
         firstMessage:
             "Hi! I have fresh chives available for $0.35 per pound. The price can be negotiated depending on the quantity. How can I help you?"
@@ -62,7 +62,7 @@ const hydroChatSellers = [
             "herbs",
 
         image:
-            "images/chives.png",
+            "images/product-4-204x125.png",
 
         firstMessage:
             "Hello! I'm selling fresh chives for $0.30 per pound. Let me know how many pounds you need and we can discuss it."
@@ -86,7 +86,7 @@ const hydroChatSellers = [
             "herbs",
 
         image:
-            "images/chives.png",
+            "images/product-4-204x125.png",
 
         firstMessage:
             "Hi! Chives are currently available at $0.28 per pound. If you're interested, tell me the quantity you're looking for."
@@ -115,7 +115,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/spinach.png",
+            "images/product-3-238x158.png",
 
         firstMessage:
             "Hello! I currently have fresh spinach available for $3.10 per pound. Feel free to ask me about availability or quantity."
@@ -139,7 +139,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/spinach.png",
+            "images/product-3-238x158.png",
 
         firstMessage:
             "Hi! I'm selling spinach for $2.95 per pound. If you need several pounds, we can talk about the price."
@@ -163,7 +163,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/spinach.png",
+            "images/product-3-238x158.png",
 
         firstMessage:
             "Hello! Fresh spinach is available at $2.80 per pound. Let me know how much you need and I'll be happy to help."
@@ -192,7 +192,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/romaine-lettuce.png",
+            "images/product-1-220x160.png",
 
         firstMessage:
             "Hi! I have Romaine lettuce available for $0.75 per pound. The price may be negotiable depending on the amount you need."
@@ -216,7 +216,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/romaine-lettuce.png",
+            "images/product-1-220x160.png",
 
         firstMessage:
             "Hello! I'm currently selling fresh Romaine lettuce for $0.60 per pound. How many pounds are you looking for?"
@@ -240,7 +240,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/romaine-lettuce.png",
+            "images/product-1-220x160.png",
 
         firstMessage:
             "Hi! Romaine lettuce is available at $0.55 per pound. Let me know the quantity you're interested in."
@@ -269,7 +269,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/butterhead-lettuce.png",
+            "images/product-5-204x156.png",
 
         firstMessage:
             "Hello! I also have Butterhead lettuce available for $0.75 per pound. Let me know what quantity you're looking for."
@@ -293,7 +293,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/butterhead-lettuce.png",
+            "images/product-5-204x156.png",
 
         firstMessage:
             "Hi! Fresh Butterhead lettuce is available for $0.65 per pound. The price can be discussed depending on your order."
@@ -317,7 +317,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/butterhead-lettuce.png",
+            "images/product-5-204x156.png",
 
         firstMessage:
             "Hello! I'm selling Butterhead lettuce for $0.58 per pound. Tell me how much you need and I'll help you with availability."
@@ -346,7 +346,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/green-pepper.png",
+            "images/product-9-185x155.png",
 
         firstMessage:
             "Hi! Green bell peppers are available for $2.05 per pound. If you're buying several pounds, we can discuss the price."
@@ -370,7 +370,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/green-pepper.png",
+            "images/product-9-185x155.png",
 
         firstMessage:
             "Hello! I'm selling fresh green bell peppers for $2.00 per pound. Let me know the amount you're interested in."
@@ -394,7 +394,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/green-pepper.png",
+            "images/product-9-185x155.png",
 
         firstMessage:
             "Hi! I currently have green bell peppers available at $1.80 per pound. How can I help you?"
@@ -423,7 +423,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/yellow-pepper.png",
+            "images/product-8-210x133.png",
 
         firstMessage:
             "Hello! Yellow bell peppers are available for $2.10 per pound. Let me know how many pounds you need."
@@ -447,7 +447,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/yellow-pepper.png",
+            "images/product-8-210x133.png",
 
         firstMessage:
             "Hi! I'm selling yellow bell peppers for $2.00 per pound. We can discuss the price depending on quantity."
@@ -471,7 +471,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/yellow-pepper.png",
+            "images/product-8-210x133.png",
 
         firstMessage:
             "Hello! Fresh yellow bell peppers are available at $1.85 per pound. Let me know if you're interested."
@@ -500,7 +500,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/red-pepper.png",
+            "images/product-7-210x168.png",
 
         firstMessage:
             "Hi! I have red bell peppers available for $2.15 per pound. Let me know the quantity you need."
@@ -524,7 +524,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/red-pepper.png",
+            "images/product-7-210x168.png",
 
         firstMessage:
             "Hello! I'm currently selling red bell peppers for $2.00 per pound. The price can be discussed for larger orders."
@@ -553,7 +553,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/radish.png",
+            "images/product-6-237x156.png",
 
         firstMessage:
             "Hi! Fresh radishes are available for $0.70 per pound. Tell me how much you're looking for and I'll check availability."
@@ -577,7 +577,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/radish.png",
+            "images/product-6-237x156.png",
 
         firstMessage:
             "Hello! I'm selling fresh radishes for $0.65 per pound. Feel free to ask about quantity or price."
@@ -601,7 +601,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/radish.png",
+            "images/product-6-237x156.png",
 
         firstMessage:
             "Hi! Radishes are currently available for $0.60 per pound. Let me know if you'd like to place an order."
@@ -630,7 +630,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/tomato.png",
+            "images/product-2-191x132.png",
 
         firstMessage:
             "Hello! Fresh tomatoes are available for $1.25 per pound. The price may be negotiable depending on quantity."
@@ -654,7 +654,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/tomato.png",
+            "images/product-2-191x132.png",
 
         firstMessage:
             "Hi! I'm selling tomatoes for $1.15 per pound. Tell me how many pounds you're interested in and I'll help you."
@@ -678,7 +678,7 @@ const hydroChatSellers = [
             "vegetables",
 
         image:
-            "images/tomato.png",
+            "images/product-2-191x132.png",
 
         firstMessage:
             "Hello! I currently have tomatoes available at $1.05 per pound. Let me know the quantity you're looking for."

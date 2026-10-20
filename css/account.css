@@ -462,3 +462,163 @@
     min-height: 46px;
   }
 }
+
+/* ===== Premium Experience ===== */
+.account-main > .account-card + .account-card,
+.account-main > .account-grid + .account-card {
+  margin-top: 24px;
+}
+
+.premium-recipes,
+.premium-support {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.premium-support {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.premium-recipe {
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: start;
+}
+
+.premium-recipe-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: #edf2e9;
+  object-fit: contain;
+}
+
+.premium-recipe h4 {
+  margin: 16px 0 6px;
+  color: #1e3b17;
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.premium-recipe ul,
+.premium-recipe ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #62675d;
+}
+
+.premium-menu {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.premium-menu div {
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #eff5ec;
+}
+
+.premium-menu strong {
+  color: #1e3b17;
+}
+
+.premium-menu span {
+  color: #62675d;
+}
+
+.premium-support .button {
+  margin-top: 16px;
+}
+
+@media (max-width: 767px) {
+  .premium-recipe,
+  .premium-support,
+  .premium-menu {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Shared app footer ===== */
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(1240px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0 34px;
+  border-top: 1px solid rgba(30, 59, 23, .14);
+  color: #66705f;
+  text-align: left;
+}
+
+.dashboard-footer a {
+  color: #1e3b17;
+}
+
+@media (max-width: 767px) {
+  .dashboard-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ===== Form details ===== */
+.account-form .account-check {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 10px;
+}
+
+.account-form .account-check input {
+  width: 18px;
+  min-height: 18px;
+  padding: 0;
+  accent-color: #679e5a;
+}
+
+.account-form .account-check small {
+  grid-column: 1 / -1;
+}
+
+.account-form + .account-section {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #e7e1d6;
+}
+
+#sellerAnalytics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 767px) {
+  #sellerAnalytics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* The theme script adds an empty dummy span after every radio/checkbox; app forms use native inputs. */
+.account-form .radio-custom-dummy,
+.account-form .checkbox-custom-dummy {
+  display: none;
+}
+
+.plan-request-safety {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e7e1d6;
+}
+
+.plan-request-safety h3 {
+  margin: 0;
+  color: #1e3b17;
+  font-size: 18px;
+}
+
+.plan-request-safety ul {
+  list-style: disc;
+}

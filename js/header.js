@@ -26,6 +26,18 @@ const loadScriptOnce = (src) => new Promise((resolve, reject) => {
 
 let renderedSessionKey = null;
 
+// Footer newsletter: there is no mail backend, so open the visitor's e-mail app.
+document.addEventListener("submit", (event) => {
+  const form = event.target.closest?.(".footer-email-form");
+  if (!form) return;
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  const email = form.elements.email.value.trim();
+  window.location.href = "mailto:info.hydronexis@gmail.com"
+    + `?subject=${encodeURIComponent("Newsletter subscription")}`
+    + `&body=${encodeURIComponent(`Please add ${email} to the HYDRONEXIS newsletter.`)}`;
+});
+
 
 /* =====================================================
    DROPDOWN EXPLORE
@@ -409,8 +421,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           const image = document.createElement("img");
 
-          image.src = profilePhoto;
           image.alt = `${displayName} profile`;
+          // Si la foto no carga (enlace roto o almacenamiento caído), mostrar iniciales.
+          image.onerror = () => { avatarNode.textContent = initials; };
+          image.src = profilePhoto;
 
           avatarNode.appendChild(image);
 
@@ -434,8 +448,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           const image = document.createElement("img");
 
-          image.src = profilePhoto;
           image.alt = `${displayName} profile`;
+          image.onerror = () => { smallAvatarNode.textContent = initials; };
+          image.src = profilePhoto;
 
           smallAvatarNode.appendChild(image);
 

@@ -1275,3 +1275,11 @@ body :where(*:not(.fa):not([class^="fa-"]):not([class*=" fa-"]):not(.mdi):not([c
     object-fit: contain;
   }
 }
+
+/* Contact page map */
+.contact-map {
+  display: block;
+  width: 100%;
+  height: min(420px, 60vw);
+  border: 0;
+}

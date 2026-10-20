@@ -317,21 +317,6 @@
   color: #fff;
 }
 
-.dashboard-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  width: min(1240px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 24px 0 34px;
-  border-top: 1px solid rgba(30, 59, 23, .14);
-  color: #66705f;
-  text-align: left;
-}
-
-.dashboard-footer a {
-  color: #1e3b17;
-}
 
 @media (max-width: 991px) {
   .dashboard-layout {
@@ -374,9 +359,5 @@
   }
 
   .dashboard-panel-heading,
-  .dashboard-footer {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }
 

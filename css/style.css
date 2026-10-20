@@ -6357,7 +6357,6 @@ textarea.textarea-lg {
 }
 
 .footer-creative-2 {
-	background-image: url(../images/bg-pattern-3.jpg);
 	background-repeat: repeat;
 	background-size: auto;
 	background-color: #404147;
@@ -8631,7 +8630,7 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .team-karen-header svg {
 }
 
 html.boxed body {
-	background: #e1e1e1 url(../images/bg-pattern-boxed.html) repeat fixed;
+	background: #e1e1e1;
 }
 
 @media (min-width: 1630px) {
@@ -9671,7 +9670,6 @@ html [class*='section-'].section-top-0 {
 }
 
 .bg-image-1 {
-	background-image: url(../images/bg-pattern-1.jpg);
 	background-repeat: repeat;
 	background-size: auto;
 	background-color: #f5f5f5;
@@ -9688,12 +9686,10 @@ html [class*='section-'].section-top-0 {
 	background-repeat: no-repeat;
 	background-position: 50%;
 	background-color: #c68c49;
-	background-image: url(../images/bg-about-1.jpg);
 	z-index: -1;
 }
 
 .bg-image-3 {
-	background-image: url(../images/bg-pattern-2.jpg);
 	background-repeat: repeat;
 	background-size: auto;
 	background-color: #f5f5f5;
@@ -9720,7 +9716,6 @@ html [class*='section-'].section-top-0 {
 }
 
 .bg-image-5 {
-	background-image: url(../images/bg-pattern-3.jpg);
 	background-repeat: repeat;
 	background-size: auto;
 	background-color: #404147;
@@ -12455,7 +12450,6 @@ html.rd-navbar-fixed-linked .page {
 	background-size: auto;
 	background-repeat: repeat;
 	background-color: #18391C;
-	background-image: url(../images/bg-pattern-1.jpg);
 	opacity: .25;
 	z-index: -1;
 }
@@ -18152,7 +18146,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 }
 
 .slick-loading .slick-list {
-	background: #fff url("../images/ajax-loader.gif") center center no-repeat;
+	background: #fff;
 }
 
 /* Icons */
